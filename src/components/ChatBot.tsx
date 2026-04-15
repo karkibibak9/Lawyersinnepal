@@ -108,11 +108,7 @@ export default function ChatBot() {
   };
 
   return (
-    <div className="fixed z-50"
-      style={{
-        bottom: 'calc(1.5rem + env(safe-area-inset-bottom, 0px))',
-        right: '1rem',
-      }}>
+    <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3">
 
       {/* Chat window */}
       {isOpen && (
@@ -120,9 +116,8 @@ export default function ChatBot() {
           className="bg-[#0b1320] rounded-xl border border-white/10 flex flex-col overflow-hidden shadow-[0_25px_80px_rgba(0,0,0,0.7)]"
           style={{
             width: 'min(360px, calc(100vw - 2rem))',
-            maxHeight: 'min(600px, 75dvh)',
+            maxHeight: 'calc(100dvh - 8rem)',
             animation: 'slideUp 0.25s ease-out',
-            marginBottom: '0.75rem',
           }}>
 
           {/* Header */}
@@ -248,18 +243,16 @@ export default function ChatBot() {
       )}
 
       {/* Toggle button */}
-      <div className="flex justify-end">
-        <button
-          onClick={() => setIsOpen(o => !o)}
-          aria-label={isOpen ? 'Close chat' : 'Open legal assistant chat'}
-          className="relative bg-gradient-to-br from-yellow-500 to-yellow-700 text-[#0a1628] p-4 rounded-full shadow-[0_8px_30px_rgba(202,138,4,0.4)] hover:shadow-[0_8px_40px_rgba(202,138,4,0.6)] hover:scale-110 transition-all active:scale-95"
-        >
-          {isOpen ? <X size={24} /> : <MessageSquare size={24} />}
-          {!isOpen && (
-            <span className="absolute -top-1 -right-1 w-3.5 h-3.5 bg-green-400 rounded-full border-2 border-white shadow-[0_0_8px_#4ade80] animate-pulse" />
-          )}
-        </button>
-      </div>
+      <button
+        onClick={() => setIsOpen(o => !o)}
+        aria-label={isOpen ? 'Close chat' : 'Open legal assistant chat'}
+        className="relative bg-gradient-to-br from-yellow-500 to-yellow-700 text-[#0a1628] p-4 rounded-full shadow-[0_8px_30px_rgba(202,138,4,0.4)] hover:shadow-[0_8px_40px_rgba(202,138,4,0.6)] hover:scale-110 transition-all active:scale-95"
+      >
+        {isOpen ? <X size={24} /> : <MessageSquare size={24} />}
+        {!isOpen && (
+          <span className="absolute -top-1 -right-1 w-3.5 h-3.5 bg-green-400 rounded-full border-2 border-white shadow-[0_0_8px_#4ade80] animate-pulse" />
+        )}
+      </button>
 
       <style jsx>{`
         @keyframes slideUp {
