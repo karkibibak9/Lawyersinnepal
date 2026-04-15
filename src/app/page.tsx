@@ -186,6 +186,53 @@ export default function Home() {
         </div>
       </section>
 
+      {/* FAQ Section for SEO */}
+      <section className="py-24 bg-[#fcfcfc] border-t border-navy-100">
+        <div className="container mx-auto px-4 max-w-4xl">
+          <div className="text-center mb-16">
+            <h2 className="text-navy-900 text-sm font-bold uppercase tracking-[0.2em] mb-4">Legal FAQ</h2>
+            <p className="text-3xl md:text-4xl font-serif font-bold">Common Questions About <span className="text-gold-600">Law in Nepal</span></p>
+          </div>
+          <div className="space-y-4">
+            {[
+              { 
+                q: "How can I find the best divorce lawyer in Nepal?", 
+                a: "Finding the best divorce lawyer in Nepal involves looking for specialists with extensive experience in family law at the Kathmandu District Court or other regional courts. Our firm offers expert counsel on child custody, alimony, and property division." 
+              },
+              { 
+                q: "What is the process for court marriage in Nepal?", 
+                a: "Court marriage in Nepal requires an application to the District Court. Our attorneys help with documentation, including citizenship details, residency proof, and witness coordination for a smooth marriage registration process in Kathmandu." 
+              },
+              { 
+                q: "Do you handle criminal defense cases in Kathmandu?", 
+                a: "Yes, we are known as leading criminal lawyers in Kathmandu. We provide strong defense representation for matters ranging from white-collar crimes to bail proceedings and supreme court appeals." 
+              },
+              { 
+                q: "How do I register a company in Nepal as a foreigner?", 
+                a: "Foreigners can register a company in Nepal through the Department of Industries. We provide comprehensive legal services for Foreign Direct Investment (FDI), company registration, and obtaining business visas." 
+              },
+              { 
+                q: "Can you help with property dispute resolution in Nepal?", 
+                a: "Property disputes are common in Nepal. Our advocates specialize in land law, partition cases, and title verification to protect your real estate interests across the country." 
+              }
+            ].map((faq, i) => (
+              <details key={i} className="group bg-white border border-navy-100 rounded-sm overflow-hidden transition-all duration-300">
+                <summary className="flex items-center justify-between p-6 cursor-pointer list-none text-navy-900 font-bold hover:bg-navy-50">
+                  <span className="pr-4">{faq.q}</span>
+                  <div className="w-5 h-5 relative flex-shrink-0">
+                    <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 h-0.5 bg-gold-600 transition-transform group-open:rotate-180" />
+                    <div className="absolute inset-y-0 left-1/2 -translate-x-1/2 w-0.5 bg-gold-600 transition-transform group-open:rotate-90" />
+                  </div>
+                </summary>
+                <div className="px-6 pb-6 text-navy-600 leading-relaxed animate-in slide-in-from-top-2">
+                  <p>{faq.a}</p>
+                </div>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="bg-gold-600 py-20 relative overflow-hidden">
         <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10" />

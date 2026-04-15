@@ -33,7 +33,13 @@ export const metadata: Metadata = {
     "Top rated attorneys Nepal",
     "Marriage registration Nepal",
     "Company registration Kathmandu",
-    "Property dispute lawyer Nepal"
+    "Property dispute lawyer Nepal",
+    "Court marriage in Nepal",
+    "Notary services Kathmandu",
+    "Labor law Nepal",
+    "Intellectual property lawyer Nepal",
+    "Supreme Court advocate Nepal",
+    "Child custody lawyer Nepal"
   ],
   authors: [{ name: "Lawyers In Nepal" }],
   creator: "Lawyers In Nepal",
