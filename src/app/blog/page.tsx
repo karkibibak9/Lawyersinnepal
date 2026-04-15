@@ -28,14 +28,16 @@ export default function BlogListingPage() {
       <section className="py-24">
         <div className="container mx-auto px-4 max-w-6xl">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-            {allPosts.map((post) => (
+            {allPosts.map((post, index) => (
               <article key={post.slug} className="bg-navy-800 border border-navy-700 rounded-sm overflow-hidden gold-glow transition-all group flex flex-col shadow-2xl">
                 {post.image && (
-                  <Link href={`/blog/${post.slug}`} className="block relative aspect-[16/10] overflow-hidden">
+                  <Link href={`/blog/${post.slug}`} className="block relative aspect-[16/10] overflow-hidden bg-navy-950">
                     <Image
-                      src={post.image}
+                      src={`${post.image}${post.image.includes('?') ? '&' : '?'}w=800&q=60`}
                       alt={`Featured image for ${post.title}`}
                       fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      priority={index < 3}
                       className="object-cover transform group-hover:scale-105 transition-transform duration-700"
                     />
                     <div className="absolute top-4 left-4 bg-gold-600 text-navy-900 text-[10px] font-bold uppercase tracking-[0.2em] px-3 py-1.5 rounded-sm z-10 shadow-lg">
