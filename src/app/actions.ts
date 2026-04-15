@@ -3,10 +3,8 @@
 import { supabase } from '@/lib/supabase/client';
 import { revalidatePath } from 'next/cache';
 import { Resend } from 'resend';
-import { GoogleGenerativeAI } from '@google/generative-ai';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
-const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY || '');
 
 export async function submitAppointment(formData: any) {
   try {

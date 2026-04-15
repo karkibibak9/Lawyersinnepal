@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { processMessage } from '@/lib/chatEngine';
 import type { BookingState, BookingData } from '@/lib/chatEngine';
-import { submitAppointment } from '@/app/actions';
+import { supabase } from '@/lib/supabase/client';
 
 export async function POST(req: NextRequest) {
   try {
@@ -17,25 +17,26 @@ export async function POST(req: NextRequest) {
       (bookingData as BookingData) || {}
     );
 
-    // If booking is complete, save to Supabase
+    // If booking is complete, save directly to Supabase
     if (result.bookingComplete) {
       try {
-        await submitAppointment({
+        await supabase.from('appointments').insert([{
           name: result.bookingComplete.name || '',
           email: '',
           phone: result.bookingComplete.phone || '',
           service: result.bookingComplete.service || '',
-          date: result.bookingComplete.date || '',
+          preferred_date: result.bookingComplete.date || '',
           message: 'Booked via AI Chat Assistant',
-        });
+          status: 'pending',
+        }]);
       } catch (e) {
         console.error('Booking save error:', e);
-        // Still return success response even if DB save fails
+        // Non-fatal — still return success response
       }
     }
 
-    // Add a small artificial delay to feel more natural (150–500ms)
-    await new Promise(r => setTimeout(r, 150 + Math.random() * 350));
+    // Small artificial delay for a more natural feel (150–400ms)
+    await new Promise(r => setTimeout(r, 150 + Math.random() * 250));
 
     return NextResponse.json({
       success: true,
