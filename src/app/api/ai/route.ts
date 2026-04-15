@@ -1,47 +1,54 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { GoogleGenerativeAI } from '@google/generative-ai';
-
-const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY || '');
+import { processMessage } from '@/lib/chatEngine';
+import type { BookingState, BookingData } from '@/lib/chatEngine';
+import { submitAppointment } from '@/app/actions';
 
 export async function POST(req: NextRequest) {
   try {
-    const { messages } = await req.json();
+    const { message, bookingState, bookingData } = await req.json();
 
-    if (!messages || !Array.isArray(messages)) {
-      return NextResponse.json({ success: false, text: "Invalid request format." }, { status: 400 });
+    if (!message || typeof message !== 'string') {
+      return NextResponse.json({ success: false, text: 'Invalid request.' }, { status: 400 });
     }
 
-    const model = genAI.getGenerativeModel({ 
-      model: "gemini-1.5-flash",
-      systemInstruction: `You are the professional AI Legal Assistant for "Lawyers In Nepal", a premier law firm in Kathmandu. 
-      Your goals:
-      1. Answer legal questions about Nepalese law generally (always include a disclaimer that this is not formal legal advice).
-      2. If a user wants to book an appointment, guide them to provide their Name, Email, Phone, Preferred Date, and Service Type.
-      3. Maintain a professional, empathetic, and formal tone.
-      4. Practice areas: Civil Law, Criminal Law, Corporate Law, Family Law (Divorce), and Banking Law.
-      5. Firm Phone: +977 9815861066. Location: Thamel, Kathmandu.
-      
-      CRITICAL: If you have collected all booking info (Name, Email, Phone, Date, Service), append the string "[[BOOKING_COMPLETE: {JSON_DATA}]]" at the very end of your message so the system can process it.`
+    const result = processMessage(
+      message,
+      (bookingState as BookingState) || 'idle',
+      (bookingData as BookingData) || {}
+    );
+
+    // If booking is complete, save to Supabase
+    if (result.bookingComplete) {
+      try {
+        await submitAppointment({
+          name: result.bookingComplete.name || '',
+          email: '',
+          phone: result.bookingComplete.phone || '',
+          service: result.bookingComplete.service || '',
+          date: result.bookingComplete.date || '',
+          message: 'Booked via AI Chat Assistant',
+        });
+      } catch (e) {
+        console.error('Booking save error:', e);
+        // Still return success response even if DB save fails
+      }
+    }
+
+    // Add a small artificial delay to feel more natural (150–500ms)
+    await new Promise(r => setTimeout(r, 150 + Math.random() * 350));
+
+    return NextResponse.json({
+      success: true,
+      text: result.response,
+      bookingState: result.newBookingState,
+      bookingData: result.newBookingData,
+      bookingComplete: !!result.bookingComplete,
     });
-
-    const chat = model.startChat({
-      history: messages.slice(0, -1)
-        .filter((_, i) => i > 0 || messages[0].role === 'user') // Skip welcome message if it's the first
-        .map((m: any) => ({
-          role: m.role === 'assistant' ? 'model' : 'user',
-          parts: [{ text: m.content }],
-        })),
-    });
-
-    const result = await chat.sendMessage(messages[messages.length - 1].content);
-    const responseText = result.response.text();
-
-    return NextResponse.json({ success: true, text: responseText });
-  } catch (error: any) {
-    console.error('AI API Route Error:', error);
-    return NextResponse.json({ 
-      success: false, 
-      text: "I'm sorry, I'm having trouble connecting right now. Please call us directly at +977 9815861066 for immediate assistance." 
+  } catch (error) {
+    console.error('Chat API error:', error);
+    return NextResponse.json({
+      success: false,
+      text: 'I\'m having a moment of confusion! Please try again or call us at +977 9815861066.',
     }, { status: 500 });
   }
 }
