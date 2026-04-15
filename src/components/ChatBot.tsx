@@ -58,8 +58,11 @@ export default function ChatBot() {
       } else {
         setMessages([...newMessages, { role: 'assistant', content: result.text || "I'm having trouble thinking right now. Please try again later." }]);
       }
-    } catch (error) {
-      setMessages([...newMessages, { role: 'assistant', content: "Something went wrong. Please call us at +977 9815861066 for immediate help." }]);
+    } catch (error: any) {
+      console.error('AI Chat Error (Full Error):', error);
+      // Return the technical error message temporarily for debugging if needed, 
+      // but for production keep it friendly.
+      setMessages([...newMessages, { role: 'assistant', content: `Connection Error: ${error.message || 'Unknown error'}. Please ensure your GEMINI_API_KEY is valid.` }]);
     } finally {
       setIsTyping(false);
     }
@@ -100,7 +103,7 @@ export default function ChatBot() {
                 <h4 className="font-bold text-sm text-white">Legal Assistant</h4>
                 <div className="flex items-center gap-1.5">
                   <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
-                  <span className="text-[10px] text-navy-200 uppercase tracking-widest font-bold">Online</span>
+                  <span className="text-[10px] text-gold-500 uppercase tracking-[0.1em] font-bold">Online Now</span>
                 </div>
               </div>
             </div>
