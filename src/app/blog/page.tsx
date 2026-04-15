@@ -10,6 +10,7 @@ export const metadata = {
 };
 
 export default function BlogListingPage() {
+  // Re-optimized image loading v2
   const allPosts = getSortedPostsData();
 
   return (
