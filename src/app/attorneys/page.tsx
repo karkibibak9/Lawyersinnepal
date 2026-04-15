@@ -1,6 +1,7 @@
 import { Mail, Phone, Globe, CheckCircle, GraduationCap, Award, Shield, Scale } from 'lucide-react';
 import Image from 'next/image';
 import { Metadata } from 'next';
+import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: "Top Attorneys in Nepal | Expert Legal Advocates Kathmandu",
@@ -54,66 +55,66 @@ export default function AttorneysPage() {
       </section>
 
       {/* Attorney Grid */}
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-navy-900">
         <div className="container mx-auto px-4">
-          <div className="space-y-24">
+          <div className="space-y-32">
             {attorneys.map((lawyer, idx) => (
-              <div key={idx} className={`flex flex-col ${idx % 2 === 1 ? 'lg:flex-row-reverse' : 'lg:flex-row'} gap-12 items-center lg:items-start`}>
-                <div className="w-full lg:w-1/3 aspect-[4/5] relative bg-navy-50 rounded-sm overflow-hidden shadow-2xl">
+              <div key={idx} className={`flex flex-col ${idx % 2 === 1 ? 'lg:flex-row-reverse' : 'lg:flex-row'} gap-12 items-center lg:items-start p-8 rounded-sm bg-navy-800/50 border border-navy-800 gold-glow shadow-2xl transition-all duration-700`}>
+                <div className="w-full lg:w-1/3 aspect-[4/5] relative bg-navy-900 rounded-sm overflow-hidden shadow-2xl border border-gold-600/10">
                   <Image
                     src={lawyer.image}
                     alt={`${lawyer.name} - ${lawyer.role} at Lawyers In Nepal`}
                     width={400}
                     height={500}
                     priority={idx === 0}
-                    className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+                    className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 scale-105 hover:scale-100"
                   />
-                  <div className="absolute inset-0 border-8 border-gold-600/10 pointer-events-none" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-navy-900/40 to-transparent pointer-events-none" />
                 </div>
                 
-                <div className="flex-1 space-y-6">
+                <div className="flex-1 space-y-6 pt-4">
                   <div className="space-y-2">
-                    <h2 className="text-3xl md:text-4xl font-serif font-bold text-navy-900">{lawyer.name}</h2>
-                    <p className="text-gold-700 font-bold uppercase tracking-widest text-sm">{lawyer.role}</p>
+                    <h2 className="text-3xl md:text-5xl font-serif font-bold text-white">{lawyer.name}</h2>
+                    <p className="text-gold-600 font-bold uppercase tracking-[0.2em] text-sm">{lawyer.role}</p>
                   </div>
                   
-                  <div className="flex items-center gap-2 px-3 py-1 bg-navy-50 text-navy-700 rounded-sm w-fit text-xs font-bold uppercase tracking-wider">
-                    <CheckCircle size={14} className="text-gold-600" /> Specialist: {lawyer.specialty}
+                  <div className="flex items-center gap-2 px-3 py-1.5 bg-navy-900 text-gold-500 rounded-sm w-fit text-xs font-bold uppercase tracking-widest border border-gold-600/10">
+                    <Shield size={14} className="text-gold-600" /> Specialist: {lawyer.specialty}
                   </div>
                   
-                  <p className="text-navy-700 text-lg leading-relaxed italic">
+                  <p className="text-navy-100 text-lg md:text-xl leading-relaxed italic font-serif opacity-90">
                     "{lawyer.bio}"
                   </p>
                   
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-4">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-6 border-t border-navy-700">
                     <div className="space-y-4">
-                      <div className="flex items-center gap-3 text-navy-900">
+                      <div className="flex items-center gap-3 text-white">
                         <GraduationCap size={20} className="text-gold-600" />
-                        <span className="font-bold">Education & Credentials</span>
+                        <span className="font-bold uppercase tracking-widest text-xs">Education & Credentials</span>
                       </div>
-                      <p className="text-navy-500 text-sm leading-relaxed pl-8">
+                      <p className="text-navy-300 text-sm leading-relaxed pl-8">
                         {lawyer.education}
                       </p>
                     </div>
                     
                     <div className="space-y-4">
-                      <div className="flex items-center gap-3 text-navy-900">
+                      <div className="flex items-center gap-3 text-white">
                         <Mail size={20} className="text-gold-600" />
-                        <span className="font-bold">Contact Details</span>
+                        <span className="font-bold uppercase tracking-widest text-xs">Direct Contact</span>
                       </div>
-                      <div className="pl-8 space-y-2 text-sm text-navy-500">
-                        <p className="flex items-center gap-2"><Mail size={14} /> {lawyer.email}</p>
-                        <p className="flex items-center gap-2"><Phone size={14} /> {lawyer.phone}</p>
+                      <div className="pl-8 space-y-2 text-sm text-navy-200">
+                        <p className="flex items-center gap-2 hover:text-gold-600 transition-colors cursor-pointer"><Mail size={14} /> {lawyer.email}</p>
+                        <p className="flex items-center gap-2 hover:text-gold-600 transition-colors cursor-pointer"><Phone size={14} /> {lawyer.phone}</p>
                       </div>
                     </div>
                   </div>
                   
-                  <div className="pt-6 flex gap-4 border-t border-navy-100">
-                    <button className="px-6 py-3 bg-navy-900 text-white font-bold hover:bg-navy-800 transition-all text-sm uppercase tracking-widest">
+                  <div className="pt-8 flex gap-4">
+                    <Link href="/appointment" className="px-8 py-4 bg-gold-600 text-navy-900 font-bold hover:bg-gold-500 transition-all text-sm uppercase tracking-widest shadow-lg">
                       Book Consultation
-                    </button>
-                    <button className="p-3 border border-navy-200 text-navy-900 hover:bg-navy-50 transition-all">
-                      <Globe size={20} />
+                    </Link>
+                    <button className="px-4 py-4 border border-navy-700 text-white hover:border-gold-600 transition-all group">
+                      <Globe size={20} className="group-hover:rotate-12 transition-transform" />
                     </button>
                   </div>
                 </div>

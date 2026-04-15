@@ -1,0 +1,34 @@
+- [ ] Project Setup
+    - [/] Initialize Next.js 15 project
+    - [ ] Install dependencies (lucide-react, @supabase/supabase-js, mdx-remote, date-fns)
+- [ ] Styling & Theme
+    - [ ] Configure Tailwind with Navy (#001F3F) and Gold (#FFD700)
+    - [ ] Set up Google Fonts (Inter, Playfair Display)
+    - [ ] Create global CSS with premium aesthetics
+- [ ] Supabase Integration
+    - [ ] Initialize Supabase client
+    - [ ] Provide SQL schema for manual execution
+- [ ] Layout & Navigation
+    - [ ] Navbar (Desktop/Mobile)
+    - [ ] Footer with SEO links
+    - [ ] Floating WhatsApp Button
+- [ ] Core Pages
+    - [ ] Homepage (Hero, Services preview, Why Us, Testimonials)
+    - [ ] Services Page (Grid of legal areas)
+    - [ ] Attorney Profiles
+    - [ ] Appointment Booking Page (Form + Supabase submission)
+    - [ ] Contact Page (Form + Map)
+- [x] Blog System
+    - [x] Configure next-mdx-remote and gray-matter
+    - [x] Create blog utility functions (`lib/blog.ts`)
+    - [x] Create 2 sample blog posts in `src/content/blog`
+    - [x] Build `/blog` listing page
+    - [x] Build `/blog/[slug]` detail page with dynamic routing
+- [x] SEO & Metadata
+    - [x] Configure global metadata in `layout.tsx`
+    - [x] Generate `sitemap.ts` programmatically
+    - [x] Generate `robots.ts`
+    - [x] Add JSON-LD Schema to footer
+- [x] Final Review & Build
+    - [x] Run `npm run build` to verify production readiness
+    - [x] Ensure 100% successful compilation and no hydration errorsification

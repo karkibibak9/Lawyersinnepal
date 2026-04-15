@@ -30,8 +30,8 @@
 }
 
 :root {
-  --background: #ffffff;
-  --foreground: #001f3f;
+  --background: #000b15; /* navy-900 */
+  --foreground: #fcfcfc;
 }
 
 body {
@@ -43,7 +43,7 @@ body {
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-serif);
   font-weight: 700;
-  color: var(--color-navy-700);
+  color: #ffffff;
 }
 
 .text-gold {
@@ -51,11 +51,21 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .bg-navy {
-  background-color: var(--color-navy-700);
+  background-color: var(--color-navy-900);
 }
 
 .glass {
-  background: rgba(255, 255, 255, 0.7);
+  background: rgba(0, 11, 21, 0.7);
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 215, 0, 0.1);
+}
+
+.gold-glow {
+  transition: all 0.3s ease;
+}
+
+.gold-glow:hover {
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.15);
+  border-color: rgba(255, 215, 0, 0.4);
+  transform: translateY(-4px);
 }

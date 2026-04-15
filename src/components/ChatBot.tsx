@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect } from 'react';
 import { MessageSquare, X, Send, User, Scale, Smartphone, Loader2 } from 'lucide-react';
-import { chatWithAI, submitAppointment } from '@/app/actions';
+import { submitAppointment } from '@/app/actions';
 
 export default function ChatBot() {
   const [isOpen, setIsOpen] = useState(false);
@@ -31,7 +31,13 @@ export default function ChatBot() {
     setIsTyping(true);
 
     try {
-      const result = await chatWithAI(newMessages);
+      const response = await fetch('/api/ai', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ messages: newMessages }),
+      });
+
+      const result = await response.json();
       
       if (result.success && result.text) {
         let aiResponse = result.text;
@@ -60,9 +66,7 @@ export default function ChatBot() {
       }
     } catch (error: any) {
       console.error('AI Chat Error (Full Error):', error);
-      // Return the technical error message temporarily for debugging if needed, 
-      // but for production keep it friendly.
-      setMessages([...newMessages, { role: 'assistant', content: `Connection Error: ${error.message || 'Unknown error'}. Please ensure your GEMINI_API_KEY is valid.` }]);
+      setMessages([...newMessages, { role: 'assistant', content: "I'm sorry, I'm having trouble connecting right now. Please call us directly at +977 9815861066 for immediate assistance." }]);
     } finally {
       setIsTyping(false);
     }
@@ -84,7 +88,7 @@ export default function ChatBot() {
           className="bg-navy-900 text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-transform border border-gold-600/30 group"
         >
           <MessageSquare size={28} />
-          <span className="absolute right-full mr-3 bg-white text-navy-900 px-3 py-1.5 rounded-lg text-sm font-bold opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap shadow-xl border border-navy-100 italic">
+          <span className="absolute right-full mr-3 bg-navy-950 text-white px-4 py-2 rounded-sm text-[10px] font-bold uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-all translate-x-4 group-hover:translate-x-0 whitespace-nowrap shadow-2xl border border-gold-600/30 pointer-events-none">
             Questions? Ask AI
           </span>
         </button>
@@ -92,38 +96,38 @@ export default function ChatBot() {
 
       {/* Chat Window */}
       {isOpen && (
-        <div className="w-80 md:w-96 bg-white rounded-sm shadow-[0_20px_50px_rgba(0,0,0,0.3)] border border-navy-100 flex flex-col animate-in slide-in-from-bottom-5 duration-300 max-h-[600px]">
+        <div className="w-80 md:w-96 bg-navy-900 rounded-sm shadow-[0_30px_70px_rgba(0,0,0,0.6)] border border-navy-800 flex flex-col animate-in slide-in-from-bottom-5 duration-300 max-h-[600px] overflow-hidden">
           {/* Header */}
-          <div className="p-4 bg-navy-900 text-white flex justify-between items-center border-b border-gold-600/20">
-            <div className="flex items-center gap-2">
-              <div className="w-8 h-8 bg-gold-600 rounded-full flex items-center justify-center text-navy-900">
-                <Scale size={18} />
+          <div className="p-4 bg-navy-950 text-white flex justify-between items-center border-b border-gold-600/20">
+            <div className="flex items-center gap-3">
+              <div className="w-9 h-9 bg-gold-600 rounded-full flex items-center justify-center text-navy-900 shadow-[0_0_15px_rgba(255,215,0,0.2)]">
+                <Scale size={20} />
               </div>
               <div>
                 <h4 className="font-bold text-sm text-white">Legal Assistant</h4>
                 <div className="flex items-center gap-1.5">
-                  <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
-                  <span className="text-[10px] text-gold-500 uppercase tracking-[0.1em] font-bold">Online Now</span>
+                  <div className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse shadow-[0_0_8px_#22c55e]" />
+                  <span className="text-[10px] text-gold-500 uppercase tracking-[0.2em] font-bold">Online Now</span>
                 </div>
               </div>
             </div>
             <button 
               onClick={() => setIsOpen(false)} 
               aria-label="Close Chat"
-              className="hover:text-gold-600 transition-colors text-white"
+              className="hover:text-gold-600 transition-colors text-navy-300"
             >
               <X size={20} />
             </button>
           </div>
 
           {/* Messages */}
-          <div className="flex-grow overflow-y-auto p-4 space-y-4 bg-navy-50/30 font-sans">
+          <div className="flex-grow overflow-y-auto p-4 space-y-4 bg-navy-900/50 scrollbar-thin scrollbar-thumb-navy-700">
             {messages.map((msg, idx) => (
-              <div key={idx} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
-                <div className={`max-w-[85%] p-3 rounded-sm text-sm whitespace-pre-wrap ${
+              <div key={idx} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'} animate-in fade-in slide-in-from-bottom-2`}>
+                <div className={`max-w-[85%] p-3.5 rounded-sm text-sm whitespace-pre-wrap leading-relaxed shadow-lg ${
                   msg.role === 'user' 
-                    ? 'bg-navy-700 text-white rounded-br-none' 
-                    : 'bg-white border border-navy-100 text-navy-800 rounded-bl-none shadow-sm'
+                    ? 'bg-gold-600 text-navy-950 rounded-br-none font-medium' 
+                    : 'bg-navy-800 border border-navy-700 text-navy-100 rounded-bl-none'
                 }`}>
                   {msg.content}
                 </div>
@@ -132,21 +136,22 @@ export default function ChatBot() {
             
             {isTyping && (
               <div className="flex justify-start">
-                <div className="bg-white border border-navy-100 p-3 rounded-sm rounded-bl-none shadow-sm">
+                <div className="bg-navy-800 border border-navy-700 p-3 rounded-sm rounded-bl-none">
                   <Loader2 size={16} className="animate-spin text-gold-600" />
                 </div>
               </div>
             ) }
 
+            {/* FAQ Area - FIXED VISIBILITY */}
             {messages.length === 1 && (
-              <div className="pt-2 space-y-2">
-                <p className="text-[10px] text-navy-400 uppercase tracking-widest font-bold">Frequently Asked</p>
-                <div className="flex flex-wrap gap-2">
+              <div className="pt-4 space-y-3">
+                <p className="text-[10px] text-gold-600/70 uppercase tracking-[0.2em] font-bold pl-1">Frequently Asked</p>
+                <div className="flex flex-col gap-2">
                   {faqs.map((faq, i) => (
                     <button
                       key={i}
                       onClick={() => handleSend(faq.q)}
-                      className="text-xs px-3 py-2 bg-white border border-navy-200 hover:border-gold-600 hover:text-gold-700 transition-all rounded-full"
+                      className="text-left text-xs px-4 py-3 bg-navy-800 border border-navy-700 text-navy-100 hover:border-gold-600 hover:text-white transition-all rounded-sm gold-glow"
                     >
                       {faq.q}
                     </button>
@@ -158,20 +163,20 @@ export default function ChatBot() {
           </div>
 
           {/* Fallback to WhatsApp */}
-          <div className="px-4 pb-2 border-t border-navy-50 pt-2">
+          <div className="px-4 py-3 bg-navy-950 border-t border-navy-800">
             <a 
               href="https://wa.me/+9779815861066"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 w-full py-2 bg-green-600 hover:bg-green-700 text-white text-[10px] font-bold rounded-sm transition-colors uppercase tracking-widest"
+              className="flex items-center justify-center gap-2 w-full py-2.5 bg-green-600/10 border border-green-600/30 hover:bg-green-600 hover:text-white text-green-500 text-[10px] font-bold rounded-sm transition-all uppercase tracking-[0.2em]"
               onClick={() => setIsOpen(false)}
             >
-              <Smartphone size={12} /> Direct Chat on WhatsApp
+              <Smartphone size={14} /> Direct Chat on WhatsApp
             </a>
           </div>
 
           {/* Input */}
-          <div className="p-4 border-t border-navy-100">
+          <div className="p-4 bg-navy-950 border-t border-navy-800">
             <form 
               onSubmit={(e) => { e.preventDefault(); handleSend(inputValue); }}
               className="flex gap-2"
@@ -181,12 +186,12 @@ export default function ChatBot() {
                 value={inputValue}
                 onChange={(e) => setInputValue(e.target.value)}
                 placeholder="Ask your legal question..."
-                className="flex-grow px-3 py-2 bg-navy-50 border border-navy-100 rounded-sm text-sm focus:outline-none focus:border-gold-600"
+                className="flex-grow px-4 py-2.5 bg-navy-900 border border-navy-800 rounded-sm text-sm text-white focus:outline-none focus:border-gold-600 focus:ring-1 focus:ring-gold-600 transition-all placeholder:text-navy-500"
               />
               <button 
                 type="submit"
                 disabled={isTyping}
-                className="p-2 bg-navy-900 text-gold-600 rounded-sm hover:bg-navy-800 transition-colors disabled:opacity-50"
+                className="px-4 bg-gold-600 text-navy-900 rounded-sm hover:bg-gold-500 transition-all disabled:opacity-50"
               >
                 <Send size={18} />
               </button>

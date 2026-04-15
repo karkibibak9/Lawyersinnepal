@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { Scale, Calendar, Clock, MessageSquare, User, Mail, Phone, ChevronRight } from 'lucide-react';
 import { submitAppointment } from '@/app/actions';
+import Link from 'next/link';
 
 export default function AppointmentPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -45,18 +46,19 @@ export default function AppointmentPage() {
 
   if (submitted) {
     return (
-      <div className="min-h-[80vh] flex items-center justify-center bg-navy-50 py-24 px-4">
-        <div className="max-w-md w-full bg-white p-12 text-center border-t-8 border-gold-600 shadow-2xl space-y-6">
-          <div className="w-20 h-20 bg-gold-600 text-navy-900 rounded-full flex items-center justify-center mx-auto mb-6">
+      <div className="min-h-[80vh] flex items-center justify-center bg-navy-900 py-24 px-4 overflow-hidden relative">
+        <div className="absolute inset-0 bg-gold-600/5 -skew-x-12 translate-x-1/2" />
+        <div className="max-w-md w-full bg-navy-800 p-12 text-center border-t-8 border-gold-600 shadow-[0_20px_50px_rgba(0,0,0,0.5)] space-y-6 relative z-10 gold-glow">
+          <div className="w-20 h-20 bg-gold-600 text-navy-900 rounded-full flex items-center justify-center mx-auto mb-6 shadow-[0_0_30px_rgba(255,215,0,0.3)]">
             <Scale size={40} />
           </div>
-          <h1 className="text-3xl font-serif font-bold text-navy-900">Request Received</h1>
-          <p className="text-navy-600 leading-relaxed">
-            Thank you for reaching out. One of our senior associates will contact you within 24 hours to confirm your appointment.
+          <h1 className="text-3xl font-serif font-bold text-white">Request Received</h1>
+          <p className="text-navy-100 leading-relaxed">
+            Thank you for reaching out to <span className="text-gold-600 font-bold">Lawyers In Nepal</span>. One of our senior associates will contact you within 24 hours to confirm your appointment.
           </p>
           <button
             onClick={() => setSubmitted(false)}
-            className="w-full py-4 bg-navy-900 text-white font-bold hover:bg-navy-800 transition-all rounded-sm uppercase tracking-widest text-sm"
+            className="w-full py-4 bg-gold-600 text-navy-900 font-bold hover:bg-gold-500 transition-all rounded-sm uppercase tracking-widest text-sm shadow-xl"
           >
             Go Back
           </button>
@@ -66,27 +68,27 @@ export default function AppointmentPage() {
   }
 
   return (
-    <div className="flex flex-col w-full min-h-screen bg-[#fcfcfc]">
+    <div className="flex flex-col w-full min-h-screen bg-navy-900">
       {/* Header */}
       <section className="bg-navy-900 py-20">
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-6xl font-serif font-bold text-white mb-6">Book a Consultation</h1>
-          <p className="text-navy-100 max-w-2xl mx-auto text-lg leading-relaxed">
+          <p className="text-navy-100 max-w-2xl mx-auto text-lg leading-relaxed opacity-90">
             Take the first step towards resolving your legal matters. Schedule a confidential meeting with our expert team in Kathmandu.
           </p>
         </div>
       </section>
 
       {/* Form Section */}
-      <section className="py-24 relative overflow-hidden">
-        <div className="absolute top-0 left-0 w-full h-[500px] bg-navy-900 z-0" />
+      <section className="py-24 relative overflow-hidden bg-navy-900">
+        <div className="absolute top-0 left-0 w-full h-[500px] bg-navy-950 z-0" />
         
         <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-5xl mx-auto flex flex-col lg:flex-row shadow-2xl rounded-sm overflow-hidden bg-white border border-navy-100">
+          <div className="max-w-5xl mx-auto flex flex-col lg:flex-row shadow-[0_30px_70px_rgba(0,0,0,0.5)] rounded-sm overflow-hidden bg-navy-800 border border-navy-700">
             {/* Info Panel */}
             <div className="lg:w-1/3 bg-gold-600 p-12 text-navy-900 space-y-10">
               <div className="space-y-4">
-                <h2 className="text-3xl font-serif font-bold">Why Consult Us?</h2>
+                <h2 className="text-3xl font-serif font-bold uppercase tracking-tight">Why Consult Us?</h2>
                 <div className="w-12 h-1 bg-navy-900/20" />
               </div>
               
@@ -107,39 +109,39 @@ export default function AppointmentPage() {
               </ul>
               
               <div className="pt-10 border-t border-navy-900/10 space-y-4 text-sm">
-                <p className="font-bold">Need Immediate Help?</p>
-                <p className="flex items-center gap-2"><Phone size={16} /> +977 9815861066</p>
+                <p className="font-bold uppercase tracking-widest text-[10px]">Need Immediate Help?</p>
+                <p className="flex items-center gap-2 font-bold"><Phone size={16} /> +977 9815861066</p>
                 <p className="flex items-center gap-2 font-bold"><ChevronRight size={16} /> Lawyers In Nepal HQ, Thamel</p>
               </div>
             </div>
 
             {/* Form */}
-            <div className="flex-1 p-12 bg-white">
+            <div className="flex-1 p-12 bg-navy-800">
               <form onSubmit={handleSubmit} className="space-y-8">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   <div className="space-y-2">
-                    <label className="text-xs font-bold uppercase tracking-widest text-navy-500">Full Name</label>
+                    <label className="text-[10px] font-bold uppercase tracking-[0.2em] text-gold-500">Full Name</label>
                     <div className="relative">
-                      <User className="absolute left-4 top-4 text-navy-300" size={18} />
+                      <User className="absolute left-4 top-4 text-navy-400" size={18} />
                       <input
                         required
                         name="name"
                         type="text"
                         placeholder="John Doe"
-                        className="w-full pl-12 pr-4 py-4 bg-navy-50/50 border border-navy-100 focus:border-gold-600 focus:ring-1 focus:ring-gold-600 outline-none transition-all rounded-sm"
+                        className="w-full pl-12 pr-4 py-4 bg-navy-950 border border-navy-700 focus:border-gold-600 focus:ring-1 focus:ring-gold-600 outline-none transition-all rounded-sm text-white placeholder:text-navy-500"
                       />
                     </div>
                   </div>
                   <div className="space-y-2">
-                    <label className="text-xs font-bold uppercase tracking-widest text-navy-500">Contact Email</label>
+                    <label className="text-[10px] font-bold uppercase tracking-[0.2em] text-gold-500">Contact Email</label>
                     <div className="relative">
-                      <Mail className="absolute left-4 top-4 text-navy-300" size={18} />
+                      <Mail className="absolute left-4 top-4 text-navy-400" size={18} />
                       <input
                         required
                         name="email"
                         type="email"
                         placeholder="john@example.com"
-                        className="w-full pl-12 pr-4 py-4 bg-navy-50/50 border border-navy-100 focus:border-gold-600 focus:ring-1 focus:ring-gold-600 outline-none transition-all rounded-sm"
+                        className="w-full pl-12 pr-4 py-4 bg-navy-950 border border-navy-700 focus:border-gold-600 focus:ring-1 focus:ring-gold-600 outline-none transition-all rounded-sm text-white placeholder:text-navy-500"
                       />
                     </div>
                   </div>
@@ -147,37 +149,37 @@ export default function AppointmentPage() {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   <div className="space-y-2">
-                    <label className="text-xs font-bold uppercase tracking-widest text-navy-500">Phone Number</label>
+                    <label className="text-[10px] font-bold uppercase tracking-[0.2em] text-gold-500">Phone Number</label>
                     <div className="relative">
-                      <Phone className="absolute left-4 top-4 text-navy-300" size={18} />
+                      <Phone className="absolute left-4 top-4 text-navy-400" size={18} />
                       <input
                         required
                         name="phone"
                         type="tel"
                         placeholder="+977-98XXXXXXXX"
-                        className="w-full pl-12 pr-4 py-4 bg-navy-50/50 border border-navy-100 focus:border-gold-600 focus:ring-1 focus:ring-gold-600 outline-none transition-all rounded-sm"
+                        className="w-full pl-12 pr-4 py-4 bg-navy-950 border border-navy-700 focus:border-gold-600 focus:ring-1 focus:ring-gold-600 outline-none transition-all rounded-sm text-white placeholder:text-navy-500"
                       />
                     </div>
                   </div>
                   <div className="space-y-2">
-                    <label className="text-xs font-bold uppercase tracking-widest text-navy-500">Preferred Date</label>
+                    <label className="text-[10px] font-bold uppercase tracking-[0.2em] text-gold-500">Preferred Date</label>
                     <div className="relative">
-                      <Calendar className="absolute left-4 top-4 text-navy-300" size={18} />
+                      <Calendar className="absolute left-4 top-4 text-navy-400" size={18} />
                       <input
                         required
                         name="date"
                         type="date"
-                        className="w-full pl-12 pr-4 py-4 bg-navy-50/50 border border-navy-100 focus:border-gold-600 focus:ring-1 focus:ring-gold-600 outline-none transition-all rounded-sm"
+                        className="w-full pl-12 pr-4 py-4 bg-navy-950 border border-navy-700 focus:border-gold-600 focus:ring-1 focus:ring-gold-600 outline-none transition-all rounded-sm text-white [color-scheme:dark]"
                       />
                     </div>
                   </div>
                 </div>
 
                 <div className="space-y-2">
-                  <label className="text-xs font-bold uppercase tracking-widest text-navy-500">Legal Service Category</label>
+                  <label className="text-[10px] font-bold uppercase tracking-[0.2em] text-gold-500">Legal Service Category</label>
                   <select
                     name="service"
-                    className="w-full px-4 py-4 bg-navy-50/50 border border-navy-100 focus:border-gold-600 focus:ring-1 focus:ring-gold-600 outline-none transition-all rounded-sm appearance-none"
+                    className="w-full px-4 py-4 bg-navy-950 border border-navy-700 focus:border-gold-600 focus:ring-1 focus:ring-gold-600 outline-none transition-all rounded-sm appearance-none text-white cursor-pointer"
                   >
                     <option value="civil">Civil Law / Property</option>
                     <option value="criminal">Criminal Defense</option>
@@ -188,28 +190,28 @@ export default function AppointmentPage() {
                 </div>
 
                 <div className="space-y-2">
-                  <label className="text-xs font-bold uppercase tracking-widest text-navy-500">Message / Case Overview</label>
+                  <label className="text-[10px] font-bold uppercase tracking-[0.2em] text-gold-500">Message / Case Overview</label>
                   <textarea
                     required
                     name="message"
                     rows={4}
                     placeholder="Briefly describe your legal situation..."
-                    className="w-full px-4 py-4 bg-navy-50/50 border border-navy-100 focus:border-gold-600 focus:ring-1 focus:ring-gold-600 outline-none transition-all rounded-sm resize-none"
+                    className="w-full px-4 py-4 bg-navy-950 border border-navy-700 focus:border-gold-600 focus:ring-1 focus:ring-gold-600 outline-none transition-all rounded-sm resize-none text-white placeholder:text-navy-500"
                   />
                 </div>
 
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full py-5 bg-navy-900 text-white font-bold hover:bg-navy-800 disabled:opacity-50 transition-all rounded-sm uppercase tracking-widest flex items-center justify-center gap-3 shadow-xl"
+                  className="w-full py-5 bg-gold-600 text-navy-900 font-bold hover:bg-gold-500 disabled:opacity-50 transition-all rounded-sm uppercase tracking-widest flex items-center justify-center gap-3 shadow-[0_10px_30px_rgba(255,215,0,0.15)]"
                 >
                   {isSubmitting ? 'Processing...' : 'Confirm Appointment Request'}
-                  {!isSubmitting && <ArrowRight size={18} />}
+                  <ArrowRight size={18} />
                 </button>
                 
-                {error && <p className="text-red-600 text-center text-sm font-medium">{error}</p>}
+                {error && <p className="text-red-500 text-center text-sm font-medium animate-pulse">{error}</p>}
                 
-                <p className="text-navy-400 text-[10px] text-center uppercase tracking-widest leading-loose">
+                <p className="text-navy-400 text-[10px] text-center uppercase tracking-widest leading-loose opacity-60">
                   By submitting this form, you acknowledge that this does not constitute an attorney-client relationship until a formal agreement is signed.
                 </p>
               </form>

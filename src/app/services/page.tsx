@@ -1,5 +1,6 @@
 import { Scale, Shield, Briefcase, Users, FileText, Landmark, Gavel, Heart } from 'lucide-react';
 import { Metadata } from 'next';
+import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: "Legal Services in Nepal | Best Divorce & Criminal Lawyers Kathmandu",
@@ -96,22 +97,22 @@ export default function ServicesPage() {
       </section>
 
       {/* Services Grid */}
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-navy-900">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
             {services.map((service) => (
-              <div key={service.id} id={service.id} className="bg-white border border-navy-100 p-10 hover:shadow-2xl transition-all group scroll-mt-24">
-                <div className="w-14 h-14 bg-navy-50 text-navy-700 flex items-center justify-center rounded-sm mb-8 group-hover:bg-gold-600 group-hover:text-navy-900 transition-colors">
+              <div key={service.id} id={service.id} className="bg-navy-800 border border-navy-700 p-10 gold-glow transition-all group scroll-mt-24 shadow-2xl">
+                <div className="w-14 h-14 bg-navy-900 text-gold-600 flex items-center justify-center rounded-sm mb-8 group-hover:bg-gold-600 group-hover:text-navy-900 transition-colors border border-gold-600/20">
                   <service.icon size={28} />
                 </div>
-                <h2 className="text-2xl font-serif font-bold mb-4">{service.title}</h2>
-                <p className="text-navy-500 mb-8 leading-relaxed">
+                <h2 className="text-2xl font-serif font-bold mb-4 text-white">{service.title}</h2>
+                <p className="text-navy-300 mb-8 leading-relaxed">
                   {service.description}
                 </p>
                 <ul className="space-y-3">
                   {service.details.map((detail, i) => (
-                    <li key={i} className="flex items-center gap-2 text-sm text-navy-700">
-                      <div className="w-1.5 h-1.5 bg-gold-600 rounded-full" />
+                    <li key={i} className="flex items-center gap-2 text-sm text-navy-100">
+                      <div className="w-1.5 h-1.5 bg-gold-600 rounded-full shadow-[0_0_8px_rgba(255,215,0,0.6)]" />
                       {detail}
                     </li>
                   ))}
@@ -123,18 +124,18 @@ export default function ServicesPage() {
       </section>
 
       {/* Call to Action */}
-      <section className="py-20 bg-navy-50 border-t border-navy-100">
+      <section className="py-20 bg-navy-950 border-t border-navy-800">
         <div className="container mx-auto px-4 text-center max-w-3xl">
-          <h2 className="text-3xl font-serif font-bold mb-6">Can't find what you're looking for?</h2>
-          <p className="text-navy-600 mb-10">
-            Our expertise extends beyond the listed services. Contact us today to discuss your specific legal requirements with our expert attorneys.
+          <h2 className="text-3xl font-serif font-bold mb-6 text-white uppercase tracking-wider">Can't find what you're looking for?</h2>
+          <p className="text-navy-200 mb-10 leading-relaxed">
+            Our expertise extends beyond the listed services. Contact us today to discuss your specific legal requirements with our expert attorneys in <span className="text-gold-600 font-bold underline decoration-gold-600/30">Kathmandu</span>.
           </p>
-          <a
+          <Link
             href="/contact"
-            className="inline-block px-10 py-4 bg-navy-900 text-white font-bold hover:bg-navy-800 transition-all rounded-sm"
+            className="inline-block px-10 py-4 bg-gold-600 text-navy-900 font-bold hover:bg-gold-500 transition-all rounded-sm shadow-[0_10px_30px_rgba(255,215,0,0.15)]"
           >
             Inquire Now
-          </a>
+          </Link>
         </div>
       </section>
     </div>

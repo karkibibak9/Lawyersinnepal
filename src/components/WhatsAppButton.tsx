@@ -25,7 +25,7 @@ export default function WhatsAppButton() {
       aria-label="Chat on WhatsApp"
     >
       <MessageCircle size={28} className="fill-current" />
-      <span className="absolute right-full mr-3 bg-white text-navy-900 px-3 py-1.5 rounded-lg text-sm font-bold opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap shadow-xl border border-navy-100">
+      <span className="absolute right-full mr-4 bg-navy-950 text-white px-4 py-2 rounded-sm text-xs font-bold uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-all translate-x-4 group-hover:translate-x-0 whitespace-nowrap shadow-2xl border border-gold-600/30 pointer-events-none">
         Chat with a Lawyer
       </span>
     </a>

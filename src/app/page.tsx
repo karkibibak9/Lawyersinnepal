@@ -56,23 +56,23 @@ export default function Home() {
       </section>
 
       {/* Trust Bar */}
-      <section className="bg-white border-b border-navy-100 py-8">
+      <section className="bg-navy-900 border-b border-navy-800 py-8">
         <div className="container mx-auto px-4">
-          <div className="flex flex-wrap justify-center md:justify-between items-center gap-8 md:gap-12 opacity-70 grayscale hover:grayscale-0 transition-all duration-500">
-            <div className="text-sm font-bold text-navy-500 tracking-widest uppercase">Trusted By Over 500+ Clients Across Nepal</div>
-            <div className="flex items-center gap-2 font-serif font-bold text-xl h-8">Supreme Court of Nepal</div>
-            <div className="flex items-center gap-2 font-serif font-bold text-xl h-8">Nepal Bar Association</div>
-            <div className="flex items-center gap-2 font-serif font-bold text-xl h-8">FIN-Global</div>
+          <div className="flex flex-wrap justify-center md:justify-between items-center gap-8 md:gap-12 opacity-50 grayscale hover:grayscale-0 transition-all duration-500">
+            <div className="text-sm font-bold text-navy-400 tracking-widest uppercase">Trusted By Over 500+ Clients Across Nepal</div>
+            <div className="flex items-center gap-2 font-serif font-bold text-xl h-8 text-white">Supreme Court of Nepal</div>
+            <div className="flex items-center gap-2 font-serif font-bold text-xl h-8 text-white">Nepal Bar Association</div>
+            <div className="flex items-center gap-2 font-serif font-bold text-xl h-8 text-white">FIN-Global</div>
           </div>
         </div>
       </section>
 
       {/* Services Section */}
-      <section className="py-24 bg-[#fcfcfc]">
+      <section className="py-24 bg-navy-900">
         <div className="container mx-auto px-4">
           <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-            <h2 className="text-navy-900 text-sm font-bold uppercase tracking-[0.2em] mb-2">Our Areas of Practice</h2>
-            <p className="text-3xl md:text-5xl font-serif font-bold">Expert Solutions for Your <span className="text-gold-600">Complex</span> Legal Needs</p>
+            <h2 className="text-gold-600 text-sm font-bold uppercase tracking-[0.2em] mb-2">Our Areas of Practice</h2>
+            <p className="text-3xl md:text-5xl font-serif font-bold text-white">Expert Solutions for Your <span className="text-gold-600">Complex</span> Legal Needs</p>
             <div className="w-20 h-1 bg-gold-600 mx-auto mt-6" />
           </div>
 
@@ -83,15 +83,15 @@ export default function Home() {
               { icon: Briefcase, title: 'Corporate Law', desc: 'Company registration, intellectual property, and merger advisory.' },
               { icon: Users, title: 'Family Law', desc: 'Compassionate handling of divorce, child custody, and inheritance.' },
             ].map((service, idx) => (
-              <div key={idx} className="group bg-white p-8 border border-navy-100 hover:border-gold-600/30 hover:shadow-2xl transition-all duration-500 flex flex-col items-center text-center">
-                <div className="w-16 h-16 rounded-full bg-navy-50 flex items-center justify-center text-navy-700 group-hover:bg-gold-600 group-hover:text-navy-900 transition-colors duration-500 mb-6">
+              <div key={idx} className="group gold-glow bg-navy-800 p-8 border border-navy-700 transition-all duration-500 flex flex-col items-center text-center">
+                <div className="w-16 h-16 rounded-full bg-navy-900 flex items-center justify-center text-gold-600 group-hover:bg-gold-600 group-hover:text-navy-900 transition-colors duration-500 mb-6 border border-gold-600/20">
                   <service.icon size={32} />
                 </div>
-                <h3 className="text-xl font-serif font-bold mb-3">{service.title}</h3>
-                <p className="text-navy-500 text-sm leading-relaxed mb-6">
+                <h3 className="text-xl font-serif font-bold mb-3 text-white">{service.title}</h3>
+                <p className="text-navy-300 text-sm leading-relaxed mb-6">
                   {service.desc}
                 </p>
-                <Link href="/services" className="mt-auto text-gold-700 text-xs font-bold uppercase tracking-widest flex items-center gap-1 group-hover:gap-2 transition-all">
+                <Link href="/services" className="mt-auto text-gold-600 text-xs font-bold uppercase tracking-widest flex items-center gap-1 group-hover:gap-2 transition-all">
                   Learn More <ArrowRight size={14} />
                 </Link>
               </div>
@@ -155,11 +155,11 @@ export default function Home() {
       </section>
 
       {/* Testimonials */}
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-navy-900 border-t border-navy-800">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-navy-900 text-sm font-bold uppercase tracking-[0.2em] mb-4">Client Testimonials</h2>
-            <p className="text-3xl md:text-4xl font-serif font-bold">What Our Clients Say</p>
+            <h2 className="text-gold-600 text-sm font-bold uppercase tracking-[0.2em] mb-4">Client Testimonials</h2>
+            <p className="text-3xl md:text-4xl font-serif font-bold text-white">What Our Clients Say</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
@@ -167,7 +167,7 @@ export default function Home() {
               { name: 'Sunita Gurung', role: 'Individual Client', text: 'Navigating a complex property dispute was stressful, but Lawyers In Nepal handled everything with absolute clarity and success.' },
               { name: 'Arjun Thapa', role: 'Business Owner', text: 'The attorneys here provided reliable legal counsel when we needed it most. They are definitely the best in Kathmandu.' },
             ].map((t, idx) => (
-              <div key={idx} className="bg-[#fcfcfc] p-8 border border-navy-100 flex flex-col relative">
+              <div key={idx} className="bg-navy-800 p-8 border border-navy-700 flex flex-col relative gold-glow">
                 <div className="flex gap-1 text-gold-600 mb-6">
                   <Star fill="currentColor" size={16} />
                   <Star fill="currentColor" size={16} />
@@ -175,10 +175,10 @@ export default function Home() {
                   <Star fill="currentColor" size={16} />
                   <Star fill="currentColor" size={16} />
                 </div>
-                <p className="text-navy-700 italic mb-8 flex-grow">"{t.text}"</p>
+                <p className="text-navy-100 italic mb-8 flex-grow">"{t.text}"</p>
                 <div>
-                  <h4 className="font-bold text-navy-900">{t.name}</h4>
-                  <p className="text-navy-500 text-xs uppercase tracking-widest">{t.role}</p>
+                  <h4 className="font-bold text-white">{t.name}</h4>
+                  <p className="text-gold-600/70 text-xs uppercase tracking-widest">{t.role}</p>
                 </div>
               </div>
             ))}
@@ -187,11 +187,11 @@ export default function Home() {
       </section>
 
       {/* FAQ Section for SEO */}
-      <section className="py-24 bg-[#fcfcfc] border-t border-navy-100">
+      <section className="py-24 bg-navy-950 border-t border-navy-800">
         <div className="container mx-auto px-4 max-w-4xl">
           <div className="text-center mb-16">
-            <h2 className="text-navy-900 text-sm font-bold uppercase tracking-[0.2em] mb-4">Legal FAQ</h2>
-            <p className="text-3xl md:text-4xl font-serif font-bold">Common Questions About <span className="text-gold-600">Law in Nepal</span></p>
+            <h2 className="text-gold-600 text-sm font-bold uppercase tracking-[0.2em] mb-4">Legal FAQ</h2>
+            <p className="text-3xl md:text-4xl font-serif font-bold text-white">Common Questions About <span className="text-gold-600">Law in Nepal</span></p>
           </div>
           <div className="space-y-4">
             {[
@@ -216,15 +216,15 @@ export default function Home() {
                 a: "Property disputes are common in Nepal. Our advocates specialize in land law, partition cases, and title verification to protect your real estate interests across the country." 
               }
             ].map((faq, i) => (
-              <details key={i} className="group bg-white border border-navy-100 rounded-sm overflow-hidden transition-all duration-300">
-                <summary className="flex items-center justify-between p-6 cursor-pointer list-none text-navy-900 font-bold hover:bg-navy-50">
+              <details key={i} className="group bg-navy-900 border border-navy-800 rounded-sm overflow-hidden transition-all duration-300">
+                <summary className="flex items-center justify-between p-6 cursor-pointer list-none text-white font-bold hover:bg-navy-800">
                   <span className="pr-4">{faq.q}</span>
                   <div className="w-5 h-5 relative flex-shrink-0">
                     <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 h-0.5 bg-gold-600 transition-transform group-open:rotate-180" />
                     <div className="absolute inset-y-0 left-1/2 -translate-x-1/2 w-0.5 bg-gold-600 transition-transform group-open:rotate-90" />
                   </div>
                 </summary>
-                <div className="px-6 pb-6 text-navy-600 leading-relaxed animate-in slide-in-from-top-2">
+                <div className="px-6 pb-6 text-navy-200 leading-relaxed animate-in slide-in-from-top-2">
                   <p>{faq.a}</p>
                 </div>
               </details>

@@ -35,7 +35,7 @@ export default function Navbar() {
       className={cn(
         'fixed top-0 w-full z-50 transition-all duration-300 border-b',
         scrolled 
-          ? 'bg-white/90 backdrop-blur-md border-navy-100 py-3 shadow-sm' 
+          ? 'bg-navy-900/90 backdrop-blur-md border-navy-800 py-3 shadow-2xl' 
           : 'bg-transparent border-transparent py-5'
       )}
     >
@@ -43,21 +43,12 @@ export default function Navbar() {
         <div className="flex justify-between items-center">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 group">
-            <Scale className={cn(
-              "w-8 h-8 transition-colors",
-              scrolled ? "text-navy-700" : "text-gold-600"
-            )} />
+            <Scale className="w-8 h-8 text-gold-600 transition-colors" />
             <div className="flex flex-col">
-              <span className={cn(
-                "text-xl font-bold tracking-tight leading-none",
-                scrolled ? "text-navy-900" : "text-white"
-              )}>
+              <span className="text-xl font-bold tracking-tight leading-none text-white">
                 LAWYERS IN <span className="text-gold-600">NEPAL</span>
               </span>
-              <span className={cn(
-                "text-[10px] uppercase tracking-[0.2em] font-medium",
-                scrolled ? "text-navy-500" : "text-white/80"
-              )}>
+              <span className="text-[10px] uppercase tracking-[0.2em] font-medium text-white/80">
                 Justice. Expertise. Trust.
               </span>
             </div>
@@ -69,10 +60,7 @@ export default function Navbar() {
               <Link
                 key={link.name}
                 href={link.href}
-                className={cn(
-                  "text-sm font-medium transition-colors hover:text-gold-600",
-                  scrolled ? "text-navy-700" : "text-white"
-                )}
+                className="text-sm font-medium transition-colors hover:text-gold-600 text-white"
               >
                 {link.name}
               </Link>
@@ -91,10 +79,7 @@ export default function Navbar() {
               onClick={() => setIsOpen(!isOpen)}
               aria-label={isOpen ? "Close Menu" : "Open Menu"}
               aria-expanded={isOpen}
-              className={cn(
-                "p-2 rounded-md",
-                scrolled ? "text-navy-700" : "text-white"
-              )}
+              className="p-2 rounded-md text-white"
             >
               {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
@@ -104,7 +89,7 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       <div className={cn(
-        "md:hidden absolute top-full left-0 w-full bg-white border-b border-navy-100 transition-all duration-300 overflow-hidden",
+        "md:hidden absolute top-full left-0 w-full bg-navy-900 border-b border-navy-800 transition-all duration-300 overflow-hidden",
         isOpen ? "max-h-screen opacity-100 py-6" : "max-h-0 opacity-0 py-0"
       )}>
         <div className="px-4 space-y-4">
@@ -113,7 +98,7 @@ export default function Navbar() {
               key={link.name}
               href={link.href}
               onClick={() => setIsOpen(false)}
-              className="block text-lg font-medium text-navy-900 hover:text-gold-600"
+              className="block text-lg font-medium text-white hover:text-gold-600"
             >
               {link.name}
             </Link>
@@ -121,7 +106,7 @@ export default function Navbar() {
           <Link
             href="/appointment"
             onClick={() => setIsOpen(false)}
-            className="block w-full text-center bg-navy-700 text-white py-3 rounded-sm font-bold"
+            className="block w-full text-center bg-gold-600 text-navy-900 py-3 rounded-sm font-bold"
           >
             Book Consultation
           </Link>
