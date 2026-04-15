@@ -1,3 +1,5 @@
+'use client';
+
 import { useState, useRef, useEffect } from 'react';
 import { MessageSquare, X, Send, User, Scale, Smartphone, Loader2 } from 'lucide-react';
 import { chatWithAI, submitAppointment } from '@/app/actions';
