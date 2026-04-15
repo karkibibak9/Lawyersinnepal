@@ -29,10 +29,15 @@ export default function AppointmentPage() {
       if (result.success) {
         setSubmitted(true);
       } else {
-        setError(result.error || 'Failed to submit appointment.');
+        setError(result.error || 'Failed to submit appointment. Please check your connection.');
       }
     } catch (err) {
-      setError('Something went wrong. Please try again or call us directly.');
+      console.error('Form submission error:', err);
+      if (err instanceof TypeError && err.message === 'fetch failed') {
+        setError('Connection to security server failed. Please ensure environment variables are configured correctly.');
+      } else {
+        setError('Something went wrong. Please try again or call us directly.');
+      }
     } finally {
       setIsSubmitting(false);
     }
