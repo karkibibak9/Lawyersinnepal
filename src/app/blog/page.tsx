@@ -33,7 +33,7 @@ export default function BlogListingPage() {
                 {post.image && (
                   <Link href={`/blog/${post.slug}`} className="block relative aspect-[16/10] overflow-hidden bg-navy-950">
                     <Image
-                      src={`${post.image}${post.image.includes('?') ? '&' : '?'}w=800&q=60`}
+                      src={`${post.image.split('?')[0]}?auto=format&fit=crop&w=800&q=60`}
                       alt={`Featured image for ${post.title}`}
                       fill
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
