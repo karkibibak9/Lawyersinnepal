@@ -21,7 +21,7 @@ const QUICK_QUESTIONS = [
 export default function ChatBot() {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([
-    { role: 'assistant', content: 'Namaste! 🙏 I\'m the Lawyers In Nepal virtual assistant. I can answer your legal questions or help you book a free consultation.\n\nHow can I help you today?' }
+    { role: 'assistant', content: 'Namaste! 🙏 I\'m Nyaya AI, your personal legal assistant for Lawyers In Nepal.\n\nI\'m here to listen to your concerns, answer your legal questions, and provide guidance in a natural, human-like way. I can also help you book a free consultation.\n\nHow can I support you today?' }
   ]);
   const [inputValue, setInputValue] = useState('');
   const [isTyping, setIsTyping] = useState(false);
@@ -115,7 +115,7 @@ export default function ChatBot() {
         <div
           className={`bg-[#0b1320] flex flex-col overflow-hidden shadow-[0_25px_80px_rgba(0,0,0,0.7)] 
             fixed inset-0 z-50 rounded-none border-0 
-            sm:static sm:z-auto sm:w-[360px] sm:max-h-[calc(100dvh-8rem)] sm:rounded-xl sm:border border-white/10`}
+            sm:static sm:z-auto sm:w-[360px] sm:h-[600px] sm:max-h-[calc(100dvh-12rem)] sm:rounded-xl sm:border border-white/10`}
           style={{
             animation: 'slideUp 0.25s ease-out',
           }}>
@@ -130,7 +130,7 @@ export default function ChatBot() {
                 <span className="absolute bottom-0 right-0 w-2.5 h-2.5 bg-green-400 rounded-full border-2 border-[#0a1628] shadow-[0_0_6px_#4ade80]" />
               </div>
               <div>
-                <p className="text-white font-semibold text-sm leading-tight">Legal Assistant</p>
+                <p className="text-white font-semibold text-sm leading-tight">Nyaya AI</p>
                 <p className="text-green-400 text-[10px] font-medium tracking-wide">● Online — typically replies instantly</p>
               </div>
             </div>
