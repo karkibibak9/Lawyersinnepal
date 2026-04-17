@@ -19,7 +19,7 @@ export default function Home() {
         </div>
         <div className="absolute inset-0 z-0 bg-gradient-to-r from-navy-900 via-navy-900/80 to-transparent" />
         
-        <div className="container mx-auto px-4 relative z-10">
+        <div className="container mx-auto px-4 relative z-10 pt-24 md:pt-0">
           <div className="max-w-3xl space-y-8 animate-in fade-in slide-in-from-left-8 duration-1000">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gold-600/10 border border-gold-600/20 text-gold-500 font-bold text-xs uppercase tracking-widest">
               <Scale size={14} /> #1 Law Firm in Kathmandu, Nepal

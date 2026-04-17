@@ -113,10 +113,10 @@ export default function ChatBot() {
       {/* Chat window */}
       {isOpen && (
         <div
-          className="bg-[#0b1320] rounded-xl border border-white/10 flex flex-col overflow-hidden shadow-[0_25px_80px_rgba(0,0,0,0.7)]"
+          className={`bg-[#0b1320] flex flex-col overflow-hidden shadow-[0_25px_80px_rgba(0,0,0,0.7)] 
+            fixed inset-0 z-50 rounded-none border-0 
+            sm:static sm:z-auto sm:w-[360px] sm:max-h-[calc(100dvh-8rem)] sm:rounded-xl sm:border border-white/10`}
           style={{
-            width: 'min(360px, calc(100vw - 2rem))',
-            maxHeight: 'calc(100dvh - 8rem)',
             animation: 'slideUp 0.25s ease-out',
           }}>
 

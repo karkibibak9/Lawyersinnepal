@@ -1,4 +1,4 @@
-import { Mail, Phone, Globe, CheckCircle, GraduationCap, Award, Shield, Scale } from 'lucide-react';
+import { Mail, Phone, Globe, CheckCircle, GraduationCap, Award, Shield, Scale, MapPin } from 'lucide-react';
 import Image from 'next/image';
 import { Metadata } from 'next';
 import Link from 'next/link';
@@ -38,6 +38,17 @@ const attorneys = [
     email: 'rajesh@lawyersinnepal.com',
     phone: '+977 9815861066',
     image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=400&h=500'
+  },
+  {
+    name: 'Advocate Gaurab Dangi',
+    role: 'Criminal Defence Lawyer',
+    specialty: 'Criminal Defence, Cybercrime & Domestic Violence',
+    bio: 'A dedicated defence lawyer in Nepal known for providing strategic legal representation across Kathmandu. With 7 years of experience, he offers reliable legal services for individuals facing investigation, arrest, or trial.',
+    education: 'Expertise in Nepalese Criminal Law, Muluki Criminal Code 2017 & Evidence Act',
+    email: 'lawfirmnepal01@gmail.com',
+    phone: '+977 9864423830',
+    location: 'Purbi Gate, Anamnagar-29, Kathmandu 44600, Nepal',
+    image: 'https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&q=80&w=400&h=500'
   }
 ];
 
@@ -105,6 +116,7 @@ export default function AttorneysPage() {
                       <div className="pl-8 space-y-2 text-sm text-navy-200">
                         <p className="flex items-center gap-2 hover:text-gold-600 transition-colors cursor-pointer"><Mail size={14} /> {lawyer.email}</p>
                         <p className="flex items-center gap-2 hover:text-gold-600 transition-colors cursor-pointer"><Phone size={14} /> {lawyer.phone}</p>
+                        {lawyer.location && <p className="flex items-center gap-2 hover:text-gold-600 transition-colors cursor-pointer"><MapPin size={14} className="shrink-0" /> {lawyer.location}</p>}
                       </div>
                     </div>
                   </div>
