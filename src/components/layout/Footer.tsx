@@ -92,10 +92,10 @@ export default function Footer() {
             </h4>
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
-                <MapPin className="w-5 h-5 text-gold-600 shrink-0" />
+                <MapPin className="w-5 h-5 text-gold-600 shrink-0 mt-0.5" />
                 <span className="text-navy-100 text-sm leading-tight">
-                  123 Thamel Street<br />
-                  Kathmandu, 44600, Nepal
+                  Purbi Gate, Anamnagar-29<br />
+                  Kathmandu 44600, Nepal
                 </span>
               </li>
               <li className="flex items-center gap-3">
@@ -136,7 +136,7 @@ export default function Footer() {
             "telephone": "+977 9815861066",
             "address": {
               "@type": "PostalAddress",
-              "streetAddress": "123 Thamel Street",
+              "streetAddress": "Purbi Gate, Anamnagar-29",
               "addressLocality": "Kathmandu",
               "postalCode": "44600",
               "addressCountry": "NP"
