@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useRef, useEffect, useCallback } from 'react';
+import { useRouter } from 'next/navigation';
 import { MessageSquare, X, Send, Scale, Smartphone, Loader2, ChevronRight } from 'lucide-react';
 import type { BookingState, BookingData } from '@/lib/chatEngine';
 
@@ -19,6 +20,7 @@ const QUICK_QUESTIONS = [
 ];
 
 export default function ChatBot() {
+  const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([
     { role: 'assistant', content: 'Namaste! 🙏 I\'m Nyaya AI, your personal legal assistant for Lawyers In Nepal.\n\nI\'m here to listen to your concerns, answer your legal questions, and provide guidance in a natural, human-like way. I can also help you book a free consultation.\n\nHow can I support you today?' }
@@ -68,9 +70,17 @@ export default function ChatBot() {
       const data = await res.json();
 
       if (data.success) {
-        setBookingState(data.bookingState || 'idle');
-        setBookingData(data.bookingData || {});
-        setMessages(prev => [...prev, { role: 'assistant', content: data.text }]);
+        if (data.text === '__REDIRECT__/appointment') {
+          setMessages(prev => [...prev, { role: 'assistant', content: 'Opening the appointment booking page for you...' }]);
+          setTimeout(() => {
+            router.push('/appointment');
+            setIsOpen(false);
+          }, 1500);
+        } else {
+          setBookingState(data.bookingState || 'idle');
+          setBookingData(data.bookingData || {});
+          setMessages(prev => [...prev, { role: 'assistant', content: data.text }]);
+        }
       } else {
         setMessages(prev => [...prev, {
           role: 'assistant',

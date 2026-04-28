@@ -69,3 +69,19 @@ h1, h2, h3, h4, h5, h6 {
   border-color: rgba(255, 215, 0, 0.4);
   transform: translateY(-4px);
 }
+
+/* Custom styles for native inputs */
+select option {
+  background-color: #00162a; /* navy-800 */
+  color: #ffffff;
+  padding: 10px;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(75%) sepia(85%) saturate(1352%) hue-rotate(359deg) brightness(108%) contrast(105%); /* Approaches gold-600 */
+  cursor: pointer;
+}
+
+input[type="date"] {
+  color-scheme: dark;
+}

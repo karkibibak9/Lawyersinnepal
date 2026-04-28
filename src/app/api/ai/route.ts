@@ -1,12 +1,13 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { processMessage } from '@/lib/chatEngine';
 import type { BookingState, BookingData } from '@/lib/chatEngine';
-import { supabase } from '@/lib/supabase/client';
+import { createServerClient } from '@/lib/supabase/server';
 import { Resend } from 'resend';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(req: NextRequest) {
+  const supabase = createServerClient();
   try {
     const { message, bookingState, bookingData } = await req.json();
 
@@ -28,11 +29,11 @@ export async function POST(req: NextRequest) {
       try {
         await supabase.from('appointments').insert([{
           name: booking.name || '',
-          email: '',
+          email: 'chat@lawyersinnepal.com', // Placeholder since chat doesn't capture email yet
           phone: booking.phone || '',
           service: booking.service || '',
-          preferred_date: booking.date || '',
-          message: 'Booked via AI Chat Assistant',
+          preferred_date: new Date().toISOString().split('T')[0], // Use today as placeholder date
+          message: `Booked via AI Chat Assistant\nRequested Date/Time: ${booking.date}`,
           status: 'pending',
         }]);
       } catch (e) {
@@ -41,9 +42,9 @@ export async function POST(req: NextRequest) {
 
       // 2. Send email notification via Resend
       try {
-        await resend.emails.send({
+        const result = await resend.emails.send({
           from: 'Lawyers In Nepal <onboarding@resend.dev>',
-          to: 'karkibibak9@gmail.com',
+          to: 'lawyersinnepal.com.np@gmail.com',
           subject: `📅 New Chat Appointment: ${booking.name}`,
           html: `
             <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; background: #0d1a2e; color: #fff; border-radius: 8px; overflow: hidden;">
@@ -78,11 +79,12 @@ export async function POST(req: NextRequest) {
                 </div>
               </div>
               <div style="background: rgba(0,0,0,0.3); padding: 16px; text-align: center;">
-                <p style="margin: 0; font-size: 12px; color: rgba(255,255,255,0.4);">Lawyers In Nepal · Thamel, Kathmandu · +977 9815861066</p>
+                <p style="margin: 0; font-size: 12px; color: rgba(255,255,255,0.4);">Lawyers In Nepal · Anamnagar, Kathmandu · +977 9815861066</p>
               </div>
             </div>
           `,
         });
+        console.log('Chat Appointment Notification Result:', result);
       } catch (emailError) {
         console.error('Resend email error:', emailError);
         // Non-fatal — booking still confirmed to user

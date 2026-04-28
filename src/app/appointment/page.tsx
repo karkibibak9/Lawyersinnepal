@@ -9,6 +9,8 @@ export default function AppointmentPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [phone, setPhone] = useState('');
+  const [date, setDate] = useState('');
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -19,9 +21,10 @@ export default function AppointmentPage() {
     const data = {
       name: formData.get('name'),
       email: formData.get('email'),
-      phone: formData.get('phone'),
+      phone: phone,
       service: formData.get('service'),
-      date: formData.get('date'),
+      date: date,
+      time: formData.get('time'),
       message: formData.get('message'),
     };
 
@@ -111,7 +114,7 @@ export default function AppointmentPage() {
               <div className="pt-10 border-t border-navy-900/10 space-y-4 text-sm">
                 <p className="font-bold uppercase tracking-widest text-[10px]">Need Immediate Help?</p>
                 <p className="flex items-center gap-2 font-bold"><Phone size={16} /> +977 9815861066</p>
-                <p className="flex items-center gap-2 font-bold"><ChevronRight size={16} /> Lawyers In Nepal HQ, Thamel</p>
+                <p className="flex items-center gap-2 font-bold"><ChevronRight size={16} /> Lawyers In Nepal HQ, Anamnagar</p>
               </div>
             </div>
 
@@ -147,30 +150,56 @@ export default function AppointmentPage() {
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                   <div className="space-y-2">
                     <label className="text-[10px] font-bold uppercase tracking-[0.2em] text-gold-500">Phone Number</label>
-                    <div className="relative">
-                      <Phone className="absolute left-4 top-4 text-navy-400" size={18} />
+                    <div className="relative h-[58px]">
+                      <Phone className="absolute left-4 top-[20px] text-navy-400" size={18} />
                       <input
                         required
-                        name="phone"
                         type="tel"
-                        placeholder="+977-98XXXXXXXX"
-                        className="w-full pl-12 pr-4 py-4 bg-navy-950 border border-navy-700 focus:border-gold-600 focus:ring-1 focus:ring-gold-600 outline-none transition-all rounded-sm text-white placeholder:text-navy-500"
+                        name="phone"
+                        value={phone}
+                        onChange={(e) => setPhone(e.target.value)}
+                        placeholder="+977 98..."
+                        className="w-full h-full pl-12 pr-4 bg-navy-950 border border-navy-700 focus:border-gold-600 focus:ring-1 focus:ring-gold-600 outline-none transition-all rounded-sm text-white placeholder:text-navy-500"
                       />
                     </div>
                   </div>
+                  
                   <div className="space-y-2">
-                    <label className="text-[10px] font-bold uppercase tracking-[0.2em] text-gold-500">Preferred Date</label>
-                    <div className="relative">
-                      <Calendar className="absolute left-4 top-4 text-navy-400" size={18} />
+                    <label className="text-[10px] font-bold uppercase tracking-[0.2em] text-gold-500">Appointment Date (AD)</label>
+                    <div className="relative h-[58px]">
+                      <Calendar className="absolute left-4 top-[20px] text-navy-400 z-10 pointer-events-none" size={18} />
                       <input
                         required
-                        name="date"
                         type="date"
-                        className="w-full pl-12 pr-4 py-4 bg-navy-950 border border-navy-700 focus:border-gold-600 focus:ring-1 focus:ring-gold-600 outline-none transition-all rounded-sm text-white [color-scheme:dark]"
+                        name="date"
+                        value={date}
+                        onChange={(e) => setDate(e.target.value)}
+                        className="w-full h-full pl-12 pr-4 bg-navy-950 border border-navy-700 focus:border-gold-600 focus:ring-1 focus:ring-gold-600 outline-none transition-all rounded-sm text-white placeholder:text-navy-500 scheme-dark"
                       />
+                    </div>
+                  </div>
+
+                  <div className="space-y-2">
+                    <label className="text-[10px] font-bold uppercase tracking-[0.2em] text-gold-500">Time</label>
+                    <div className="relative h-[58px]">
+                      <Clock className="absolute left-4 top-[20px] text-navy-400 pointer-events-none" size={18} />
+                      <select
+                        required
+                        name="time"
+                        className="w-full h-full pl-12 pr-10 bg-navy-950 border border-navy-700 focus:border-gold-600 focus:ring-1 focus:ring-gold-600 outline-none transition-all rounded-sm text-white cursor-pointer appearance-none text-sm"
+                      >
+                        <option value="">Select Time</option>
+                        {Array.from({ length: 8 }, (_, i) => i + 10).map((hour) => {
+                          const time12 = hour > 12 ? `${hour - 12}:00 PM` : `${hour === 12 ? 12 : hour}:00 AM`;
+                          return <option key={hour} value={time12}>{time12}</option>;
+                        })}
+                      </select>
+                      <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none">
+                        <svg className="w-4 h-4 text-navy-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" /></svg>
+                      </div>
                     </div>
                   </div>
                 </div>

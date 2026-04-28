@@ -77,7 +77,7 @@ export default function PrivacyPolicy() {
 
             <div className="pt-10 border-t border-navy-100">
               <p className="text-sm text-navy-500 italic">
-                Last Updated: April 2026. For any privacy-related inquiries, please contact us at privacy@lawyersinnepal.com.
+                Last Updated: April 2026. For any privacy-related inquiries, please contact us at lawyersinnepal.com.np@gmail.com.
               </p>
             </div>
           </div>

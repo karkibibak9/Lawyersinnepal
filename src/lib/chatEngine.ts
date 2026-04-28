@@ -101,11 +101,11 @@ const INTENTS: Intent[] = [
   },
   {
     keywords: ['book', 'appointment', 'consult', 'consultation', 'meet', 'schedule', 'talk to lawyer', 'speak to lawyer', 'hire', 'need help', 'get help', 'legal help', 'need a lawyer', 'find a lawyer', 'i want to'],
-    response: '__BOOKING_START__'
+    response: '__BOOKING_REDIRECT__'
   },
   {
-    keywords: ['contact', 'phone', 'address', 'location', 'office', 'where are you', 'find you', 'reach you', 'email', 'whatsapp', 'call you', 'thamel', 'kathmandu'],
-    response: '**Lawyers In Nepal — Contact Information:**\n\n📍 **Office**: Thamel, Kathmandu, Nepal\n📞 **Phone/WhatsApp**: +977 9815861066\n📧 **Email**: info@lawyersinnepal.com\n🕐 **Hours**: Sunday–Friday, 9:00 AM – 6:00 PM (NPT)\n\nYou can also use the **WhatsApp button** below for instant messaging.\n\nIs there a specific legal matter I can help you with today?'
+    keywords: ['contact', 'phone', 'address', 'location', 'office', 'where are you', 'find you', 'reach you', 'email', 'whatsapp', 'call you', 'anamnagar', 'kathmandu'],
+    response: '**Lawyers In Nepal — Contact Information:**\n\n📍 **Office**: Purbi Gate, Anamnagar-29, Kathmandu 44600, Nepal\n📞 **Phone/WhatsApp**: +977 9815861066\n📧 **Email**: lawyersinnepal.com.np@gmail.com\n🕐 **Hours**: Sunday–Friday, 9:00 AM – 6:00 PM (NPT)\n\nYou can also use the **WhatsApp button** below for instant messaging.\n\nIs there a specific legal matter I can help you with today?'
   },
   {
     keywords: ['fee', 'fees', 'cost', 'charge', 'price', 'how much', 'rate', 'expensive', 'affordable', 'payment'],
@@ -235,6 +235,9 @@ export function processMessage(
       const resp = pick(intent.response);
       if (resp === '__BOOKING_START__') {
         return { response: BOOKING_PROMPTS.start, newBookingState: 'name', newBookingData: {} };
+      }
+      if (resp === '__BOOKING_REDIRECT__') {
+        return { response: '__REDIRECT__/appointment', newBookingState: 'idle', newBookingData: {} };
       }
       return { response: resp, newBookingState: 'idle', newBookingData: {} };
     }

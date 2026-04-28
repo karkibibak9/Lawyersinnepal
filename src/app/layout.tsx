@@ -20,26 +20,31 @@ const playfair = Playfair_Display({
 
 export const metadata: Metadata = {
   title: {
-    default: "Lawyers In Nepal | Best Law Firm in Kathmandu | Top Rated Attorneys",
+    default: "Lawyers In Nepal | Best Law Firm in Kathmandu | Expert Legal Advocacy",
     template: "%s | Lawyers In Nepal",
   },
-  description: "Premier law firm in Kathmandu, Nepal. Expert legal services for Divorce, Criminal Defense, Property Disputes, and Corporate Registration. Trusted by 500+ clients.",
+  description: "Top-rated law firm in Kathmandu, Nepal. Our expert attorneys specialize in Divorce, Criminal Defense, Supreme Court Litigation, Property Disputes, and FDI/Corporate Registration. Over 25 years of experience in the Nepalese legal system.",
   keywords: [
     "Lawyers in Nepal", 
     "Best law firm in Kathmandu", 
     "Divorce lawyer in Nepal", 
-    "Criminal lawyer in Nepal", 
-    "Legal services Kathmandu", 
-    "Top rated attorneys Nepal",
+    "Criminal defense lawyer Kathmandu", 
+    "Corporate lawyer in Nepal",
+    "Supreme Court advocate Nepal",
+    "Property dispute lawyer Kathmandu",
+    "Legal services Nepal",
     "Marriage registration Nepal",
     "Company registration Kathmandu",
-    "Property dispute lawyer Nepal",
-    "Court marriage in Nepal",
-    "Notary services Kathmandu",
-    "Labor law Nepal",
-    "Intellectual property lawyer Nepal",
-    "Supreme Court advocate Nepal",
-    "Child custody lawyer Nepal"
+    "Foreign Direct Investment lawyer Nepal",
+    "Intellectual property lawyer Kathmandu",
+    "Cybercrime lawyer Nepal",
+    "Child custody lawyer Kathmandu",
+    "Labor law consultant Nepal",
+    "Top rated attorneys in Nepal",
+    "Legal drafting services Kathmandu",
+    "Notary public services Nepal",
+    "Constitutional law expert Nepal",
+    "Commercial litigation Kathmandu"
   ],
   authors: [{ name: "Lawyers In Nepal" }],
   creator: "Lawyers In Nepal",
@@ -72,6 +77,7 @@ export default function RootLayout({
     <html
       lang="en"
       className={`${inter.variable} ${playfair.variable} h-full antialiased scroll-smooth`}
+      data-scroll-behavior="smooth"
     >
       <body className="min-h-full flex flex-col font-sans bg-white text-navy-900 overflow-x-hidden">
         <Navbar />

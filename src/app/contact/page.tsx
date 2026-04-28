@@ -63,9 +63,9 @@ export default function ContactPage() {
 
               <div className="space-y-8">
                 {[
-                  { icon: MapPin, title: 'Our Office', text: 'Lawyers In Nepal HQ, Thamel\nKathmandu, 44600, Nepal' },
+                  { icon: MapPin, title: 'Our Office', text: 'Lawyers In Nepal HQ, Purbi Gate\nAnamnagar-29, Kathmandu 44600' },
                   { icon: Phone, title: 'Phone Numbers', text: '+977 9815861066 (Mobile)\n+977 1 4400000 (Office)' },
-                  { icon: Mail, title: 'Email Addresses', text: 'info@lawyersinnepal.com\ncontact@lawyersinnepal.com' },
+                  { icon: Mail, title: 'Email Addresses', text: 'lawyersinnepal.com.np@gmail.com' },
                   { icon: Clock, title: 'Office Hours', text: 'Mon - Fri: 09:00 - 17:00\nSat: Closed (Emergencies Only)' },
                 ].map((item, i) => (
                   <div key={i} className="flex gap-6 group">
@@ -160,7 +160,7 @@ export default function ContactPage() {
       {/* Map Section */}
       <section className="h-[450px] w-full border-t border-navy-800 relative grayscale invert-[0.9] opacity-80 hover:grayscale-0 hover:invert-0 transition-all duration-1000">
         <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14129.471671048682!2d85.304033!3d27.712166!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb1900139e6d3d%3A0xe54d24a91901dde!2sThamel%2C%20Kathmandu%2044600!5e0!3m2!1sen!2snp!4v1700000000000!5m2!1sen!2snp"
+          src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d227.40038068747242!2d85.32862045448688!3d27.698392870882902!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb197753c20805%3A0x70f066708ce3986c!2sLaw%20Firm%20Nepal!5e1!3m2!1sen!2snp!4v1777393214785!5m2!1sen!2snp"
           width="100%"
           height="100%"
           style={{ border: 0 }}
@@ -170,7 +170,7 @@ export default function ContactPage() {
         />
         <div className="absolute top-10 left-1/2 -translate-x-1/2 bg-navy-950 text-white px-8 py-5 rounded-sm shadow-2xl flex items-center gap-3 pointer-events-none border border-gold-600/30 font-bold group">
           <MapPin size={24} className="text-gold-600" />
-          <div className="text-sm tracking-[0.1em] uppercase">Lawyers In Nepal HQ, Thamel</div>
+          <div className="text-sm tracking-[0.1em] uppercase">Lawyers In Nepal HQ, Anamnagar</div>
         </div>
       </section>
     </div>

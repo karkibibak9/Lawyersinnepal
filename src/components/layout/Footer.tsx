@@ -104,7 +104,7 @@ export default function Footer() {
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="w-5 h-5 text-gold-600 shrink-0" />
-                <span className="text-navy-100 text-sm">info@lawyersinnepal.com</span>
+                <span className="text-navy-100 text-sm">lawyersinnepal.com.np@gmail.com</span>
               </li>
             </ul>
           </div>
@@ -117,7 +117,7 @@ export default function Footer() {
             Registered with Nepal Bar Council.
           </p>
           <p className="text-navy-400 text-[10px] text-center md:text-right uppercase tracking-[0.1em]">
-            Developed with excellence for the legal community in Nepal.
+            Developed with excellence by <a href="https://www.linkedin.com/in/nischalkarki09/" target="_blank" rel="noopener noreferrer" className="text-gold-600 hover:text-gold-400 font-bold transition-colors">Nischal Karki</a> for the legal community in Nepal.
           </p>
         </div>
       </div>
@@ -142,7 +142,45 @@ export default function Footer() {
               "addressCountry": "NP"
             },
             "openingHours": "Mo-Fr 09:00-17:00",
-            "priceRange": "$$$"
+            "priceRange": "$$$",
+            "hasOfferCatalog": {
+              "@type": "OfferCatalog",
+              "name": "Legal Services",
+              "itemListElement": [
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Criminal Defense Litigation",
+                    "description": "Expert representation in criminal cases across Kathmandu."
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Corporate Law & Company Registration",
+                    "description": "Providing legal support for business setup and foreign investment in Nepal."
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Family Law & Divorce Proceedings",
+                    "description": "Compassionate legal guidance for family disputes and marriage registration."
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Supreme Court Advocacy",
+                    "description": "Professional litigation services in the Supreme Court of Nepal."
+                  }
+                }
+              ]
+            }
           })
         }}
       />
