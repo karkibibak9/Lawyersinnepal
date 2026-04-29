@@ -23,6 +23,9 @@ export const metadata: Metadata = {
     default: "Lawyers In Nepal | Best Law Firm in Kathmandu | Expert Legal Advocacy",
     template: "%s | Lawyers In Nepal",
   },
+  alternates: {
+    canonical: "https://lawyersinnepal.com",
+  },
   description: "Top-rated law firm in Kathmandu, Nepal. Our expert attorneys specialize in Divorce, Criminal Defense, Supreme Court Litigation, Property Disputes, and FDI/Corporate Registration. Over 25 years of experience in the Nepalese legal system.",
   keywords: [
     "Lawyers in Nepal", 
@@ -80,6 +83,49 @@ export default function RootLayout({
       data-scroll-behavior="smooth"
     >
       <body className="min-h-full flex flex-col font-sans bg-white text-navy-900 overflow-x-hidden">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "LegalService",
+              "name": "Lawyers In Nepal",
+              "image": "https://lawyersinnepal.com/Gaurabdai.webp",
+              "@id": "https://lawyersinnepal.com",
+              "url": "https://lawyersinnepal.com",
+              "telephone": "+9779815861066",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Purbi Gate, Anamnagar-29",
+                "addressLocality": "Kathmandu",
+                "postalCode": "44600",
+                "addressCountry": "NP"
+              },
+              "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": 27.6983928,
+                "longitude": 85.3286204
+              },
+              "openingHoursSpecification": {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": [
+                  "Monday",
+                  "Tuesday",
+                  "Wednesday",
+                  "Thursday",
+                  "Friday"
+                ],
+                "opens": "10:00",
+                "closes": "17:00"
+              },
+              "sameAs": [
+                "https://www.facebook.com/lawyersinnepal",
+                "https://www.linkedin.com/company/lawyersinnepal"
+              ],
+              "priceRange": "$$"
+            })
+          }}
+        />
         <Navbar />
         <main className="flex-grow">
           {children}

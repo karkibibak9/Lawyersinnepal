@@ -8,7 +8,6 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function submitAppointment(formData: any) {
   const supabase = createServerClient();
-  console.log('Submitting appointment for:', formData.email);
   
   try {
     const { error } = await supabase
@@ -53,9 +52,8 @@ export async function submitAppointment(formData: any) {
 </div>
         `,
       });
-      console.log('Appointment Notification Result:', result);
     } catch (emailError) {
-      console.error('Failed to send appointment email:', emailError);
+      // Silent fail or minimal logging for production email errors
     }
 
     return { success: true };

@@ -5,49 +5,7 @@ import { Mail, Phone, Globe, CheckCircle, GraduationCap, Award, Shield, Scale, M
 import Image from 'next/image';
 import Link from 'next/link';
 
-const attorneys = [
-  {
-    name: 'Advocate Krishna Prasad Sharma',
-    role: 'Senior Managing Partner',
-    specialty: 'Corporate & Supreme Court Litigation',
-    bio: 'With over 25 years of experience in the Supreme Court of Nepal, Adv. Sharma is one of the leading legal minds in corporate law and Constitutional matters.',
-    education: 'LL.M. from University of London, B.L. from Tribhuvan University',
-    email: 'lawyersinnepal.com.np@gmail.com',
-    phone: '+977 9815861066',
-    image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=400&h=500'
-  },
-  {
-    name: 'Advocate Sita Devi Gurung',
-    role: 'Senior Associate Attorney',
-    specialty: 'Family & Civil Law specialist',
-    bio: 'Adv. Sita specializes in domestic relations and property disputes, providing compassionate yet firm legal representation for over 15 years.',
-    education: 'LL.B. from Tribhuvan University, Specialized Family Law Training (Delhi)',
-    email: 'lawyersinnepal.com.np@gmail.com',
-    phone: '+977 9815861066',
-    image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=400&h=500'
-  },
-  {
-    name: 'Advocate Rajesh Thapa',
-    role: 'Associate Attorney',
-    specialty: 'Criminal Defense & Intellectual Property',
-    bio: 'A dynamic litigator known for meticulous research and strong courtroom presence in high-stakes criminal defense and IP infringement cases.',
-    education: 'LL.B. from Kathmandu School of Law',
-    email: 'lawyersinnepal.com.np@gmail.com',
-    phone: '+977 9815861066',
-    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=400&h=500'
-  },
-  {
-    name: 'Advocate Gaurab Dangi',
-    role: 'Criminal Defence Lawyer',
-    specialty: 'Criminal Defence, Cybercrime & Domestic Violence',
-    bio: 'A dedicated defence lawyer in Nepal known for providing strategic legal representation across Kathmandu. With 7 years of experience, he offers reliable legal services for individuals facing investigation, arrest, or trial.',
-    education: 'Expertise in Nepalese Criminal Law, Muluki Criminal Code 2017 & Evidence Act',
-    email: 'lawyersinnepal.com.np@gmail.com',
-    phone: '+977 9864423830',
-    location: 'Purbi Gate, Anamnagar-29, Kathmandu 44600, Nepal',
-    image: 'https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&q=80&w=400&h=500'
-  }
-];
+import { attorneys } from '@/lib/attorneys';
 
 const specialties = Array.from(new Set(attorneys.map(a => a.specialty)));
 
@@ -163,7 +121,10 @@ export default function AttorneysPage() {
                       </div>
                     </div>
                     
-                    <div className="pt-8 flex gap-4">
+                    <div className="pt-8 flex flex-wrap gap-4">
+                      <Link href={`/attorneys/${lawyer.slug}`} className="px-8 py-4 bg-transparent border border-gold-600 text-gold-600 font-bold hover:bg-gold-600 hover:text-navy-900 transition-all text-sm uppercase tracking-widest shadow-lg">
+                        View Profile
+                      </Link>
                       <Link href="/appointment" className="px-8 py-4 bg-gold-600 text-navy-900 font-bold hover:bg-gold-500 transition-all text-sm uppercase tracking-widest shadow-lg">
                         Book Consultation
                       </Link>

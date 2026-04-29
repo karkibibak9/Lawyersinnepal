@@ -114,7 +114,7 @@ export default function Footer() {
           <p className="text-navy-300 text-xs text-center md:text-left">
             &copy; {new Date().getFullYear()} Lawyers In Nepal. All rights reserved. 
             <span className="mx-2">|</span> 
-            Registered with Nepal Bar Council.
+            {/* Registered with Nepal Bar Council. */}
           </p>
           <p className="text-navy-400 text-[10px] text-center md:text-right uppercase tracking-[0.1em]">
             Developed with excellence by <a href="https://www.linkedin.com/in/nischalkarki09/" target="_blank" rel="noopener noreferrer" className="text-gold-600 hover:text-gold-400 font-bold transition-colors">Nischal Karki</a> for the legal community in Nepal.
