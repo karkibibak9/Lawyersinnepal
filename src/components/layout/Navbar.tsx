@@ -46,7 +46,7 @@ export default function Navbar() {
             <Scale className="w-8 h-8 text-gold-600 transition-colors" />
             <div className="flex flex-col">
               <span className="text-xl font-bold tracking-tight leading-none text-white">
-                LAWYERS IN <span className="text-gold-600">NEPAL</span>
+                LAWYER<span className="text-gold-600">INNEPAL</span>
               </span>
               <span className="text-[10px] uppercase tracking-[0.2em] font-medium text-white/80">
                 Justice. Expertise. Trust.

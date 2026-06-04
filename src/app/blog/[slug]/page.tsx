@@ -96,7 +96,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           </article>
           
           <div className="mt-16 pt-8 border-t border-navy-800 italic text-sm text-navy-400 leading-relaxed font-serif">
-            Disclaimer: The information provided in this article does not, and is not intended to, constitute legal advice; instead, all information, content, and materials available on this site are for general informational purposes only. Information for <span className="text-gold-600">lawyers in Nepal</span>.
+            Disclaimer: The information provided in this article does not, and is not intended to, constitute legal advice; instead, all information, content, and materials available on this site are for general informational purposes only. Information for <span className="text-gold-600">lawyer in Nepal</span>.
           </div>
         </div>
       </section>

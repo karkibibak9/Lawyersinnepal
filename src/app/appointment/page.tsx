@@ -57,7 +57,7 @@ export default function AppointmentPage() {
           </div>
           <h1 className="text-3xl font-serif font-bold text-white">Request Received</h1>
           <p className="text-navy-100 leading-relaxed">
-            Thank you for reaching out to <span className="text-gold-600 font-bold">Lawyers In Nepal</span>. One of our senior associates will contact you within 24 hours to confirm your appointment.
+            Thank you for reaching out to <span className="text-gold-600 font-bold">LawyerInNepal</span>. One of our senior associates will contact you within 24 hours to confirm your appointment.
           </p>
           <button
             onClick={() => setSubmitted(false)}
@@ -113,8 +113,8 @@ export default function AppointmentPage() {
               
               <div className="pt-10 border-t border-navy-900/10 space-y-4 text-sm">
                 <p className="font-bold uppercase tracking-widest text-[10px]">Need Immediate Help?</p>
-                <p className="flex items-center gap-2 font-bold"><Phone size={16} /> +977 9815861066</p>
-                <p className="flex items-center gap-2 font-bold"><ChevronRight size={16} /> Lawyers In Nepal HQ, Anamnagar</p>
+                <p className="flex items-center gap-2 font-bold"><Phone size={16} /> +977 9766910908</p>
+                <p className="flex items-center gap-2 font-bold"><ChevronRight size={16} /> LawyerInNepal HQ, Anamnagar</p>
               </div>
             </div>
 

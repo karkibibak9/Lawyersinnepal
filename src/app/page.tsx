@@ -11,7 +11,7 @@ export default function Home() {
         <div className="absolute inset-0 z-0">
           <Image
             src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&q=80"
-            alt="Lawyers In Nepal Courtroom"
+            alt="LawyerInNepal Courtroom"
             fill
             priority
             className="object-cover opacity-20"
@@ -25,7 +25,7 @@ export default function Home() {
               <Scale size={14} /> #1 Law Firm in Kathmandu, Nepal
             </div>
             <h1 className="text-5xl md:text-7xl font-serif text-white font-bold leading-[1.1]">
-              Expert <span className="text-gold-600">Lawyers</span> in Nepal.
+              Expert <span className="text-gold-600">Lawyer</span> in Nepal.
             </h1>
             <p className="text-lg md:text-xl text-navy-100/90 leading-relaxed max-w-2xl">
               Widely recognized as the <strong>best law firm in Kathmandu</strong>, providing specialized legal representation for individuals and corporations across Nepal.
@@ -164,7 +164,7 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               { name: 'Dr. Ramesh Karki', role: 'CEO, Everest Health', text: 'Their expertise in corporate registration and compliance was invaluable for our expansion. Highly professional team.' },
-              { name: 'Sunita Gurung', role: 'Individual Client', text: 'Navigating a complex property dispute was stressful, but Lawyers In Nepal handled everything with absolute clarity and success.' },
+              { name: 'Sunita Gurung', role: 'Individual Client', text: 'Navigating a complex property dispute was stressful, but LawyerInNepal handled everything with absolute clarity and success.' },
               { name: 'Arjun Thapa', role: 'Business Owner', text: 'The attorneys here provided reliable legal counsel when we needed it most. They are definitely the best in Kathmandu.' },
             ].map((t, idx) => (
               <div key={idx} className="bg-navy-800 p-8 border border-navy-700 flex flex-col relative gold-glow">
@@ -205,7 +205,7 @@ export default function Home() {
               },
               { 
                 q: "Do you handle criminal defense cases in Kathmandu?", 
-                a: "Yes, we are known as leading criminal lawyers in Kathmandu. We provide strong defense representation for matters ranging from white-collar crimes to bail proceedings and supreme court appeals." 
+                a: "Yes, we are known as leading criminal lawyer in Kathmandu. We provide strong defense representation for matters ranging from white-collar crimes to bail proceedings and supreme court appeals." 
               },
               { 
                 q: "How do I register a company in Nepal as a foreigner?", 
@@ -248,7 +248,7 @@ export default function Home() {
               Request a Consultation
             </Link>
             <a
-              href="tel:+9779815861066"
+              href="tel:+9779766910908"
               className="px-10 py-5 bg-white text-navy-900 font-bold text-lg hover:bg-navy-50 transition-all rounded-sm shadow-xl flex items-center justify-center gap-2"
             >
               Call Our Office

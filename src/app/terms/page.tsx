@@ -1,8 +1,8 @@
 import { Scale, FileText, CheckCircle, AlertTriangle } from 'lucide-react';
 
 export const metadata = {
-  title: 'Terms of Service | Legal Services Agreement Nepal | Lawyers In Nepal',
-  description: 'Terms and conditions for hiring the best lawyers in Kathmandu. Understand our legal service agreements for litigations and consultations in Nepal.',
+  title: 'Terms of Service | Legal Services Agreement Nepal | LawyerInNepal',
+  description: 'Terms and conditions for hiring the best lawyer in Kathmandu. Understand our legal service agreements for litigations and consultations in Nepal.',
   keywords: ["legal service agreement Nepal", "hiring a lawyer Kathmandu", "litigation terms Nepal", "law firm contract Kathmandu"]
 };
 
@@ -30,7 +30,7 @@ export default function TermsOfService() {
                 <h2 className="text-2xl font-serif font-bold text-white">1. Provision of Legal Services in Kathmandu</h2>
               </div>
               <p className="text-navy-100 leading-relaxed">
-                <span className="text-gold-600 font-bold">Lawyers In Nepal</span> provides expert legal representation and consultation within the jurisdiction of the Federal Democratic Republic of Nepal. By using our website or booking a <span className="font-bold underline">consultation with a lawyer in Kathmandu</span>, you agree to these terms.
+                <span className="text-gold-600 font-bold">LawyerInNepal</span> provides expert legal representation and consultation within the jurisdiction of the Federal Democratic Republic of Nepal. By using our website or booking a <span className="font-bold underline">consultation with a lawyer in Kathmandu</span>, you agree to these terms.
               </p>
             </div>
 
@@ -60,7 +60,7 @@ export default function TermsOfService() {
                 <h2 className="text-2xl font-serif font-bold text-white">4. Limitation of Liability</h2>
               </div>
               <p className="text-navy-100 leading-relaxed">
-                While we strive for excellence in <span className="text-gold-600">legal advocacy in Nepal</span>, legal outcomes are subject to the court's discretion. <span className="font-bold">Lawyers In Nepal</span> is not liable for indirect or consequential damages arising from the use of information on this professional legal portal.
+                While we strive for excellence in <span className="text-gold-600">legal advocacy in Nepal</span>, legal outcomes are subject to the court's discretion. <span className="font-bold">LawyerInNepal</span> is not liable for indirect or consequential damages arising from the use of information on this professional legal portal.
               </p>
             </div>
 

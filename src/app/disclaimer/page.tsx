@@ -1,7 +1,7 @@
 import { ShieldAlert, Info, Gavel, Scale } from 'lucide-react';
 
 export const metadata = {
-  title: 'Legal Disclaimer | Attorney-Client Privilege Notice | Lawyers In Nepal',
+  title: 'Legal Disclaimer | Attorney-Client Privilege Notice | LawyerInNepal',
   description: 'Our legal disclaimer clarifies that information on this Kathmandu law firm website is for general guidance and not specific legal advice in Nepal.',
   keywords: ["legal disclaimer Nepal", "not legal advice Kathmandu", "attorney-client privilege notice", "Nepal bar council regulations"]
 };
@@ -30,7 +30,7 @@ export default function Disclaimer() {
                 <h2 className="text-2xl font-serif font-bold text-white">General Information Only</h2>
               </div>
               <p className="text-navy-100 leading-relaxed">
-                The information provided on this website by <span className="text-gold-600 font-bold">Lawyers In Nepal</span> is for general informational purposes only. It is not intended to be <span className="font-bold underline">legal advice in Kathmandu</span> or any other jurisdiction in Nepal. You should not rely on any information on this site as an alternative to legal advice from a <span className="text-gold-600 font-bold">senior advocate in Nepal</span>.
+                The information provided on this website by <span className="text-gold-600 font-bold">LawyerInNepal</span> is for general informational purposes only. It is not intended to be <span className="font-bold underline">legal advice in Kathmandu</span> or any other jurisdiction in Nepal. You should not rely on any information on this site as an alternative to legal advice from a <span className="text-gold-600 font-bold">senior advocate in Nepal</span>.
               </p>
             </div>
 
@@ -50,7 +50,7 @@ export default function Disclaimer() {
                 <h2 className="text-2xl font-serif font-bold text-white">Compliance with Nepal Bar Council</h2>
               </div>
               <p className="text-navy-100 leading-relaxed">
-                This website is designed to provide information about our <span className="text-gold-600">top-rated legal services in Kathmandu</span> and is in full compliance with the <span className="font-bold">Nepal Bar Council (Code of Conduct) Rules</span>. We do not solicit or advertise in a manner prohibited by the regulations governing <span className="italic underline">lawyers in Nepal</span>.
+                This website is designed to provide information about our <span className="text-gold-600">top-rated legal services in Kathmandu</span> and is in full compliance with the <span className="font-bold">Nepal Bar Council (Code of Conduct) Rules</span>. We do not solicit or advertise in a manner prohibited by the regulations governing <span className="italic underline">lawyer in Nepal</span>.
               </p>
             </div>
 
@@ -66,7 +66,7 @@ export default function Disclaimer() {
 
             <div className="pt-10 border-t border-navy-700">
               <p className="text-sm text-navy-400 italic">
-                Last Updated: April 2026. Lawyers In Nepal - Excellence in Advocacy.
+                Last Updated: April 2026. LawyerInNepal - Excellence in Advocacy.
               </p>
             </div>
           </div>

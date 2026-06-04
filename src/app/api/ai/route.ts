@@ -29,7 +29,7 @@ export async function POST(req: NextRequest) {
       try {
         await supabase.from('appointments').insert([{
           name: booking.name || '',
-          email: 'chat@lawyersinnepal.com', // Placeholder since chat doesn't capture email yet
+          email: 'chat@lawyerinnepal.com', // Placeholder since chat doesn't capture email yet
           phone: booking.phone || '',
           service: booking.service || '',
           preferred_date: new Date().toISOString().split('T')[0], // Use today as placeholder date
@@ -43,8 +43,8 @@ export async function POST(req: NextRequest) {
       // 2. Send email notification via Resend
       try {
         const result = await resend.emails.send({
-          from: 'Lawyers In Nepal <onboarding@resend.dev>',
-          to: 'lawyersinnepal.com.np@gmail.com',
+          from: 'LawyerInNepal <onboarding@resend.dev>',
+          to: 'lawyerinnepal.com.np@gmail.com',
           subject: `📅 New Chat Appointment: ${booking.name}`,
           html: `
             <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; background: #0d1a2e; color: #fff; border-radius: 8px; overflow: hidden;">
@@ -79,7 +79,7 @@ export async function POST(req: NextRequest) {
                 </div>
               </div>
               <div style="background: rgba(0,0,0,0.3); padding: 16px; text-align: center;">
-                <p style="margin: 0; font-size: 12px; color: rgba(255,255,255,0.4);">Lawyers In Nepal · Anamnagar, Kathmandu · +977 9815861066</p>
+                <p style="margin: 0; font-size: 12px; color: rgba(255,255,255,0.4);">LawyerInNepal · Anamnagar, Kathmandu · +977 9766910908</p>
               </div>
             </div>
           `,
@@ -105,7 +105,7 @@ export async function POST(req: NextRequest) {
     console.error('Chat API error:', error);
     return NextResponse.json({
       success: false,
-      text: 'I\'m having a moment of confusion! Please try again or call us at +977 9815861066.',
+      text: 'I\'m having a moment of confusion! Please try again or call us at +977 9766910908.',
     }, { status: 500 });
   }
 }

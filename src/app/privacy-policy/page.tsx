@@ -2,7 +2,7 @@ import { Shield, Lock, Eye, FileText } from 'lucide-react';
 
 export const metadata = {
   title: 'Privacy Policy',
-  description: 'Privacy Policy for Lawyers In Nepal. We are committed to protecting your personal information and legal data.',
+  description: 'Privacy Policy for LawyerInNepal. We are committed to protecting your personal information and legal data.',
 };
 
 export default function PrivacyPolicy() {
@@ -29,7 +29,7 @@ export default function PrivacyPolicy() {
                 <h2 className="text-2xl font-serif font-bold text-navy-900">Commitment to Confidentiality</h2>
               </div>
               <p className="text-navy-700 leading-relaxed">
-                At Lawyers In Nepal, we understand the sensitive nature of legal matters. We are committed to maintaining the highest standards of confidentiality and data security in line with the Nepal Bar Council’s ethical guidelines and international privacy standards.
+                At LawyerInNepal, we understand the sensitive nature of legal matters. We are committed to maintaining the highest standards of confidentiality and data security in line with the Nepal Bar Council’s ethical guidelines and international privacy standards.
               </p>
             </div>
 
@@ -77,7 +77,7 @@ export default function PrivacyPolicy() {
 
             <div className="pt-10 border-t border-navy-100">
               <p className="text-sm text-navy-500 italic">
-                Last Updated: April 2026. For any privacy-related inquiries, please contact us at lawyersinnepal.com.np@gmail.com.
+                Last Updated: April 2026. For any privacy-related inquiries, please contact us at lawyerinnepal.com.np@gmail.com.
               </p>
             </div>
           </div>

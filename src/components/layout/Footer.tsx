@@ -41,7 +41,7 @@ export default function Footer() {
               <Scale className="w-8 h-8 text-gold-600" />
               <div className="flex flex-col">
                 <span className="text-xl font-bold tracking-tight leading-none">
-                  LAWYERS IN <span className="text-gold-600">NEPAL</span>
+                  LAWYER<span className="text-gold-600">INNEPAL</span>
                 </span>
                 <span className="text-[10px] uppercase tracking-[0.2em] font-medium text-white/60">
                   Justice. Expertise. Trust.
@@ -100,11 +100,11 @@ export default function Footer() {
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="w-5 h-5 text-gold-600 shrink-0" />
-                <span className="text-navy-100 text-sm font-medium">+977 9815861066</span>
+                <span className="text-navy-100 text-sm font-medium">+977 9766910908</span>
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="w-5 h-5 text-gold-600 shrink-0" />
-                <span className="text-navy-100 text-sm">lawyersinnepal.com.np@gmail.com</span>
+                <span className="text-navy-100 text-sm">lawyerinnepal.com.np@gmail.com</span>
               </li>
             </ul>
           </div>
@@ -112,7 +112,7 @@ export default function Footer() {
 
         <div className="pt-8 border-t border-navy-800 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-navy-300 text-xs text-center md:text-left">
-            &copy; {new Date().getFullYear()} Lawyers In Nepal. All rights reserved. 
+            &copy; {new Date().getFullYear()} LawyerInNepal. All rights reserved. 
             <span className="mx-2">|</span> 
             {/* Registered with Nepal Bar Council. */}
           </p>
@@ -129,11 +129,11 @@ export default function Footer() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "LegalService",
-            "name": "Lawyers In Nepal",
+            "name": "LawyerInNepal",
             "description": "Expert legal services in Nepal specializing in Civil, Criminal, Corporate, and Family law.",
-            "url": "https://lawyersinnepal.com",
-            "logo": "https://lawyersinnepal.com/logo.png",
-            "telephone": "+977 9815861066",
+            "url": "https://lawyerinnepal.com",
+            "logo": "https://lawyerinnepal.com/logo.png",
+            "telephone": "+977 9766910908",
             "address": {
               "@type": "PostalAddress",
               "streetAddress": "Purbi Gate, Anamnagar-29",

@@ -25,9 +25,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!attorney) return { title: 'Attorney Not Found' };
 
   return {
-    title: `${attorney.name} | ${attorney.role} | Lawyers In Nepal`,
+    title: `${attorney.name} | ${attorney.role} | LawyerInNepal`,
     description: attorney.bio,
-    keywords: [attorney.name, attorney.specialty, 'Lawyer in Nepal', 'Advocate Kathmandu'],
+    keywords: [attorney.name, attorney.specialty, 'LawyerInNepal', 'Advocate Kathmandu'],
   };
 }
 

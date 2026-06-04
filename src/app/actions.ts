@@ -29,13 +29,13 @@ export async function submitAppointment(formData: any) {
     // Send email notification via Resend
     try {
       const result = await resend.emails.send({
-        from: 'Lawyers In Nepal <onboarding@resend.dev>',
-        to: 'lawyersinnepal.com.np@gmail.com',
+        from: 'LawyerInNepal <onboarding@resend.dev>',
+        to: 'lawyerinnepal.com.np@gmail.com',
         subject: `New Appointment: ${formData.name}`,
         html: `
 <div style="font-family: 'Georgia', serif; max-width: 600px; margin: 0 auto; background-color: #0a1628; padding: 40px; border-top: 8px solid #d4af37; border-radius: 8px; color: #ffffff;">
   <div style="text-align: center; margin-bottom: 30px;">
-    <h1 style="color: #d4af37; font-size: 28px; margin: 0; font-weight: bold;">Lawyers In Nepal</h1>
+    <h1 style="color: #d4af37; font-size: 28px; margin: 0; font-weight: bold;">LawyerInNepal</h1>
     <p style="color: #94a3b8; font-family: 'Helvetica', Arial, sans-serif; font-size: 14px; margin-top: 5px; text-transform: uppercase; letter-spacing: 2px;">New Appointment Request</p>
   </div>
   <table style="width: 100%; border-collapse: collapse; font-family: 'Helvetica', Arial, sans-serif; font-size: 16px;">
@@ -47,7 +47,7 @@ export async function submitAppointment(formData: any) {
     <tr><td style="padding: 12px 0;"><strong style="color: #d4af37; text-transform: uppercase; font-size: 12px; letter-spacing: 1px;">Message / Case Overview:</strong><br/><div style="margin-top: 10px; background-color: #1e293b; padding: 20px; border-radius: 6px; line-height: 1.6; color: #f8fafc;">${formData.message}</div></td></tr>
   </table>
   <div style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #1e293b; text-align: center; font-family: 'Helvetica', Arial, sans-serif; font-size: 12px; color: #64748b;">
-    <p>This is an automated notification from Lawyers In Nepal.</p>
+    <p>This is an automated notification from LawyerInNepal.</p>
   </div>
 </div>
         `,
@@ -85,13 +85,13 @@ export async function submitContactMessage(formData: any) {
     // Send email notification
     try {
       const result = await resend.emails.send({
-        from: 'Lawyers In Nepal <onboarding@resend.dev>',
-        to: 'lawyersinnepal.com.np@gmail.com',
+        from: 'LawyerInNepal <onboarding@resend.dev>',
+        to: 'lawyerinnepal.com.np@gmail.com',
         subject: `New Message: ${formData.name}`,
         html: `
 <div style="font-family: 'Georgia', serif; max-width: 600px; margin: 0 auto; background-color: #0a1628; padding: 40px; border-top: 8px solid #d4af37; border-radius: 8px; color: #ffffff;">
   <div style="text-align: center; margin-bottom: 30px;">
-    <h1 style="color: #d4af37; font-size: 28px; margin: 0; font-weight: bold;">Lawyers In Nepal</h1>
+    <h1 style="color: #d4af37; font-size: 28px; margin: 0; font-weight: bold;">LawyerInNepal</h1>
     <p style="color: #94a3b8; font-family: 'Helvetica', Arial, sans-serif; font-size: 14px; margin-top: 5px; text-transform: uppercase; letter-spacing: 2px;">New Contact Message</p>
   </div>
   <table style="width: 100%; border-collapse: collapse; font-family: 'Helvetica', Arial, sans-serif; font-size: 16px;">
@@ -101,7 +101,7 @@ export async function submitContactMessage(formData: any) {
     <tr><td style="padding: 12px 0;"><strong style="color: #d4af37; text-transform: uppercase; font-size: 12px; letter-spacing: 1px;">Message:</strong><br/><div style="margin-top: 10px; background-color: #1e293b; padding: 20px; border-radius: 6px; line-height: 1.6; color: #f8fafc;">${formData.message}</div></td></tr>
   </table>
   <div style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #1e293b; text-align: center; font-family: 'Helvetica', Arial, sans-serif; font-size: 12px; color: #64748b;">
-    <p>This is an automated notification from Lawyers In Nepal.</p>
+    <p>This is an automated notification from LawyerInNepal.</p>
   </div>
 </div>
         `,

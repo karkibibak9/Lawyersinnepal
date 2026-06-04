@@ -75,7 +75,7 @@ export default function AttorneysPage() {
                   <div className="w-full lg:w-1/3 aspect-[4/5] relative bg-navy-900 rounded-sm overflow-hidden shadow-2xl border border-gold-600/10">
                     <Image
                       src={lawyer.image}
-                      alt={`${lawyer.name} - ${lawyer.role} at Lawyers In Nepal`}
+                      alt={`${lawyer.name} - ${lawyer.role} at LawyerInNepal`}
                       width={400}
                       height={500}
                       className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 scale-105 hover:scale-100"

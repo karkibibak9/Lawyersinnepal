@@ -20,15 +20,15 @@ const playfair = Playfair_Display({
 
 export const metadata: Metadata = {
   title: {
-    default: "Lawyers In Nepal | Best Law Firm in Kathmandu | Expert Legal Advocacy",
-    template: "%s | Lawyers In Nepal",
+    default: "LawyerInNepal | Best Law Firm in Kathmandu | Expert Legal Advocacy",
+    template: "%s | LawyerInNepal",
   },
   alternates: {
-    canonical: "https://lawyersinnepal.com",
+    canonical: "https://lawyerinnepal.com",
   },
   description: "Top-rated law firm in Kathmandu, Nepal. Our expert attorneys specialize in Divorce, Criminal Defense, Supreme Court Litigation, Property Disputes, and FDI/Corporate Registration. Over 25 years of experience in the Nepalese legal system.",
   keywords: [
-    "Lawyers in Nepal", 
+    "LawyerInNepal", 
     "Best law firm in Kathmandu", 
     "Divorce lawyer in Nepal", 
     "Criminal defense lawyer Kathmandu", 
@@ -49,20 +49,20 @@ export const metadata: Metadata = {
     "Constitutional law expert Nepal",
     "Commercial litigation Kathmandu"
   ],
-  authors: [{ name: "Lawyers In Nepal" }],
-  creator: "Lawyers In Nepal",
-  metadataBase: new URL("https://lawyersinnepal.com"),
+  authors: [{ name: "LawyerInNepal" }],
+  creator: "LawyerInNepal",
+  metadataBase: new URL("https://lawyerinnepal.com"),
   openGraph: {
     type: "website",
     locale: "en_NP",
-    url: "https://lawyersinnepal.com",
-    title: "Lawyers In Nepal | Premier Legal Services in Kathmandu",
+    url: "https://lawyerinnepal.com",
+    title: "LawyerInNepal | Premier Legal Services in Kathmandu",
     description: "Expert legal representation in Nepal. Specializing in Civil, Criminal, and Family Law with a focus on justice and integrity.",
-    siteName: "Lawyers In Nepal",
+    siteName: "LawyerInNepal",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Lawyers In Nepal | Best Law Firm in Kathmandu",
+    title: "LawyerInNepal | Best Law Firm in Kathmandu",
     description: "Leading legal experts in Nepal. We handle Divorce, Criminal Defense, and Corporate law with precision.",
   },
   robots: {
@@ -89,11 +89,11 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "LegalService",
-              "name": "Lawyers In Nepal",
-              "image": "https://lawyersinnepal.com/Gaurabdai.webp",
-              "@id": "https://lawyersinnepal.com",
-              "url": "https://lawyersinnepal.com",
-              "telephone": "+9779815861066",
+              "name": "LawyerInNepal",
+              "image": "https://lawyerinnepal.com/Gaurabdai.webp",
+              "@id": "https://lawyerinnepal.com",
+              "url": "https://lawyerinnepal.com",
+              "telephone": "+977 9766910908",
               "address": {
                 "@type": "PostalAddress",
                 "streetAddress": "Purbi Gate, Anamnagar-29",
@@ -119,8 +119,8 @@ export default function RootLayout({
                 "closes": "17:00"
               },
               "sameAs": [
-                "https://www.facebook.com/lawyersinnepal",
-                "https://www.linkedin.com/company/lawyersinnepal"
+                "https://www.facebook.com/lawyerinnepal",
+                "https://www.linkedin.com/company/lawyerinnepal"
               ],
               "priceRange": "$$"
             })

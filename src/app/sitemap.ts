@@ -3,7 +3,7 @@ import { getSortedPostsData } from '@/lib/blog';
 import { attorneys } from '@/lib/attorneys';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://lawyersinnepal.com';
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://lawyerinnepal.com';
 
   const posts = getSortedPostsData();
   

@@ -40,7 +40,7 @@ export const attorneys: Attorney[] = [
     `,
     education: 'LL.B. from Tribhuvan University, Certified Criminal Procedure Expert',
     email: 'lawfirmnepal01@gmail.com',
-    phone: '+977 9864423830',
+    phone: '+977 9766910908',
     location: 'Purbi Gate, Anamnagar-29, Kathmandu 44600, Nepal',
     image: '/Gaurabdai.webp',
     services: [
@@ -78,8 +78,8 @@ export const attorneys: Attorney[] = [
       His career is marked by a commitment to excellence and a deep understanding of the intersection between law and business. Advocate Bhat’s personalized approach to legal advisory has made him a preferred choice for companies seeking reliable and profound legal support.
     `,
     education: 'LL.B. from Tribhuvan University, Expert in Public Procurement Law',
-    email: 'lawyersinnepal.com.np@gmail.com',
-    phone: '+977 9851206582',
+    email: 'lawyerinnepal.com.np@gmail.com',
+    phone: '+977 9766910908',
     image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=400&h=500',
     location: 'Purbi Gate, Anamnagar-29, Kathmandu 44600, Nepal',
     services: [

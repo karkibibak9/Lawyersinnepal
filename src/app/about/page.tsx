@@ -4,11 +4,11 @@ import Link from 'next/link';
 import { Scale, CheckCircle2, Shield, Award, Users, ChevronRight, BookOpen } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'About Our Practice | Best Lawyers in Nepal | Law Firm Kathmandu',
-  description: 'Learn about Lawyers in Nepal, the top-rated law firm in Kathmandu. With 15+ years of experience, we provide expert legal services with unwavering ethics.',
-  keywords: ['Lawyers in Nepal', 'Best Law Firm in Kathmandu', 'Advocate in Nepal', 'Nepal Bar Council', 'Supreme Court Lawyers Nepal', 'Legal Services Nepal'],
+  title: 'About Our Practice | Best LawyerInNepal | Law Firm Kathmandu',
+  description: 'Learn about LawyerInNepal, the top-rated law firm in Kathmandu. With 15+ years of experience, we provide expert legal services with unwavering ethics.',
+  keywords: ['LawyerInNepal', 'Best Law Firm in Kathmandu', 'Advocate in Nepal', 'Nepal Bar Council', 'Supreme Court Lawyer Nepal', 'Legal Services Nepal'],
   alternates: {
-    canonical: 'https://lawyersinnepal.com/about',
+    canonical: 'https://lawyerinnepal.com/about',
   },
 };
 
@@ -99,7 +99,7 @@ export default function AboutPage() {
             </h3>
             <div className="space-y-4 text-navy-200 leading-relaxed text-lg pt-4">
               <p>
-                Founded on the principles of truth, diligence, and unparalleled legal acumen, <strong>Lawyers in Nepal</strong> has grown from a humble practice to one of the most formidable law firms in Kathmandu. We have consistently ranked among the best attorneys in Nepal due to our uncompromising dedication to our clients.
+                Founded on the principles of truth, diligence, and unparalleled legal acumen, <strong>LawyerInNepal</strong> has grown from a humble practice to one of the most formidable law firms in Kathmandu. We have consistently ranked among the best attorneys in Nepal due to our uncompromising dedication to our clients.
               </p>
               <p>
                 Whether navigating complex corporate mergers, defending individual rights in criminal proceedings, or settling sensitive family disputes, our legal team possesses the deep functional expertise needed to secure favorable outcomes at local districts and the Supreme Court of Nepal alike.
@@ -183,7 +183,7 @@ export default function AboutPage() {
             "@type": "AboutPage",
             "mainEntity": {
               "@type": "LegalService",
-              "name": "Lawyers In Nepal",
+              "name": "LawyerInNepal",
               "description": "A Legacy of Legal Excellence and Integrity. 15+ Years Experience. Personalized Strategy. Unwavering Ethics.",
               "address": {
                 "@type": "PostalAddress",

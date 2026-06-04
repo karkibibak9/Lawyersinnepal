@@ -1,5 +1,5 @@
 // ============================================================
-// Lawyers In Nepal – Rule-Based Legal Chat Engine
+// LawyerInNepal – Rule-Based Legal Chat Engine
 // No external AI API required. Fully offline-capable.
 // ============================================================
 
@@ -35,8 +35,8 @@ const INTENTS: Intent[] = [
   {
     keywords: ['hello', 'hi', 'hey', 'namaste', 'good morning', 'good afternoon', 'good evening', 'howdy', 'sup', 'greetings', 'hola'],
     response: [
-      'Namaste! 🙏 Welcome to Lawyers In Nepal. How can I help you today?',
-      'Hello! I\'m the Lawyers In Nepal assistant. Whether it\'s a corporate matter or a personal legal issue — I\'m here to help. What can I do for you?',
+      'Namaste! 🙏 Welcome to LawyerInNepal. How can I help you today?',
+      'Hello! I\'m the LawyerInNepal assistant. Whether it\'s a corporate matter or a personal legal issue — I\'m here to help. What can I do for you?',
       'Namaste! 🙏 Great to have you here. I can answer legal questions or help you book a consultation. What do you need?',
     ]
   },
@@ -51,13 +51,13 @@ const INTENTS: Intent[] = [
   {
     keywords: ['who are you', 'what are you', 'tell me about yourself', 'introduce yourself', 'your name', 'are you a bot', 'are you ai', 'are you human', 'are you real'],
     response: [
-      'I\'m the virtual legal assistant for **Lawyers In Nepal** 🤖⚖️\n\nI\'m powered by a legal knowledge engine trained on Nepalese law — including the Muluki Civil Code, Labor Act 2074, FITTA, and more.\n\nI can:\n• Answer your legal questions in plain language\n• Guide you through legal procedures in Nepal\n• Help you book a consultation with our expert lawyers\n\nWhat would you like to know?',
-      'I\'m the AI legal assistant for **Lawyers In Nepal**, a premier law firm in Kathmandu. I\'m not a human lawyer, but I\'m trained on Nepalese legal procedures and can give you accurate general guidance.\n\nHow can I help you today?',
+      'I\'m the virtual legal assistant for **LawyerInNepal** 🤖⚖️\n\nI\'m powered by a legal knowledge engine trained on Nepalese law — including the Muluki Civil Code, Labor Act 2074, FITTA, and more.\n\nI can:\n• Answer your legal questions in plain language\n• Guide you through legal procedures in Nepal\n• Help you book a consultation with our expert lawyer\n\nWhat would you like to know?',
+      'I\'m the AI legal assistant for **LawyerInNepal**, a premier law firm in Kathmandu. I\'m not a human lawyer, but I\'m trained on Nepalese legal procedures and can give you accurate general guidance.\n\nHow can I help you today?',
     ]
   },
   {
     keywords: ['what can you do', 'what do you know', 'how can you help', 'capabilities', 'what topics'],
-    response: 'I can help you with a wide range of topics!\n\n⚖️ **Legal Questions** — Divorce, criminal law, property, business, immigration\n📋 **Procedures** — Company registration, trademark filing, and more\n💰 **Fee Estimates** — General cost ranges for services in Nepal\n📅 **Appointments** — I can book a consultation with our lawyers\n📍 **Firm Info** — Contact details, office location, practice areas\n\nJust ask me anything! If I don\'t know, I\'ll connect you with a real lawyer. 🙏'
+    response: 'I can help you with a wide range of topics!\n\n⚖️ **Legal Questions** — Divorce, criminal law, property, business, immigration\n📋 **Procedures** — Company registration, trademark filing, and more\n💰 **Fee Estimates** — General cost ranges for services in Nepal\n📅 **Appointments** — I can book a consultation with our lawyer\n📍 **Firm Info** — Contact details, office location, practice areas\n\nJust ask me anything! If I don\'t know, I\'ll connect you with a real lawyer. 🙏'
   },
   {
     keywords: ['services', 'what do you offer', 'practice areas', 'areas of law', 'specialization', 'offer'],
@@ -65,11 +65,11 @@ const INTENTS: Intent[] = [
   },
   {
     keywords: ['divorce', 'separation', 'alimony', 'custody', 'child custody', 'matrimonial', 'marriage break'],
-    response: '**Divorce Law in Nepal** is governed by the Muluki Civil Code, 2074.\n\nKey points:\n• Either spouse can file for divorce — mutual consent or contested\n• **Alimony** is calculated based on assets and duration of marriage\n• **Child custody** defaults to the mother for children under 5; older children\'s preference is considered\n• Property acquired during marriage is generally split 50/50\n• The process takes **2–6 months** at the District Court in Kathmandu\n\nOur family law team handles divorce cases with sensitivity and discretion.\n\nWould you like to **book a free consultation** with our divorce lawyers? Just say "book appointment".'
+    response: '**Divorce Law in Nepal** is governed by the Muluki Civil Code, 2074.\n\nKey points:\n• Either spouse can file for divorce — mutual consent or contested\n• **Alimony** is calculated based on assets and duration of marriage\n• **Child custody** defaults to the mother for children under 5; older children\'s preference is considered\n• Property acquired during marriage is generally split 50/50\n• The process takes **2–6 months** at the District Court in Kathmandu\n\nOur family law team handles divorce cases with sensitivity and discretion.\n\nWould you like to **book a free consultation** with our divorce lawyer? Just say "book appointment".'
   },
   {
     keywords: ['criminal', 'arrest', 'bail', 'fir', 'police', 'murder', 'fraud', 'theft', 'cheque bounce', 'accused', 'prison', 'jail', 'offense', 'crime', 'defense'],
-    response: '**Criminal Defense at Lawyers In Nepal:**\n\nYour fundamental rights under the Muluki Criminal Code:\n• Right to know charges within **24 hours** of arrest\n• Right to an advocate from the moment of arrest\n• Right to **bail** (for bailable offenses) — typically NPR 10,000–500,000 depending on severity\n• Right to a fair and speedy trial\n\n**Cheque Bounce Cases**: We can file under the Negotiable Instruments Act or the Banking Offense Act for criminal penalties + 25% interest.\n\nOur criminal defense lawyers have represented clients across Kathmandu\'s district courts and the Supreme Court.\n\nType "book appointment" to speak with a criminal lawyer today.'
+    response: '**Criminal Defense at LawyerInNepal:**\n\nYour fundamental rights under the Muluki Criminal Code:\n• Right to know charges within **24 hours** of arrest\n• Right to an advocate from the moment of arrest\n• Right to **bail** (for bailable offenses) — typically NPR 10,000–500,000 depending on severity\n• Right to a fair and speedy trial\n\n**Cheque Bounce Cases**: We can file under the Negotiable Instruments Act or the Banking Offense Act for criminal penalties + 25% interest.\n\nOur criminal defense lawyer have represented clients across Kathmandu\'s district courts and the Supreme Court.\n\nType "book appointment" to speak with a criminal lawyer today.'
   },
   {
     keywords: ['property', 'land', 'house', 'real estate', 'lal purja', 'malpot', 'buy land', 'sell land', 'title', 'deed'],
@@ -89,7 +89,7 @@ const INTENTS: Intent[] = [
   },
   {
     keywords: ['labor', 'labour', 'employee', 'employer', 'ssf', 'social security', 'work contract', 'termination', 'fired', 'gratuity', 'employment'],
-    response: '**Nepal Labor Act 2074 — Key Highlights**:\n\n👷 **Employee Rights**:\n- Mandatory SSF contribution: **31%** of basic salary (20% employer + 11% employee)\n- Minimum 1 month notice for termination (or salary in lieu)\n- Gratuity: 8.33% of annual basic salary per year of service\n- 18 days annual leave + 13 public holidays\n\n⚠️ **Employers** must register all staff with the SSF within 30 days of hiring.\n\nType "book appointment" to consult our labor lawyers.'
+    response: '**Nepal Labor Act 2074 — Key Highlights**:\n\n👷 **Employee Rights**:\n- Mandatory SSF contribution: **31%** of basic salary (20% employer + 11% employee)\n- Minimum 1 month notice for termination (or salary in lieu)\n- Gratuity: 8.33% of annual basic salary per year of service\n- 18 days annual leave + 13 public holidays\n\n⚠️ **Employers** must register all staff with the SSF within 30 days of hiring.\n\nType "book appointment" to consult our labor lawyer.'
   },
   {
     keywords: ['work permit', 'visa', 'immigration', 'expat', 'foreign worker', 'nrn', 'non resident', 'working in nepal'],
@@ -105,7 +105,7 @@ const INTENTS: Intent[] = [
   },
   {
     keywords: ['contact', 'phone', 'address', 'location', 'office', 'where are you', 'find you', 'reach you', 'email', 'whatsapp', 'call you', 'anamnagar', 'kathmandu'],
-    response: '**Lawyers In Nepal — Contact Information:**\n\n📍 **Office**: Purbi Gate, Anamnagar-29, Kathmandu 44600, Nepal\n📞 **Phone/WhatsApp**: +977 9815861066\n📧 **Email**: lawyersinnepal.com.np@gmail.com\n🕐 **Hours**: Sunday–Friday, 9:00 AM – 6:00 PM (NPT)\n\nYou can also use the **WhatsApp button** below for instant messaging.\n\nIs there a specific legal matter I can help you with today?'
+    response: '**LawyerInNepal — Contact Information:**\n\n📍 **Office**: Purbi Gate, Anamnagar-29, Kathmandu 44600, Nepal\n📞 **Phone/WhatsApp**: +977 9766910908\n📧 **Email**: lawyerinnepal.com.np@gmail.com\n🕐 **Hours**: Sunday–Friday, 9:00 AM – 6:00 PM (NPT)\n\nYou can also use the **WhatsApp button** below for instant messaging.\n\nIs there a specific legal matter I can help you with today?'
   },
   {
     keywords: ['fee', 'fees', 'cost', 'charge', 'price', 'how much', 'rate', 'expensive', 'affordable', 'payment'],
@@ -123,13 +123,13 @@ const INTENTS: Intent[] = [
     response: [
       'You\'re most welcome! 🙏 Is there anything else I can help you with?',
       'Happy to help! If you have any other legal questions, feel free to ask. Namaste! 🙏',
-      'Glad I could assist! Remember, our lawyers are always available for a detailed consultation. Anything else you need?',
+      'Glad I could assist! Remember, our lawyer are always available for a detailed consultation. Anything else you need?',
     ]
   },
   {
     keywords: ['bye', 'goodbye', 'see you', 'cya', 'take care', 'done', 'nothing else', 'that\'s all', 'all good'],
     response: [
-      'Goodbye! 🙏 Thank you for visiting Lawyers In Nepal. Feel free to return anytime. Namaste!',
+      'Goodbye! 🙏 Thank you for visiting LawyerInNepal. Feel free to return anytime. Namaste!',
       'Take care! 🙏 If you ever need legal help in Nepal, we\'re just a WhatsApp message away. Namaste!',
     ]
   },
@@ -142,7 +142,7 @@ const INTENTS: Intent[] = [
   },
   {
     keywords: ['urgent', 'emergency', 'asap', 'immediately', 'right now', 'help me now', 'crisis', 'arrested', 'detained'],
-    response: '**🚨 Urgent Legal Assistance:**\n\nFor immediate legal emergencies, please contact us directly:\n\n📞 **WhatsApp (Fastest)**: +977 9815861066\n📞 **Direct Call**: +977 9815861066\n\nOur team is available during office hours (Sun–Fri, 9AM–6PM NPT). For after-hours emergencies, WhatsApp is monitored.\n\nIf someone has been **arrested**, they have the right to:\n• Call a lawyer immediately\n• Know the charges within 24 hours\n• Request bail for bailable offenses\n\nPlease reach us via WhatsApp right now.'
+    response: '**🚨 Urgent Legal Assistance:**\n\nFor immediate legal emergencies, please contact us directly:\n\n📞 **WhatsApp (Fastest)**: +977 9766910908\n📞 **Direct Call**: +977 9766910908\n\nOur team is available during office hours (Sun–Fri, 9AM–6PM NPT). For after-hours emergencies, WhatsApp is monitored.\n\nIf someone has been **arrested**, they have the right to:\n• Call a lawyer immediately\n• Know the charges within 24 hours\n• Request bail for bailable offenses\n\nPlease reach us via WhatsApp right now.'
   },
   {
     keywords: ['ok', 'okay', 'understood', 'i see', 'got it', 'i understand', 'noted', 'alright'],
@@ -155,7 +155,7 @@ const INTENTS: Intent[] = [
 ];
 
 const FALLBACKS = [
-  'I might not have a specific answer for that, but I can definitely connect you with an expert! 😊\n\nOur lawyers cover all areas of Nepalese law. You can:\n• Type **"book appointment"** to schedule a consultation\n• WhatsApp us at **+977 9815861066** for immediate help\n\nWhat else can I help you with?',
+  'I might not have a specific answer for that, but I can definitely connect you with an expert! 😊\n\nOur lawyer cover all areas of Nepalese law. You can:\n• Type **"book appointment"** to schedule a consultation\n• WhatsApp us at **+977 9766910908** for immediate help\n\nWhat else can I help you with?',
   'That\'s a bit outside my knowledge, but our legal team in Kathmandu would know exactly! 🏛️\n\nType **"book appointment"** and one of our advocates will get back to you within 24 hours.\n\nOr ask me about: divorce, company registration, property law, criminal defense, trademark, or immigration.',
   'Hmm, I\'m not sure about that specific topic. I\'m best at answering Nepalese legal questions! 🙏\n\nTry asking me about:\n• "How do I register a company in Nepal?"\n• "What are divorce procedures in Nepal?"\n• "How do I get a work permit?"\n\nOr type **"book appointment"** to speak with a real lawyer.',
 ];
@@ -168,7 +168,7 @@ export const BOOKING_PROMPTS = {
   confirm: (data: BookingData) =>
     `✅ **Please confirm your appointment details:**\n\n👤 Name: ${data.name}\n📞 Phone: ${data.phone}\n⚖️ Service: ${data.service}\n📅 Date: ${data.date}\n\nType **"confirm"** to submit, or **"cancel"** to start over.`,
   success: (data: BookingData) =>
-    `🎉 **Your appointment request has been submitted!**\n\n👤 ${data.name}\n📞 ${data.phone}\n⚖️ ${data.service}\n📅 ${data.date}\n\nOur team will contact you within **2–4 hours** to confirm.\n📱 WhatsApp: +977 9815861066\n\nThank you for choosing Lawyers In Nepal! Namaste 🙏`,
+    `🎉 **Your appointment request has been submitted!**\n\n👤 ${data.name}\n📞 ${data.phone}\n⚖️ ${data.service}\n📅 ${data.date}\n\nOur team will contact you within **2–4 hours** to confirm.\n📱 WhatsApp: +977 9766910908\n\nThank you for choosing LawyerInNepal! Namaste 🙏`,
 };
 
 export function processMessage(
@@ -198,7 +198,7 @@ export function processMessage(
     if (bookingState === 'phone') {
       const cleaned = userInput.replace(/\s+/g, '').replace(/[^0-9+]/g, '');
       if (cleaned.length < 7) {
-        return { response: 'That doesn\'t look like a valid phone number. Please enter your phone number (e.g., +977 9815861066):', newBookingState: 'phone', newBookingData: newData };
+        return { response: 'That doesn\'t look like a valid phone number. Please enter your phone number (e.g., +977 9766910908):', newBookingState: 'phone', newBookingData: newData };
       }
       newData.phone = userInput.trim();
       return { response: BOOKING_PROMPTS.service, newBookingState: 'service', newBookingData: newData };

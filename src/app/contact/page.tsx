@@ -63,9 +63,9 @@ export default function ContactPage() {
 
               <div className="space-y-8">
                 {[
-                  { icon: MapPin, title: 'Our Office', text: 'Lawyers In Nepal HQ, Purbi Gate\nAnamnagar-29, Kathmandu 44600' },
-                  { icon: Phone, title: 'Phone Numbers', text: '+977 9815861066 (Mobile)\n+977 1 4400000 (Office)' },
-                  { icon: Mail, title: 'Email Addresses', text: 'lawyersinnepal.com.np@gmail.com' },
+                  { icon: MapPin, title: 'Our Office', text: 'LawyerInNepal HQ, Purbi Gate\nAnamnagar-29, Kathmandu 44600' },
+                  { icon: Phone, title: 'Phone Numbers', text: '+977 9766910908 (Mobile)\n+977 9766910908 (Office)' },
+                  { icon: Mail, title: 'Email Addresses', text: 'lawyerinnepal.com.np@gmail.com' },
                   { icon: Clock, title: 'Office Hours', text: 'Mon - Fri: 09:00 - 17:00\nSat: Closed (Emergencies Only)' },
                 ].map((item, i) => (
                   <div key={i} className="flex gap-6 group">
@@ -170,7 +170,7 @@ export default function ContactPage() {
         />
         <div className="absolute top-10 left-1/2 -translate-x-1/2 bg-navy-950 text-white px-8 py-5 rounded-sm shadow-2xl flex items-center gap-3 pointer-events-none border border-gold-600/30 font-bold group">
           <MapPin size={24} className="text-gold-600" />
-          <div className="text-sm tracking-[0.1em] uppercase">Lawyers In Nepal HQ, Anamnagar</div>
+          <div className="text-sm tracking-[0.1em] uppercase">LawyerInNepal HQ, Anamnagar</div>
         </div>
       </section>
     </div>

@@ -23,7 +23,7 @@ export default function ChatBot() {
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([
-    { role: 'assistant', content: 'Namaste! 🙏 I\'m Nyaya AI, your personal legal assistant for Lawyers In Nepal.\n\nI\'m here to listen to your concerns, answer your legal questions, and provide guidance in a natural, human-like way. I can also help you book a free consultation.\n\nHow can I support you today?' }
+    { role: 'assistant', content: 'Namaste! 🙏 I\'m Nyaya AI, your personal legal assistant for LawyerInNepal.\n\nI\'m here to listen to your concerns, answer your legal questions, and provide guidance in a natural, human-like way. I can also help you book a free consultation.\n\nHow can I support you today?' }
   ]);
   const [inputValue, setInputValue] = useState('');
   const [isTyping, setIsTyping] = useState(false);
@@ -84,13 +84,13 @@ export default function ChatBot() {
       } else {
         setMessages(prev => [...prev, {
           role: 'assistant',
-          content: data.text || 'I\'m having trouble right now. Please call us at +977 9815861066.',
+          content: data.text || 'I\'m having trouble right now. Please call us at +977 9766910908.',
         }]);
       }
     } catch {
       setMessages(prev => [...prev, {
         role: 'assistant',
-        content: 'Connection issue! Please try again or reach us directly:\n📞 +977 9815861066\n📱 WhatsApp available below.',
+        content: 'Connection issue! Please try again or reach us directly:\n📞 +977 9766910908\n📱 WhatsApp available below.',
       }]);
     } finally {
       setIsTyping(false);
@@ -211,7 +211,7 @@ export default function ChatBot() {
 
           {/* WhatsApp strip */}
           <a
-            href="https://wa.me/9779815861066"
+            href="https://wa.me/9779766910908"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center justify-center gap-2 py-2.5 bg-green-600/10 border-t border-green-600/20 hover:bg-green-600/20 text-green-400 text-[11px] font-semibold tracking-wide transition-all"

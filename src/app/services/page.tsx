@@ -3,8 +3,8 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: "Legal Services in Nepal | Best Divorce & Criminal Lawyers Kathmandu",
-  description: "Specialized legal services in Kathmandu, Nepal. Top-rated lawyers for Divorce, Criminal Defense, Corporate Registration, and Civil Litigation.",
+  title: "Legal Services in Nepal | Best Divorce & Criminal Lawyer Kathmandu",
+  description: "Specialized legal services in Kathmandu, Nepal. Top-rated lawyer for Divorce, Criminal Defense, Corporate Registration, and Civil Litigation.",
   keywords: ["Divorce lawyer in Nepal", "Criminal lawyer in Nepal", "Court marriage Kathmandu", "Company registration Nepal"],
 };
 

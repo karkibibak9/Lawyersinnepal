@@ -1,5 +1,5 @@
 {
-  "name": "lawyersinnepal",
+  "name": "lawyerinnepal",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,19 +9,16 @@
     "lint": "eslint"
   },
   "dependencies": {
-    "@google/generative-ai": "^0.24.1",
     "@supabase/supabase-js": "^2.102.1",
     "@tailwindcss/typography": "^0.5.19",
     "clsx": "^2.1.1",
     "date-fns": "^4.1.0",
     "gray-matter": "^4.0.3",
     "lucide-react": "^1.7.0",
-    "nepali-datepicker-reactjs": "^1.1.9",
     "next": "16.2.2",
     "next-mdx-remote": "^6.0.0",
     "react": "19.2.4",
     "react-dom": "19.2.4",
-    "react-international-phone": "^4.8.0",
     "resend": "^6.11.0",
     "tailwind-merge": "^3.5.0"
   },

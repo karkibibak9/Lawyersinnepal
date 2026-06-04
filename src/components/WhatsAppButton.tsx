@@ -6,7 +6,7 @@ import { trackWhatsAppLead } from '@/app/actions';
 
 export default function WhatsAppButton() {
   const pathname = usePathname();
-  const phoneNumber = '+9779815861066';
+  const phoneNumber = '9779766910908';
   const message = encodeURIComponent('Hello! I would like to inquire about your legal services.');
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
 

@@ -1,7 +1,7 @@
 import { Shield, Lock, Eye, FileText } from 'lucide-react';
 
 export const metadata = {
-  title: 'Privacy Policy | Confidential Legal Consultation Kathmandu | Lawyers In Nepal',
+  title: 'Privacy Policy | Confidential Legal Consultation Kathmandu | LawyerInNepal',
   description: 'Our privacy policy ensures absolute confidentiality for legal services in Nepal. Trusted by clients for secure legal advocacy and data protection in Kathmandu.',
   keywords: ["legal confidentiality Nepal", "attorney-client privilege Kathmandu", "secure legal services Nepal", "Nepal Bar Council privacy"]
 };
@@ -30,7 +30,7 @@ export default function PrivacyPolicy() {
                 <h2 className="text-2xl font-serif font-bold text-white">Commitment to Legal Confidentiality in Nepal</h2>
               </div>
               <p className="text-navy-100 leading-relaxed">
-                At <span className="text-gold-600 font-bold">Lawyers In Nepal</span>, we understand the sensitive nature of <span className="font-bold underline">confidential legal consultation in Kathmandu</span>. We are committed to maintaining the highest standards of data security in line with the Nepal Bar Council’s ethical guidelines and international privacy standards for legal practitioners.
+                At <span className="text-gold-600 font-bold">LawyerInNepal</span>, we understand the sensitive nature of <span className="font-bold underline">confidential legal consultation in Kathmandu</span>. We are committed to maintaining the highest standards of data security in line with the Nepal Bar Council’s ethical guidelines and international privacy standards for legal practitioners.
               </p>
             </div>
 
@@ -55,7 +55,7 @@ export default function PrivacyPolicy() {
                 <h2 className="text-2xl font-serif font-bold text-white">Attorney-Client Privilege and Data Usage</h2>
               </div>
               <p className="text-navy-100 leading-relaxed">
-                Your data is exclusively used for professional legal assessment and case management under the strict <span className="font-bold text-gold-600">attorney-client privilege</span> observed by our team at Lawyers In Nepal. This ensures that every <span className="italic">divorce case</span> or <span className="italic">corporate dispute</span> remains strictly private.
+                Your data is exclusively used for professional legal assessment and case management under the strict <span className="font-bold text-gold-600">attorney-client privilege</span> observed by our team at LawyerInNepal. This ensures that every <span className="italic">divorce case</span> or <span className="italic">corporate dispute</span> remains strictly private.
               </p>
             </div>
 
