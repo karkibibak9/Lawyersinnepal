@@ -4,6 +4,9 @@ import matter from 'gray-matter';
 
 const postsDirectory = path.join(process.cwd(), 'src/content/blog');
 
+export const BLOG_AUTHOR_NAME = 'Gaurab Sir';
+export const BLOG_AUTHOR_PROFILE = '/attorneys/gaurab-dangi';
+
 export interface BlogPost {
   slug: string;
   title: string;
@@ -33,6 +36,7 @@ export function getSortedPostsData() {
     return {
       slug,
       ...(matterResult.data as { date: string; title: string; description: string; category: string; author: string; image?: string }),
+      author: BLOG_AUTHOR_NAME,
     };
   });
 
@@ -57,5 +61,6 @@ export async function getPostData(slug: string) {
     slug,
     content: matterResult.content,
     ...(matterResult.data as { date: string; title: string; description: string; category: string; author: string; image?: string }),
+    author: BLOG_AUTHOR_NAME,
   };
 }

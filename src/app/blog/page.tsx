@@ -1,9 +1,9 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { getSortedPostsData } from '@/lib/blog';
+import { BLOG_AUTHOR_NAME, BLOG_AUTHOR_PROFILE, getSortedPostsData } from '@/lib/blog';
 import { Calendar, User, ArrowRight } from 'lucide-react';
 import { format, parseISO } from 'date-fns';
-import { absoluteUrl, defaultOgImage } from '@/lib/seo';
+import { absoluteUrl, defaultOgImage, SITE_NAME } from '@/lib/seo';
 
 export const metadata = {
   title: 'Nepal Law Blog | Legal Guides for Divorce, Property, Business',
@@ -20,6 +20,38 @@ export const metadata = {
 export default function BlogListingPage() {
   // Re-optimized image loading v2
   const allPosts = getSortedPostsData();
+  const blogJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Blog',
+    name: 'Nepal Law Blog by LawyerInNepal',
+    description: metadata.description,
+    url: absoluteUrl('/blog'),
+    publisher: {
+      '@type': 'Organization',
+      name: SITE_NAME,
+      logo: {
+        '@type': 'ImageObject',
+        url: absoluteUrl('/logo.svg'),
+      },
+    },
+    author: {
+      '@type': 'Person',
+      name: BLOG_AUTHOR_NAME,
+      url: absoluteUrl(BLOG_AUTHOR_PROFILE),
+    },
+    blogPost: allPosts.slice(0, 12).map((post) => ({
+      '@type': 'BlogPosting',
+      headline: post.title,
+      description: post.description,
+      url: absoluteUrl(`/blog/${post.slug}`),
+      datePublished: post.date,
+      author: {
+        '@type': 'Person',
+        name: BLOG_AUTHOR_NAME,
+        url: absoluteUrl(BLOG_AUTHOR_PROFILE),
+      },
+    })),
+  };
 
   return (
     <div className="flex flex-col w-full bg-navy-900 min-h-screen">
@@ -68,10 +100,10 @@ export default function BlogListingPage() {
                     {post.description}
                   </p>
                   <div className="mt-auto pt-6 border-t border-navy-700 flex items-center justify-between">
-                    <div className="flex items-center gap-2 text-xs text-navy-200 font-bold uppercase tracking-wider opacity-60">
+                    <Link href={BLOG_AUTHOR_PROFILE} className="flex items-center gap-2 text-xs text-navy-200 font-bold uppercase tracking-wider opacity-60 hover:text-gold-600 transition-colors">
                       <User size={14} className="text-gold-600" />
                       {post.author}
-                    </div>
+                    </Link>
                     <Link href={`/blog/${post.slug}`} className="text-gold-600 text-[10px] font-bold uppercase tracking-[0.2em] flex items-center gap-1 group-hover:gap-2 transition-all">
                       Read More <ArrowRight size={14} />
                     </Link>
@@ -88,6 +120,11 @@ export default function BlogListingPage() {
           )}
         </div>
       </section>
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(blogJsonLd) }}
+      />
     </div>
   );
 }

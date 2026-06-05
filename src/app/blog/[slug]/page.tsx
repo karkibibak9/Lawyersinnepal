@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { getPostData, getSortedPostsData } from '@/lib/blog';
+import { BLOG_AUTHOR_NAME, BLOG_AUTHOR_PROFILE, getPostData, getSortedPostsData } from '@/lib/blog';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import Link from 'next/link';
 import { Calendar, User, ArrowLeft, Share2 } from 'lucide-react';
@@ -28,7 +28,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
         type: 'article',
         url: absoluteUrl(`/blog/${resolvedParams.slug}`),
         publishedTime: postData.date,
-        authors: [postData.author],
+        authors: [BLOG_AUTHOR_NAME],
         images: postData.image ? [{ url: postData.image, alt: postData.title }] : [defaultOgImage],
       },
       twitter: {
@@ -72,7 +72,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           </h1>
           <div className="flex flex-wrap items-center justify-center gap-6 text-navy-300 text-[10px] uppercase tracking-[0.2em] font-bold">
             <span className="flex items-center gap-2"><Calendar size={16} className="text-gold-600" /> {format(parseISO(postData.date), 'MMMM dd, yyyy')}</span>
-            <span className="flex items-center gap-2"><User size={16} className="text-gold-600" /> {postData.author}</span>
+            <Link href={BLOG_AUTHOR_PROFILE} className="flex items-center gap-2 hover:text-gold-500 transition-colors"><User size={16} className="text-gold-600" /> {postData.author}</Link>
           </div>
         </div>
       </section>
@@ -136,7 +136,13 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             dateModified: postData.date,
             author: {
               '@type': 'Person',
-              name: postData.author,
+              name: BLOG_AUTHOR_NAME,
+              url: absoluteUrl(BLOG_AUTHOR_PROFILE),
+              worksFor: {
+                '@type': 'Organization',
+                name: SITE_NAME,
+                url: absoluteUrl('/'),
+              },
             },
             publisher: {
               '@type': 'Organization',
