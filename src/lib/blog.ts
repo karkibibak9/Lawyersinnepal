@@ -4,7 +4,7 @@ import matter from 'gray-matter';
 
 const postsDirectory = path.join(process.cwd(), 'src/content/blog');
 
-export const BLOG_AUTHOR_NAME = 'Gaurab Sir';
+export const BLOG_AUTHOR_NAME = 'Advocate Gaurab Dangi';
 export const BLOG_AUTHOR_PROFILE = '/attorneys/gaurab-dangi';
 
 export interface BlogPost {
