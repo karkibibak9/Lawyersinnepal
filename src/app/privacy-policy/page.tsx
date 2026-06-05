@@ -1,8 +1,10 @@
 import { Shield, Lock, Eye, FileText } from 'lucide-react';
+import { absoluteUrl } from '@/lib/seo';
 
 export const metadata = {
-  title: 'Privacy Policy',
-  description: 'Privacy Policy for LawyerInNepal. We are committed to protecting your personal information and legal data.',
+  title: 'Privacy Policy | LawyerInNepal Legal Data Protection',
+  description: 'Privacy Policy for LawyerInNepal. Learn how we protect personal information, contact details, and legal inquiry data submitted through our website.',
+  alternates: { canonical: absoluteUrl('/privacy-policy') },
 };
 
 export default function PrivacyPolicy() {

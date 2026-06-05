@@ -1,11 +1,19 @@
-import { Scale, Shield, Briefcase, Users, FileText, Landmark, Gavel, Heart } from 'lucide-react';
+import { Scale, Shield, Briefcase, Users, Landmark, Gavel } from 'lucide-react';
 import { Metadata } from 'next';
 import Link from 'next/link';
+import { absoluteUrl, defaultOgImage } from '@/lib/seo';
 
 export const metadata: Metadata = {
-  title: "Legal Services in Nepal | Best Divorce & Criminal Lawyer Kathmandu",
-  description: "Specialized legal services in Kathmandu, Nepal. Top-rated lawyer for Divorce, Criminal Defense, Corporate Registration, and Civil Litigation.",
+  title: "Legal Services in Nepal | Divorce, Criminal, Corporate Lawyer",
+  description: "Explore legal services in Kathmandu for divorce, criminal defense, property disputes, company registration, FDI, banking, and Supreme Court litigation.",
   keywords: ["Divorce lawyer in Nepal", "Criminal lawyer in Nepal", "Court marriage Kathmandu", "Company registration Nepal"],
+  alternates: { canonical: absoluteUrl('/services') },
+  openGraph: {
+    title: "Legal Services in Nepal | LawyerInNepal",
+    description: "Legal support for families, individuals, and corporations in Nepal: criminal, divorce, civil, corporate, banking, and litigation services.",
+    url: absoluteUrl('/services'),
+    images: [defaultOgImage],
+  },
 };
 
 const services = [
@@ -84,6 +92,23 @@ const services = [
 ];
 
 export default function ServicesPage() {
+  const servicesJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: 'Legal Services in Nepal',
+    itemListElement: services.map((service, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      item: {
+        '@type': 'Service',
+        name: service.title,
+        description: service.description,
+        areaServed: 'Nepal',
+        url: absoluteUrl(`/services#${service.id}`),
+      },
+    })),
+  };
+
   return (
     <div className="flex flex-col w-full">
       {/* Header */}
@@ -101,7 +126,7 @@ export default function ServicesPage() {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
             {services.map((service) => (
-              <div key={service.id} id={service.id} className="bg-navy-800 border border-navy-700 p-10 gold-glow transition-all group scroll-mt-24 shadow-2xl">
+              <article key={service.id} id={service.id} className="bg-navy-800 border border-navy-700 p-10 gold-glow transition-all group scroll-mt-24 shadow-2xl">
                 <div className="w-14 h-14 bg-navy-900 text-gold-600 flex items-center justify-center rounded-sm mb-8 group-hover:bg-gold-600 group-hover:text-navy-900 transition-colors border border-gold-600/20">
                   <service.icon size={28} />
                 </div>
@@ -117,7 +142,7 @@ export default function ServicesPage() {
                     </li>
                   ))}
                 </ul>
-              </div>
+              </article>
             ))}
           </div>
         </div>
@@ -126,7 +151,7 @@ export default function ServicesPage() {
       {/* Call to Action */}
       <section className="py-20 bg-navy-950 border-t border-navy-800">
         <div className="container mx-auto px-4 text-center max-w-3xl">
-          <h2 className="text-3xl font-serif font-bold mb-6 text-white uppercase tracking-wider">Can't find what you're looking for?</h2>
+          <h2 className="text-3xl font-serif font-bold mb-6 text-white uppercase tracking-wider">Can&apos;t find what you&apos;re looking for?</h2>
           <p className="text-navy-200 mb-10 leading-relaxed">
             Our expertise extends beyond the listed services. Contact us today to discuss your specific legal requirements with our expert attorneys in <span className="text-gold-600 font-bold underline decoration-gold-600/30">Kathmandu</span>.
           </p>
@@ -138,6 +163,11 @@ export default function ServicesPage() {
           </Link>
         </div>
       </section>
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(servicesJsonLd) }}
+      />
     </div>
   );
 }

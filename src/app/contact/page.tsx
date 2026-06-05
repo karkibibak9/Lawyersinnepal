@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { Mail, Phone, MapPin, Clock, Send, Scale, Globe } from 'lucide-react';
+import { Mail, Phone, MapPin, Clock, Send } from 'lucide-react';
 import { submitContactMessage } from '@/app/actions';
 
 export default function ContactPage() {
@@ -29,7 +29,7 @@ export default function ContactPage() {
       } else {
         setError(result.error || 'Failed to send message.');
       }
-    } catch (err) {
+    } catch {
       setError('Something went wrong. Please try again.');
     } finally {
       setIsSubmitting(false);
@@ -43,7 +43,7 @@ export default function ContactPage() {
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-6xl font-serif font-bold text-white mb-6">Contact Us</h1>
           <p className="text-navy-100 max-w-2xl mx-auto text-lg leading-relaxed opacity-90">
-            Have a legal question? Reach out to our team. We're here to provide the expert guidance and support you need in Nepal's legal landscape.
+            Have a legal question? Reach out to our team. We&apos;re here to provide the expert guidance and support you need in Nepal&apos;s legal landscape.
           </p>
         </div>
       </section>
@@ -89,7 +89,7 @@ export default function ContactPage() {
                     <Send size={32} />
                   </div>
                   <h3 className="text-2xl font-serif font-bold text-white">Message Sent!</h3>
-                  <p className="text-navy-200">We've received your inquiry and will get back to you shortly.</p>
+                  <p className="text-navy-200">We&apos;ve received your inquiry and will get back to you shortly.</p>
                   <button
                     onClick={() => setSubmitted(false)}
                     className="px-8 py-3 bg-gold-600 text-navy-900 font-bold hover:bg-gold-500 transition-all text-sm uppercase tracking-widest"

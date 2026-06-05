@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { Calendar, User, ArrowLeft, Share2 } from 'lucide-react';
 import { format, parseISO } from 'date-fns';
 import { notFound } from 'next/navigation';
+import { absoluteUrl, defaultOgImage, SITE_NAME } from '@/lib/seo';
 
 export async function generateStaticParams() {
   const posts = getSortedPostsData();
@@ -20,15 +21,24 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     return {
       title: postData.title,
       description: postData.description,
+      alternates: { canonical: absoluteUrl(`/blog/${resolvedParams.slug}`) },
       openGraph: {
         title: postData.title,
         description: postData.description,
         type: 'article',
+        url: absoluteUrl(`/blog/${resolvedParams.slug}`),
         publishedTime: postData.date,
         authors: [postData.author],
+        images: postData.image ? [{ url: postData.image, alt: postData.title }] : [defaultOgImage],
+      },
+      twitter: {
+        card: 'summary_large_image',
+        title: postData.title,
+        description: postData.description,
+        images: postData.image ? [postData.image] : [defaultOgImage.url],
       },
     };
-  } catch (e) {
+  } catch {
     return {
       title: 'Post Not Found',
     };
@@ -40,7 +50,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
   let postData;
   try {
     postData = await getPostData(resolvedParams.slug);
-  } catch (error) {
+  } catch {
     notFound();
   }
 
@@ -76,6 +86,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
               alt={`Featured image for ${postData.title}`}
               fill
               priority
+              sizes="(max-width: 1024px) 100vw, 1024px"
               className="object-cover"
             />
           </div>
@@ -104,13 +115,41 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
       {/* CTA */}
       <section className="bg-navy-950 py-20 border-t border-navy-800">
         <div className="container mx-auto px-4 text-center max-w-2xl">
-          <h3 className="text-3xl font-serif font-bold text-white mb-4">Need personalized legal advice?</h3>
+          <h2 className="text-3xl font-serif font-bold text-white mb-4">Need personalized legal advice?</h2>
           <p className="text-navy-300 mb-8 leading-relaxed">Schedule a consultation with our experienced legal team in Kathmandu to discuss your specific situation.</p>
           <Link href="/appointment" className="inline-block px-10 py-5 bg-gold-600 text-navy-900 font-bold hover:bg-gold-500 transition-all rounded-sm uppercase tracking-widest text-sm shadow-xl">
             Book an Appointment
           </Link>
         </div>
       </section>
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'Article',
+            headline: postData.title,
+            description: postData.description,
+            image: postData.image || defaultOgImage.url,
+            datePublished: postData.date,
+            dateModified: postData.date,
+            author: {
+              '@type': 'Person',
+              name: postData.author,
+            },
+            publisher: {
+              '@type': 'Organization',
+              name: SITE_NAME,
+              logo: {
+                '@type': 'ImageObject',
+                url: absoluteUrl('/logo.svg'),
+              },
+            },
+            mainEntityOfPage: absoluteUrl(`/blog/${resolvedParams.slug}`),
+          }),
+        }}
+      />
     </div>
   );
 }

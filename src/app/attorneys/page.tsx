@@ -1,11 +1,12 @@
 'use client';
 
 import { useState } from 'react';
-import { Mail, Phone, Globe, CheckCircle, GraduationCap, Award, Shield, Scale, MapPin, Search, Filter } from 'lucide-react';
+import { Mail, Phone, Globe, GraduationCap, Award, Shield, Scale, MapPin, Search, Filter } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 
 import { attorneys } from '@/lib/attorneys';
+import { absoluteUrl } from '@/lib/seo';
 
 const specialties = Array.from(new Set(attorneys.map(a => a.specialty)));
 
@@ -78,6 +79,7 @@ export default function AttorneysPage() {
                       alt={`${lawyer.name} - ${lawyer.role} at LawyerInNepal`}
                       width={400}
                       height={500}
+                      loading={idx === 0 ? 'eager' : 'lazy'}
                       className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 scale-105 hover:scale-100"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-navy-900/40 to-transparent pointer-events-none" />
@@ -94,7 +96,7 @@ export default function AttorneysPage() {
                     </div>
                     
                     <p className="text-navy-100 text-lg md:text-xl leading-relaxed italic font-serif opacity-90">
-                      "{lawyer.bio}"
+                      {`"${lawyer.bio}"`}
                     </p>
                     
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-6 border-t border-navy-700">
@@ -170,6 +172,23 @@ export default function AttorneysPage() {
           </div>
         </div>
       </section>
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'ItemList',
+            name: 'Lawyers and Attorneys at LawyerInNepal',
+            itemListElement: attorneys.map((attorney, index) => ({
+              '@type': 'ListItem',
+              position: index + 1,
+              url: absoluteUrl(`/attorneys/${attorney.slug}`),
+              name: attorney.name,
+            })),
+          }),
+        }}
+      />
     </div>
   );
 }

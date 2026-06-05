@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import { Scale, ArrowLeft, Hourglass } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 
@@ -49,7 +48,7 @@ export default function NotFound() {
 
         <div className="bg-navy-800/80 p-6 md:p-8 rounded-sm border-l-4 border-gold-600 text-left shadow-xl inline-block max-w-xl mx-auto backdrop-blur-sm">
           <p className="text-navy-100 text-lg md:text-xl font-serif italic mb-4">
-            "Did you know that you have rights? The Constitution says you do. And so do I. But unfortunately, the Constitution doesn't grant you the right to view a page that doesn't exist..."
+            &quot;Did you know that you have rights? The Constitution says you do. And so do I. But unfortunately, the Constitution doesn&apos;t grant you the right to view a page that doesn&apos;t exist...&quot;
           </p>
           <p className="text-gold-500 font-bold uppercase tracking-widest text-sm text-right">
             - Your Legal Counsel
@@ -59,7 +58,7 @@ export default function NotFound() {
         <div className="pt-6 space-y-6">
           <p className="text-navy-200 flex justify-center items-center gap-2 font-medium">
             <Hourglass className="animate-spin text-gold-600" size={16} />
-            Better Call Nepal's best lawyer... Redirecting to the homepage in {timeLeft} seconds...
+            Better Call Nepal&apos;s best lawyer... Redirecting to the homepage in {timeLeft} seconds...
           </p>
           <Link
             href="/"

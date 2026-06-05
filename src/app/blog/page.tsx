@@ -3,10 +3,18 @@ import Image from 'next/image';
 import { getSortedPostsData } from '@/lib/blog';
 import { Calendar, User, ArrowRight } from 'lucide-react';
 import { format, parseISO } from 'date-fns';
+import { absoluteUrl, defaultOgImage } from '@/lib/seo';
 
 export const metadata = {
-  title: 'Law & Justice Insights Nepal | Expert Legal Blog Kathmandu',
-  description: 'Stay updated with the latest legal news, supreme court updates, and expert insights on Nepalese law. Guides on divorce, property, and criminal law in Nepal.',
+  title: 'Nepal Law Blog | Legal Guides for Divorce, Property, Business',
+  description: 'Read practical Nepal law guides on divorce, property, criminal defense, company registration, FDI, labor, tax, and litigation from LawyerInNepal.',
+  alternates: { canonical: absoluteUrl('/blog') },
+  openGraph: {
+    title: 'Nepal Law Blog | LawyerInNepal',
+    description: 'Practical legal guides for the public and businesses in Nepal.',
+    url: absoluteUrl('/blog'),
+    images: [defaultOgImage],
+  },
 };
 
 export default function BlogListingPage() {
@@ -38,7 +46,8 @@ export default function BlogListingPage() {
                       alt={`Featured image for ${post.title}`}
                       fill
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                      priority={index < 3}
+                      priority={index === 0}
+                      loading={index === 0 ? undefined : 'lazy'}
                       className="object-cover transform group-hover:scale-105 transition-transform duration-700"
                     />
                     <div className="absolute top-4 left-4 bg-gold-600 text-navy-900 text-[10px] font-bold uppercase tracking-[0.2em] px-3 py-1.5 rounded-sm z-10 shadow-lg">

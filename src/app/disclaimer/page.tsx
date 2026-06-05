@@ -1,9 +1,11 @@
 import { ShieldAlert, Info, Gavel, Scale } from 'lucide-react';
+import { absoluteUrl } from '@/lib/seo';
 
 export const metadata = {
   title: 'Legal Disclaimer | Attorney-Client Privilege Notice | LawyerInNepal',
   description: 'Our legal disclaimer clarifies that information on this Kathmandu law firm website is for general guidance and not specific legal advice in Nepal.',
-  keywords: ["legal disclaimer Nepal", "not legal advice Kathmandu", "attorney-client privilege notice", "Nepal bar council regulations"]
+  keywords: ["legal disclaimer Nepal", "not legal advice Kathmandu", "attorney-client privilege notice", "Nepal bar council regulations"],
+  alternates: { canonical: absoluteUrl('/disclaimer') },
 };
 
 export default function Disclaimer() {

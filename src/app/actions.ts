@@ -1,12 +1,32 @@
 'use server';
 
 import { createServerClient } from '@/lib/supabase/server';
-import { revalidatePath } from 'next/cache';
 import { Resend } from 'resend';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-export async function submitAppointment(formData: any) {
+type AppointmentFormData = {
+  name: FormDataEntryValue | null;
+  email: FormDataEntryValue | null;
+  phone: string;
+  service: FormDataEntryValue | null;
+  date: string;
+  time: FormDataEntryValue | null;
+  message: FormDataEntryValue | null;
+};
+
+type ContactFormData = {
+  name: FormDataEntryValue | null;
+  email: FormDataEntryValue | null;
+  phone?: FormDataEntryValue | null;
+  message: FormDataEntryValue | null;
+};
+
+function getErrorMessage(error: unknown) {
+  return error instanceof Error ? error.message : 'An unknown error occurred.';
+}
+
+export async function submitAppointment(formData: AppointmentFormData) {
   const supabase = createServerClient();
   
   try {
@@ -28,7 +48,7 @@ export async function submitAppointment(formData: any) {
     
     // Send email notification via Resend
     try {
-      const result = await resend.emails.send({
+      await resend.emails.send({
         from: 'LawyerInNepal <onboarding@resend.dev>',
         to: 'lawyerinnepal.com.np@gmail.com',
         subject: `New Appointment: ${formData.name}`,
@@ -52,21 +72,21 @@ export async function submitAppointment(formData: any) {
 </div>
         `,
       });
-    } catch (emailError) {
+    } catch {
       // Silent fail or minimal logging for production email errors
     }
 
     return { success: true };
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('Error submitting appointment:', error);
     if (error instanceof TypeError && (error.message === 'fetch failed' || error.stack?.includes('fetch'))) {
       return { success: false, error: 'Network error: Could not reach the server. Please check your internet connection.' };
     }
-    return { success: false, error: error.message || 'An unknown error occurred.' };
+    return { success: false, error: getErrorMessage(error) };
   }
 }
 
-export async function submitContactMessage(formData: any) {
+export async function submitContactMessage(formData: ContactFormData) {
   const supabase = createServerClient();
   try {
     const { error } = await supabase
@@ -112,9 +132,10 @@ export async function submitContactMessage(formData: any) {
     }
 
     return { success: true };
-  } catch (error: any) {
-    console.error('Error submitting message:', error.message);
-    return { success: false, error: error.message };
+  } catch (error: unknown) {
+    const message = getErrorMessage(error);
+    console.error('Error submitting message:', message);
+    return { success: false, error: message };
   }
 }
 
@@ -132,9 +153,8 @@ export async function trackWhatsAppLead(pageName: string) {
     if (error) throw error;
 
     return { success: true };
-  } catch (error: any) {
+  } catch {
     // We don't want to block the user if tracking fails
     return { success: false };
   }
 }
-

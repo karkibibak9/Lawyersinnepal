@@ -1,9 +1,10 @@
 import { MetadataRoute } from 'next';
 import { getSortedPostsData } from '@/lib/blog';
 import { attorneys } from '@/lib/attorneys';
+import { SITE_URL } from '@/lib/seo';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://lawyerinnepal.com';
+  const baseUrl = SITE_URL;
 
   const posts = getSortedPostsData();
   

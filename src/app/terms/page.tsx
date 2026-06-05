@@ -1,9 +1,11 @@
 import { Scale, FileText, CheckCircle, AlertTriangle } from 'lucide-react';
+import { absoluteUrl } from '@/lib/seo';
 
 export const metadata = {
   title: 'Terms of Service | Legal Services Agreement Nepal | LawyerInNepal',
   description: 'Terms and conditions for hiring the best lawyer in Kathmandu. Understand our legal service agreements for litigations and consultations in Nepal.',
-  keywords: ["legal service agreement Nepal", "hiring a lawyer Kathmandu", "litigation terms Nepal", "law firm contract Kathmandu"]
+  keywords: ["legal service agreement Nepal", "hiring a lawyer Kathmandu", "litigation terms Nepal", "law firm contract Kathmandu"],
+  alternates: { canonical: absoluteUrl('/terms') },
 };
 
 export default function TermsOfService() {
@@ -60,7 +62,7 @@ export default function TermsOfService() {
                 <h2 className="text-2xl font-serif font-bold text-white">4. Limitation of Liability</h2>
               </div>
               <p className="text-navy-100 leading-relaxed">
-                While we strive for excellence in <span className="text-gold-600">legal advocacy in Nepal</span>, legal outcomes are subject to the court's discretion. <span className="font-bold">LawyerInNepal</span> is not liable for indirect or consequential damages arising from the use of information on this professional legal portal.
+                While we strive for excellence in <span className="text-gold-600">legal advocacy in Nepal</span>, legal outcomes are subject to the court&apos;s discretion. <span className="font-bold">LawyerInNepal</span> is not liable for indirect or consequential damages arising from the use of information on this professional legal portal.
               </p>
             </div>
 

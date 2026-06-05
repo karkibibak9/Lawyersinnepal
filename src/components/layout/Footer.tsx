@@ -49,7 +49,7 @@ export default function Footer() {
               </div>
             </Link>
             <p className="text-navy-100 text-sm leading-relaxed max-w-sm">
-              Providing premier legal services with a focus on integrity, excellence, and client success across Nepal's diverse legal landscape.
+              Providing premier legal services with a focus on integrity, excellence, and client success across Nepal&apos;s diverse legal landscape.
             </p>
             <div className="flex gap-4">
               <button aria-label="Our Global Services" className="p-2 bg-navy-800 hover:bg-gold-600 hover:text-navy-900 transition-all rounded-sm cursor-pointer">
@@ -121,69 +121,6 @@ export default function Footer() {
           </p>
         </div>
       </div>
-      
-      {/* Schema.org JSON-LD for LocalBusiness/LegalService */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "LegalService",
-            "name": "LawyerInNepal",
-            "description": "Expert legal services in Nepal specializing in Civil, Criminal, Corporate, and Family law.",
-            "url": "https://lawyerinnepal.com",
-            "logo": "https://lawyerinnepal.com/logo.svg",
-            "telephone": "+977 9766910908",
-            "address": {
-              "@type": "PostalAddress",
-              "streetAddress": "Purbi Gate, Anamnagar-29",
-              "addressLocality": "Kathmandu",
-              "postalCode": "44600",
-              "addressCountry": "NP"
-            },
-            "openingHours": "Mo-Fr 09:00-17:00",
-            "priceRange": "$$$",
-            "hasOfferCatalog": {
-              "@type": "OfferCatalog",
-              "name": "Legal Services",
-              "itemListElement": [
-                {
-                  "@type": "Offer",
-                  "itemOffered": {
-                    "@type": "Service",
-                    "name": "Criminal Defense Litigation",
-                    "description": "Expert representation in criminal cases across Kathmandu."
-                  }
-                },
-                {
-                  "@type": "Offer",
-                  "itemOffered": {
-                    "@type": "Service",
-                    "name": "Corporate Law & Company Registration",
-                    "description": "Providing legal support for business setup and foreign investment in Nepal."
-                  }
-                },
-                {
-                  "@type": "Offer",
-                  "itemOffered": {
-                    "@type": "Service",
-                    "name": "Family Law & Divorce Proceedings",
-                    "description": "Compassionate legal guidance for family disputes and marriage registration."
-                  }
-                },
-                {
-                  "@type": "Offer",
-                  "itemOffered": {
-                    "@type": "Service",
-                    "name": "Supreme Court Advocacy",
-                    "description": "Professional litigation services in the Supreme Court of Nepal."
-                  }
-                }
-              ]
-            }
-          })
-        }}
-      />
     </footer>
   );
 }

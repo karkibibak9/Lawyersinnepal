@@ -1,8 +1,9 @@
 import { Metadata } from 'next';
+import { absoluteUrl, defaultOgImage } from '@/lib/seo';
 
 export const metadata: Metadata = {
-  title: "Top Attorneys in Nepal | Expert Legal Advocates Kathmandu",
-  description: "Meet our award-winning lawyer in Nepal. Specializing in Supreme Court litigation, high-stakes criminal defense, divorce law, and cross-border corporate disputes in Kathmandu.",
+  title: "Lawyers in Nepal | Attorneys and Legal Consultants Kathmandu",
+  description: "Meet LawyerInNepal attorneys for criminal defense, corporate law, family disputes, public procurement, property, and litigation support in Kathmandu.",
   keywords: [
     "Criminal defense lawyer Kathmandu",
     "Best corporate lawyer Nepal",
@@ -12,7 +13,14 @@ export const metadata: Metadata = {
     "IP lawyer Nepal",
     "Senior advocates in Kathmandu",
     "Legal consultants Nepal"
-  ]
+  ],
+  alternates: { canonical: absoluteUrl('/attorneys') },
+  openGraph: {
+    title: "Lawyers in Nepal | LawyerInNepal Attorneys",
+    description: "Experienced legal advocates and consultants for individuals, families, and businesses in Nepal.",
+    url: absoluteUrl('/attorneys'),
+    images: [defaultOgImage],
+  },
 };
 
 export default function AttorneysLayout({

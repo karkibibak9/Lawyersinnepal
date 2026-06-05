@@ -4,6 +4,7 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import ChatBot from "@/components/ChatBot";
+import { defaultOgImage, legalServiceJsonLd, SITE_URL } from "@/lib/seo";
 import "./globals.css";
 
 const inter = Inter({
@@ -20,13 +21,13 @@ const playfair = Playfair_Display({
 
 export const metadata: Metadata = {
   title: {
-    default: "LawyerInNepal | Best Law Firm in Kathmandu | Expert Legal Advocacy",
+    default: "LawyerInNepal | Best Law Firm in Kathmandu for Legal Services",
     template: "%s | LawyerInNepal",
   },
   alternates: {
-    canonical: "https://lawyerinnepal.com",
+    canonical: SITE_URL,
   },
-  description: "Top-rated law firm in Kathmandu, Nepal. Our expert attorneys specialize in Divorce, Criminal Defense, Supreme Court Litigation, Property Disputes, and FDI/Corporate Registration. Over 25 years of experience in the Nepalese legal system.",
+  description: "Consult a trusted law firm in Kathmandu, Nepal for divorce, criminal defense, property disputes, company registration, FDI, and Supreme Court litigation.",
   keywords: [
     "LawyerInNepal", 
     "Best law firm in Kathmandu", 
@@ -51,21 +52,21 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "LawyerInNepal" }],
   creator: "LawyerInNepal",
-  metadataBase: new URL("https://lawyerinnepal.com"),
+  metadataBase: new URL(SITE_URL),
   openGraph: {
     type: "website",
     locale: "en_NP",
-    url: "https://lawyerinnepal.com",
-    title: "LawyerInNepal | Premier Legal Services in Kathmandu",
-    description: "Expert legal representation in Nepal. Specializing in Civil, Criminal, and Family Law with a focus on justice and integrity.",
+    url: SITE_URL,
+    title: "LawyerInNepal | Law Firm in Kathmandu, Nepal",
+    description: "Legal consultation for individuals, families, and businesses in Nepal: criminal, divorce, property, corporate, FDI, and litigation matters.",
     siteName: "LawyerInNepal",
-    images: ["/logo.svg"],
+    images: [defaultOgImage],
   },
   twitter: {
     card: "summary_large_image",
-    title: "LawyerInNepal | Best Law Firm in Kathmandu",
-    description: "Leading legal experts in Nepal. We handle Divorce, Criminal Defense, and Corporate law with precision.",
-    images: ["/logo.svg"],
+    title: "LawyerInNepal | Law Firm in Kathmandu, Nepal",
+    description: "Book legal consultation for litigation, divorce, criminal defense, property, company registration, and FDI matters in Nepal.",
+    images: [defaultOgImage],
   },
   robots: {
     index: true,
@@ -88,48 +89,12 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "LegalService",
-              "name": "LawyerInNepal",
-              "image": "https://lawyerinnepal.com/logo.svg",
-              "logo": "https://lawyerinnepal.com/logo.svg",
-              "@id": "https://lawyerinnepal.com",
-              "url": "https://lawyerinnepal.com",
-              "telephone": "+977 9766910908",
-              "address": {
-                "@type": "PostalAddress",
-                "streetAddress": "Purbi Gate, Anamnagar-29",
-                "addressLocality": "Kathmandu",
-                "postalCode": "44600",
-                "addressCountry": "NP"
-              },
-              "geo": {
-                "@type": "GeoCoordinates",
-                "latitude": 27.6983928,
-                "longitude": 85.3286204
-              },
-              "openingHoursSpecification": {
-                "@type": "OpeningHoursSpecification",
-                "dayOfWeek": [
-                  "Monday",
-                  "Tuesday",
-                  "Wednesday",
-                  "Thursday",
-                  "Friday"
-                ],
-                "opens": "10:00",
-                "closes": "17:00"
-              },
-              "sameAs": [
-                "https://www.facebook.com/lawyerinnepal",
-                "https://www.linkedin.com/company/lawyerinnepal"
-              ],
-              "priceRange": "$$"
-            })
+            __html: JSON.stringify(legalServiceJsonLd())
           }}
         />
-        <Navbar />
+        <header>
+          <Navbar />
+        </header>
         <main className="flex-grow">
           {children}
         </main>

@@ -29,7 +29,7 @@ export async function POST(req: NextRequest) {
       try {
         await supabase.from('appointments').insert([{
           name: booking.name || '',
-          email: 'chat@lawyerinnepal.com', // Placeholder since chat doesn't capture email yet
+          email: 'chat@lawyerinnepal.com.np', // Placeholder since chat doesn't capture email yet
           phone: booking.phone || '',
           service: booking.service || '',
           preferred_date: new Date().toISOString().split('T')[0], // Use today as placeholder date

@@ -95,7 +95,7 @@ export default function ChatBot() {
     } finally {
       setIsTyping(false);
     }
-  }, [isTyping, bookingState, bookingData]);
+  }, [isTyping, bookingState, bookingData, router]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();

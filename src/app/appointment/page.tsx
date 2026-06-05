@@ -3,7 +3,6 @@
 import { useState } from 'react';
 import { Scale, Calendar, Clock, MessageSquare, User, Mail, Phone, ChevronRight } from 'lucide-react';
 import { submitAppointment } from '@/app/actions';
-import Link from 'next/link';
 
 export default function AppointmentPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);

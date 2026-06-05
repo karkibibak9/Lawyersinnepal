@@ -3,10 +3,11 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { attorneys } from '@/lib/attorneys';
+import { absoluteUrl, defaultOgImage, SITE_NAME } from '@/lib/seo';
 import { 
-  Mail, Phone, MapPin, GraduationCap, Award, 
+  Mail, Phone, MapPin, GraduationCap,
   Shield, Scale, ChevronRight, CheckCircle2, 
-  Clock, BookOpen, Briefcase
+  Clock, Briefcase
 } from 'lucide-react';
 
 interface Props {
@@ -28,6 +29,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: `${attorney.name} | ${attorney.role} | LawyerInNepal`,
     description: attorney.bio,
     keywords: [attorney.name, attorney.specialty, 'LawyerInNepal', 'Advocate Kathmandu'],
+    alternates: { canonical: absoluteUrl(`/attorneys/${attorney.slug}`) },
+    openGraph: {
+      title: `${attorney.name} | ${attorney.role}`,
+      description: attorney.bio,
+      url: absoluteUrl(`/attorneys/${attorney.slug}`),
+      images: attorney.image.startsWith('/') ? [{ url: attorney.image, alt: attorney.name }] : [defaultOgImage],
+    },
   };
 }
 
@@ -46,8 +54,10 @@ export default async function AttorneyProfilePage({ params }: Props) {
         <div className="absolute inset-0 z-0 opacity-10">
           <Image
             src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&q=80"
-            alt="Background"
+            alt="Kathmandu law office background"
             fill
+            sizes="100vw"
+            loading="lazy"
             className="object-cover"
           />
         </div>
@@ -58,8 +68,10 @@ export default async function AttorneyProfilePage({ params }: Props) {
             <div className="w-full lg:w-1/3 max-w-sm aspect-[4/5] relative rounded-sm overflow-hidden shadow-2xl border-2 border-gold-600/20 gold-glow">
               <Image
                 src={attorney.image}
-                alt={attorney.name}
+                alt={`${attorney.name}, ${attorney.role} at LawyerInNepal`}
                 fill
+                priority
+                sizes="(max-width: 1024px) 100vw, 384px"
                 className="object-cover transition-transform duration-700 hover:scale-105"
               />
             </div>
@@ -115,7 +127,7 @@ export default async function AttorneyProfilePage({ params }: Props) {
                     </div>
                   ) : (
                     <p className="text-navy-100 text-lg leading-relaxed italic">
-                      "{attorney.bio}"
+                      {`"${attorney.bio}"`}
                     </p>
                   )}
                 </div>
@@ -223,6 +235,30 @@ export default async function AttorneyProfilePage({ params }: Props) {
           </p>
         </div>
       </section>
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'Person',
+            name: attorney.name,
+            jobTitle: attorney.role,
+            description: attorney.bio,
+            image: attorney.image.startsWith('/') ? absoluteUrl(attorney.image) : attorney.image,
+            email: attorney.email,
+            telephone: attorney.phone,
+            address: attorney.location,
+            url: absoluteUrl(`/attorneys/${attorney.slug}`),
+            worksFor: {
+              '@type': 'LegalService',
+              name: SITE_NAME,
+              url: absoluteUrl('/'),
+            },
+            knowsAbout: attorney.expertise || [attorney.specialty],
+          }),
+        }}
+      />
     </div>
   );
 }

@@ -1,6 +1,43 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import type { Metadata } from 'next';
 import { Scale, Shield, Briefcase, Users, ArrowRight, CheckCircle2, Star } from 'lucide-react';
+import { absoluteUrl, defaultOgImage } from '@/lib/seo';
+
+export const metadata: Metadata = {
+  title: 'Best Lawyer in Nepal | Law Firm in Kathmandu for Legal Help',
+  description: 'Hire LawyerInNepal for criminal defense, divorce, property disputes, company registration, FDI, and Supreme Court litigation in Kathmandu and across Nepal.',
+  alternates: { canonical: absoluteUrl('/') },
+  openGraph: {
+    title: 'Best Lawyer in Nepal | Law Firm in Kathmandu',
+    description: 'Legal consultation for individuals, families, and businesses in Nepal. Book a confidential consultation with LawyerInNepal.',
+    url: absoluteUrl('/'),
+    images: [defaultOgImage],
+  },
+};
+
+const faqs = [
+  {
+    q: "How can I find the best divorce lawyer in Nepal?",
+    a: "Finding the best divorce lawyer in Nepal involves looking for specialists with extensive experience in family law at the Kathmandu District Court or other regional courts. Our firm offers expert counsel on child custody, alimony, and property division."
+  },
+  {
+    q: "What is the process for court marriage in Nepal?",
+    a: "Court marriage in Nepal requires an application to the District Court. Our attorneys help with documentation, including citizenship details, residency proof, and witness coordination for a smooth marriage registration process in Kathmandu."
+  },
+  {
+    q: "Do you handle criminal defense cases in Kathmandu?",
+    a: "Yes, we are known as leading criminal lawyer in Kathmandu. We provide strong defense representation for matters ranging from white-collar crimes to bail proceedings and supreme court appeals."
+  },
+  {
+    q: "How do I register a company in Nepal as a foreigner?",
+    a: "Foreigners can register a company in Nepal through the Department of Industries. We provide comprehensive legal services for Foreign Direct Investment (FDI), company registration, and obtaining business visas."
+  },
+  {
+    q: "Can you help with property dispute resolution in Nepal?",
+    a: "Property disputes are common in Nepal. Our advocates specialize in land law, partition cases, and title verification to protect your real estate interests across the country."
+  }
+];
 
 export default function Home() {
   return (
@@ -14,6 +51,7 @@ export default function Home() {
             alt="LawyerInNepal Courtroom"
             fill
             priority
+            sizes="100vw"
             className="object-cover opacity-20"
           />
         </div>
@@ -71,8 +109,8 @@ export default function Home() {
       <section className="py-24 bg-navy-900">
         <div className="container mx-auto px-4">
           <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-            <h2 className="text-gold-600 text-sm font-bold uppercase tracking-[0.2em] mb-2">Our Areas of Practice</h2>
-            <p className="text-3xl md:text-5xl font-serif font-bold text-white">Expert Solutions for Your <span className="text-gold-600">Complex</span> Legal Needs</p>
+            <p className="text-gold-600 text-sm font-bold uppercase tracking-[0.2em] mb-2">Our Areas of Practice</p>
+            <h2 className="text-3xl md:text-5xl font-serif font-bold text-white">Expert Solutions for Your <span className="text-gold-600">Complex</span> Legal Needs</h2>
             <div className="w-20 h-1 bg-gold-600 mx-auto mt-6" />
           </div>
 
@@ -105,10 +143,10 @@ export default function Home() {
         <div className="absolute top-0 right-0 w-1/3 h-full bg-gold-600/5 -skew-x-12 translate-x-1/2" />
         <div className="container mx-auto px-4 flex flex-col lg:flex-row items-center gap-16">
           <div className="flex-1 space-y-8">
-            <h2 className="text-gold-600 text-sm font-bold uppercase tracking-[0.2em]">Why We Stand Apart</h2>
-            <p className="text-3xl md:text-5xl font-serif font-bold leading-tight">
+            <p className="text-gold-600 text-sm font-bold uppercase tracking-[0.2em]">Why We Stand Apart</p>
+            <h2 className="text-3xl md:text-5xl font-serif font-bold leading-tight">
               A Legacy of Legal <span className="text-gold-600 italic">Excellence</span> and Integrity 
-            </p>
+            </h2>
             <div className="space-y-6">
               {[
                 { title: '15+ Years Experience', text: 'Deep understanding of the High Court and Supreme Court systems in Nepal.' },
@@ -158,8 +196,8 @@ export default function Home() {
       <section className="py-24 bg-navy-900 border-t border-navy-800">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-gold-600 text-sm font-bold uppercase tracking-[0.2em] mb-4">Client Testimonials</h2>
-            <p className="text-3xl md:text-4xl font-serif font-bold text-white">What Our Clients Say</p>
+            <p className="text-gold-600 text-sm font-bold uppercase tracking-[0.2em] mb-4">Client Testimonials</p>
+            <h2 className="text-3xl md:text-4xl font-serif font-bold text-white">What Our Clients Say</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
@@ -175,7 +213,7 @@ export default function Home() {
                   <Star fill="currentColor" size={16} />
                   <Star fill="currentColor" size={16} />
                 </div>
-                <p className="text-navy-100 italic mb-8 flex-grow">"{t.text}"</p>
+                <p className="text-navy-100 italic mb-8 flex-grow">{`"${t.text}"`}</p>
                 <div>
                   <h4 className="font-bold text-white">{t.name}</h4>
                   <p className="text-gold-600/70 text-xs uppercase tracking-widest">{t.role}</p>
@@ -190,32 +228,11 @@ export default function Home() {
       <section className="py-24 bg-navy-950 border-t border-navy-800">
         <div className="container mx-auto px-4 max-w-4xl">
           <div className="text-center mb-16">
-            <h2 className="text-gold-600 text-sm font-bold uppercase tracking-[0.2em] mb-4">Legal FAQ</h2>
-            <p className="text-3xl md:text-4xl font-serif font-bold text-white">Common Questions About <span className="text-gold-600">Law in Nepal</span></p>
+            <p className="text-gold-600 text-sm font-bold uppercase tracking-[0.2em] mb-4">Legal FAQ</p>
+            <h2 className="text-3xl md:text-4xl font-serif font-bold text-white">Common Questions About <span className="text-gold-600">Law in Nepal</span></h2>
           </div>
           <div className="space-y-4">
-            {[
-              { 
-                q: "How can I find the best divorce lawyer in Nepal?", 
-                a: "Finding the best divorce lawyer in Nepal involves looking for specialists with extensive experience in family law at the Kathmandu District Court or other regional courts. Our firm offers expert counsel on child custody, alimony, and property division." 
-              },
-              { 
-                q: "What is the process for court marriage in Nepal?", 
-                a: "Court marriage in Nepal requires an application to the District Court. Our attorneys help with documentation, including citizenship details, residency proof, and witness coordination for a smooth marriage registration process in Kathmandu." 
-              },
-              { 
-                q: "Do you handle criminal defense cases in Kathmandu?", 
-                a: "Yes, we are known as leading criminal lawyer in Kathmandu. We provide strong defense representation for matters ranging from white-collar crimes to bail proceedings and supreme court appeals." 
-              },
-              { 
-                q: "How do I register a company in Nepal as a foreigner?", 
-                a: "Foreigners can register a company in Nepal through the Department of Industries. We provide comprehensive legal services for Foreign Direct Investment (FDI), company registration, and obtaining business visas." 
-              },
-              { 
-                q: "Can you help with property dispute resolution in Nepal?", 
-                a: "Property disputes are common in Nepal. Our advocates specialize in land law, partition cases, and title verification to protect your real estate interests across the country." 
-              }
-            ].map((faq, i) => (
+            {faqs.map((faq, i) => (
               <details key={i} className="group bg-navy-900 border border-navy-800 rounded-sm overflow-hidden transition-all duration-300">
                 <summary className="flex items-center justify-between p-6 cursor-pointer list-none text-white font-bold hover:bg-navy-800">
                   <span className="pr-4">{faq.q}</span>
@@ -256,6 +273,24 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'FAQPage',
+            mainEntity: faqs.map((faq) => ({
+              '@type': 'Question',
+              name: faq.q,
+              acceptedAnswer: {
+                '@type': 'Answer',
+                text: faq.a,
+              },
+            })),
+          }),
+        }}
+      />
     </div>
   );
 }

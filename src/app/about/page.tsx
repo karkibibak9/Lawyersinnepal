@@ -2,13 +2,14 @@ import { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Scale, CheckCircle2, Shield, Award, Users, ChevronRight, BookOpen } from 'lucide-react';
+import { absoluteUrl, legalServiceJsonLd } from '@/lib/seo';
 
 export const metadata: Metadata = {
-  title: 'About Our Practice | Best LawyerInNepal | Law Firm Kathmandu',
-  description: 'Learn about LawyerInNepal, the top-rated law firm in Kathmandu. With 15+ years of experience, we provide expert legal services with unwavering ethics.',
+  title: 'About LawyerInNepal | Kathmandu Law Firm for Legal Services',
+  description: 'Learn about LawyerInNepal, a Kathmandu law firm helping individuals and businesses with litigation, corporate, family, property, and criminal legal matters.',
   keywords: ['LawyerInNepal', 'Best Law Firm in Kathmandu', 'Advocate in Nepal', 'Nepal Bar Council', 'Supreme Court Lawyer Nepal', 'Legal Services Nepal'],
   alternates: {
-    canonical: 'https://lawyerinnepal.com/about',
+    canonical: absoluteUrl('/about'),
   },
 };
 
@@ -23,6 +24,7 @@ export default function AboutPage() {
             alt="Supreme Court of Nepal Law Background"
             fill
             priority
+            sizes="100vw"
             className="object-cover opacity-10"
           />
         </div>
@@ -45,8 +47,8 @@ export default function AboutPage() {
       <section className="py-20 bg-navy-900 border-t border-navy-800">
         <div className="container mx-auto px-4">
           <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-            <h2 className="text-gold-600 text-sm font-bold uppercase tracking-[0.2em] mb-2">Why Choose Us</h2>
-            <p className="text-3xl md:text-5xl font-serif font-bold text-white">The Pillars of Our Success</p>
+            <p className="text-gold-600 text-sm font-bold uppercase tracking-[0.2em] mb-2">Why Choose Us</p>
+            <h2 className="text-3xl md:text-5xl font-serif font-bold text-white">The Pillars of Our Success</h2>
             <div className="w-20 h-1 bg-gold-600 mx-auto mt-6" />
           </div>
 
@@ -69,7 +71,7 @@ export default function AboutPage() {
               </div>
               <h3 className="text-2xl font-serif font-bold text-white mb-4">Personalized Strategy</h3>
               <p className="text-navy-200 leading-relaxed">
-                Tailored legal approaches based on the unique specifics of your case. We don't believe in one-size-fits-all; every client receives bespoke legal counsel.
+                Tailored legal approaches based on the unique specifics of your case. We don&apos;t believe in one-size-fits-all; every client receives bespoke legal counsel.
               </p>
             </div>
 
@@ -93,10 +95,10 @@ export default function AboutPage() {
         
         <div className="container mx-auto px-4 flex flex-col lg:flex-row gap-16 items-center">
           <div className="flex-1 space-y-6 z-10">
-            <h2 className="text-gold-600 text-sm font-bold uppercase tracking-[0.2em]">Our Firm's History</h2>
-            <h3 className="text-3xl md:text-5xl font-serif font-bold text-white leading-tight">
+            <p className="text-gold-600 text-sm font-bold uppercase tracking-[0.2em]">Our Firm&apos;s History</p>
+            <h2 className="text-3xl md:text-5xl font-serif font-bold text-white leading-tight">
               Establishing Justice in <span className="text-gold-600">Kathmandu</span>
-            </h3>
+            </h2>
             <div className="space-y-4 text-navy-200 leading-relaxed text-lg pt-4">
               <p>
                 Founded on the principles of truth, diligence, and unparalleled legal acumen, <strong>LawyerInNepal</strong> has grown from a humble practice to one of the most formidable law firms in Kathmandu. We have consistently ranked among the best attorneys in Nepal due to our uncompromising dedication to our clients.
@@ -128,6 +130,8 @@ export default function AboutPage() {
                  src="https://images.unsplash.com/photo-1505664194779-8beaceb93744?auto=format&fit=crop&q=80"
                  alt="Legal team discussing a case in Kathmandu Nepal"
                  fill
+                 sizes="(max-width: 1024px) 100vw, 50vw"
+                 loading="lazy"
                  className="object-cover"
                />
                <div className="absolute inset-0 bg-gold-600/10 mix-blend-multiply" />
@@ -152,10 +156,10 @@ export default function AboutPage() {
          <div className="container mx-auto px-4 max-w-4xl space-y-8">
             <BookOpen className="w-16 h-16 text-gold-600 mx-auto mb-6" />
             <h2 className="text-3xl md:text-5xl font-serif font-bold text-white leading-tight">
-              Secure Your Future with Nepal's Leading Advocates
+              Secure Your Future with Nepal&apos;s Leading Advocates
             </h2>
             <p className="text-xl text-navy-200">
-              Don't leave your legal matters to chance. Partner with the experts who understand the nuances of the Nepali legal system.
+              Don&apos;t leave your legal matters to chance. Partner with the experts who understand the nuances of the Nepali legal system.
             </p>
             <div className="pt-8 flex flex-col sm:flex-row justify-center gap-4">
               <Link 
@@ -181,17 +185,8 @@ export default function AboutPage() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "AboutPage",
-            "mainEntity": {
-              "@type": "LegalService",
-              "name": "LawyerInNepal",
-              "description": "A Legacy of Legal Excellence and Integrity. 15+ Years Experience. Personalized Strategy. Unwavering Ethics.",
-              "address": {
-                "@type": "PostalAddress",
-                "addressLocality": "Kathmandu",
-                "postalCode": "44600",
-                "addressCountry": "NP"
-              }
-            }
+            "url": absoluteUrl('/about'),
+            "mainEntity": legalServiceJsonLd()
           })
         }}
       />

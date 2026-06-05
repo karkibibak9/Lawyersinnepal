@@ -1,9 +1,11 @@
 import { Shield, Lock, Eye, FileText } from 'lucide-react';
+import { absoluteUrl } from '@/lib/seo';
 
 export const metadata = {
   title: 'Privacy Policy | Confidential Legal Consultation Kathmandu | LawyerInNepal',
   description: 'Our privacy policy ensures absolute confidentiality for legal services in Nepal. Trusted by clients for secure legal advocacy and data protection in Kathmandu.',
-  keywords: ["legal confidentiality Nepal", "attorney-client privilege Kathmandu", "secure legal services Nepal", "Nepal Bar Council privacy"]
+  keywords: ["legal confidentiality Nepal", "attorney-client privilege Kathmandu", "secure legal services Nepal", "Nepal Bar Council privacy"],
+  alternates: { canonical: absoluteUrl('/privacy') },
 };
 
 export default function PrivacyPolicy() {
