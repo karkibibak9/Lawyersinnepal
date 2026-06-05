@@ -1,0 +1,18 @@
+<svg width="420" height="96" viewBox="0 0 420 96" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">LawyerInNepal navigation logo</title>
+  <desc id="desc">Gold scale icon with the LawyerInNepal wordmark and Justice. Expertise. Trust. tagline.</desc>
+  <rect width="420" height="96" fill="#07152A"/>
+  <g transform="translate(26 16) scale(2.6)" stroke="#D8A11D" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 3v18"/>
+    <path d="m19 8 3 8a5 5 0 0 1-6 0zV7"/>
+    <path d="M3 7h1a17 17 0 0 0 8-2 17 17 0 0 0 8 2h1"/>
+    <path d="m5 8 3 8a5 5 0 0 1-6 0zV7"/>
+    <path d="M7 21h10"/>
+  </g>
+  <text x="108" y="45" fill="#FFFFFF" font-family="Arial, Helvetica, sans-serif" font-size="31" font-weight="700" letter-spacing="0">
+    LAWYER<tspan fill="#D8A11D">INNEPAL</tspan>
+  </text>
+  <text x="109" y="68" fill="#D9E2EE" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="600" letter-spacing="2.6">
+    JUSTICE. EXPERTISE. TRUST.
+  </text>
+</svg>

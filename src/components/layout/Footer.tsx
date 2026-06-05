@@ -132,7 +132,7 @@ export default function Footer() {
             "name": "LawyerInNepal",
             "description": "Expert legal services in Nepal specializing in Civil, Criminal, Corporate, and Family law.",
             "url": "https://lawyerinnepal.com",
-            "logo": "https://lawyerinnepal.com/logo.png",
+            "logo": "https://lawyerinnepal.com/logo.svg",
             "telephone": "+977 9766910908",
             "address": {
               "@type": "PostalAddress",

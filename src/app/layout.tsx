@@ -59,11 +59,13 @@ export const metadata: Metadata = {
     title: "LawyerInNepal | Premier Legal Services in Kathmandu",
     description: "Expert legal representation in Nepal. Specializing in Civil, Criminal, and Family Law with a focus on justice and integrity.",
     siteName: "LawyerInNepal",
+    images: ["/logo.svg"],
   },
   twitter: {
     card: "summary_large_image",
     title: "LawyerInNepal | Best Law Firm in Kathmandu",
     description: "Leading legal experts in Nepal. We handle Divorce, Criminal Defense, and Corporate law with precision.",
+    images: ["/logo.svg"],
   },
   robots: {
     index: true,
@@ -90,7 +92,8 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "LegalService",
               "name": "LawyerInNepal",
-              "image": "https://lawyerinnepal.com/Gaurabdai.webp",
+              "image": "https://lawyerinnepal.com/logo.svg",
+              "logo": "https://lawyerinnepal.com/logo.svg",
               "@id": "https://lawyerinnepal.com",
               "url": "https://lawyerinnepal.com",
               "telephone": "+977 9766910908",
