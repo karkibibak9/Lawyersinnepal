@@ -22,6 +22,22 @@ export const defaultOgImage = {
   alt: 'LawyerInNepal legal services in Kathmandu, Nepal',
 };
 
+export const lawKeywordCluster = [
+  'best law firm in Nepal',
+  'best law firm in Kathmandu',
+  'lawyer in Nepal',
+  'lawyers in Kathmandu',
+  'legal services in Nepal',
+  'divorce lawyer in Nepal',
+  'criminal defense lawyer Kathmandu',
+  'company registration lawyer Nepal',
+  'corporate lawyer in Nepal',
+  'property dispute lawyer Kathmandu',
+  'FDI lawyer Nepal',
+  'court marriage lawyer Kathmandu',
+  'Supreme Court advocate Nepal',
+];
+
 export function legalServiceJsonLd() {
   return {
     '@context': 'https://schema.org',

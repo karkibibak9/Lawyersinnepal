@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { Calendar, User, ArrowLeft, Share2 } from 'lucide-react';
 import { format, parseISO } from 'date-fns';
 import { notFound } from 'next/navigation';
-import { absoluteUrl, defaultOgImage, SITE_NAME } from '@/lib/seo';
+import { absoluteUrl, defaultOgImage, lawKeywordCluster, SITE_NAME } from '@/lib/seo';
 
 export async function generateStaticParams() {
   const posts = getSortedPostsData();
@@ -21,6 +21,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     return {
       title: postData.title,
       description: postData.description,
+      keywords: [...lawKeywordCluster, postData.category, postData.title],
       alternates: { canonical: absoluteUrl(`/blog/${resolvedParams.slug}`) },
       openGraph: {
         title: postData.title,
@@ -144,6 +145,11 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                 url: absoluteUrl('/'),
               },
             },
+            reviewedBy: {
+              '@type': 'Person',
+              name: BLOG_AUTHOR_NAME,
+              url: absoluteUrl(BLOG_AUTHOR_PROFILE),
+            },
             publisher: {
               '@type': 'Organization',
               name: SITE_NAME,
@@ -152,6 +158,11 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                 url: absoluteUrl('/logo.svg'),
               },
             },
+            about: [
+              { '@type': 'Thing', name: postData.category },
+              ...lawKeywordCluster.map((name) => ({ '@type': 'Thing', name })),
+            ],
+            keywords: lawKeywordCluster.join(', '),
             mainEntityOfPage: absoluteUrl(`/blog/${resolvedParams.slug}`),
           }),
         }}

@@ -3,15 +3,16 @@ import Image from 'next/image';
 import { BLOG_AUTHOR_NAME, BLOG_AUTHOR_PROFILE, getSortedPostsData } from '@/lib/blog';
 import { Calendar, User, ArrowRight } from 'lucide-react';
 import { format, parseISO } from 'date-fns';
-import { absoluteUrl, defaultOgImage, SITE_NAME } from '@/lib/seo';
+import { absoluteUrl, defaultOgImage, lawKeywordCluster, SITE_NAME } from '@/lib/seo';
 
 export const metadata = {
-  title: 'Nepal Law Blog | Legal Guides for Divorce, Property, Business',
-  description: 'Read practical Nepal law guides on divorce, property, criminal defense, company registration, FDI, labor, tax, and litigation from LawyerInNepal.',
+  title: 'Best Law Firm in Nepal & Kathmandu | Legal Guides',
+  description: 'Legal guides by Advocate Gaurab Dangi on Nepal law, divorce, criminal defense, company registration, FDI, property disputes, and litigation.',
+  keywords: lawKeywordCluster,
   alternates: { canonical: absoluteUrl('/blog') },
   openGraph: {
-    title: 'Nepal Law Blog | LawyerInNepal',
-    description: 'Practical legal guides for the public and businesses in Nepal.',
+    title: 'Best Law Firm in Nepal & Kathmandu | LawyerInNepal Blog',
+    description: 'Expert legal guides for the public and businesses in Nepal by Advocate Gaurab Dangi.',
     url: absoluteUrl('/blog'),
     images: [defaultOgImage],
   },
@@ -39,6 +40,10 @@ export default function BlogListingPage() {
       name: BLOG_AUTHOR_NAME,
       url: absoluteUrl(BLOG_AUTHOR_PROFILE),
     },
+    about: lawKeywordCluster.map((name) => ({
+      '@type': 'Thing',
+      name,
+    })),
     blogPost: allPosts.slice(0, 12).map((post) => ({
       '@type': 'BlogPosting',
       headline: post.title,
@@ -50,6 +55,12 @@ export default function BlogListingPage() {
         name: BLOG_AUTHOR_NAME,
         url: absoluteUrl(BLOG_AUTHOR_PROFILE),
       },
+      reviewedBy: {
+        '@type': 'Person',
+        name: BLOG_AUTHOR_NAME,
+        url: absoluteUrl(BLOG_AUTHOR_PROFILE),
+      },
+      keywords: lawKeywordCluster.join(', '),
     })),
   };
 
@@ -60,8 +71,24 @@ export default function BlogListingPage() {
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-6xl font-serif font-bold text-white mb-6">Legal Insights</h1>
           <p className="text-navy-100 max-w-2xl mx-auto text-lg leading-relaxed opacity-90">
-            Stay informed with the latest legal developments, case studies, and practical guides to navigating the law in Nepal.
+            Practical legal guides from LawyerInNepal, a Kathmandu law firm helping clients with litigation, company registration, divorce, criminal defense, property disputes, FDI, and court marriage matters.
           </p>
+        </div>
+      </section>
+
+      <section className="bg-navy-950/70 border-y border-navy-800 py-8">
+        <div className="container mx-auto px-4 max-w-6xl">
+          <h2 className="sr-only">Popular Nepal law search topics</h2>
+          <div className="flex flex-wrap justify-center gap-3">
+            {lawKeywordCluster.map((keyword) => (
+              <span
+                key={keyword}
+                className="rounded-sm border border-gold-600/20 bg-navy-800 px-3 py-2 text-[10px] font-bold uppercase tracking-[0.16em] text-gold-500"
+              >
+                {keyword}
+              </span>
+            ))}
+          </div>
         </div>
       </section>
 
